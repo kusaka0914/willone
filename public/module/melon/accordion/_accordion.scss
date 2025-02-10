@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+[data-melon-accordion] { position: relative; padding-right: 2.5em; transition: 0.2s;}
+[data-melon-accordion]::after { content:"\f078"; font-family: FontAwesome; position: absolute; top:0; bottom:0; right: 0.8em; margin: auto; height: 1em; line-height:1;}
+[data-melon-accordion].open::after { content:"\f077";}
+
+[data-melon-accordion]:hover { cursor: pointer; opacity: 0.7;}
+[data-melon-accordion]:hover::after { color: #ff8200;}
+.melon-menu-stacked dt[data-melon-accordion]:hover { background-color: #fffbdd;}

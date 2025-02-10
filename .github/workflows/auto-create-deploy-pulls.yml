@@ -1,0 +1,101 @@
+name: Auto Create Deploy Pull Request
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  create_deploy_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check current pulls and Create Pull request
+        uses: actions/github-script@v6
+        env:
+          DEPLOY_BRANCH: deploy
+          TZ: Asia/Tokyo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const getLastMergedPull = async () => {
+              const currentPulls = await github.rest.pulls.list({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'closed',
+                base: 'main',
+                sort: 'updated',
+                direction: 'desc',
+              })
+
+              const mergedPulls = currentPulls.data.filter(async currentPull => {
+                let response
+                try {
+                  response = await github.rest.pulls.checkIfMerged({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: currentPull.number,
+                  })
+                } catch (error) {
+                  response = error
+                }
+                return response.status == 204
+              })
+
+              return mergedPulls[0]
+            }
+
+            const lastMergedPull = await getLastMergedPull()
+
+            let additionalNote = ''
+            if (lastMergedPull.labels.some((label) => label.name === 'dependencies' || label.name === 'db-migrate')) {
+              additionalNote = '(ユーザー影響なし)'
+            } else {
+              additionalNote = '\n  - [ ] チェック項目'
+            }
+
+            const deployPulls = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: process.env.DEPLOY_BRANCH,
+            })
+
+            if (deployPulls.data.length >= 1) {
+              const deployPull = deployPulls.data[0]
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: deployPull.number,
+                body: deployPull.body + `\n- #${lastMergedPull.number}${additionalNote}`,
+              })
+              return
+            }
+
+            // NOTE: Do not use `toLocaleString()` because actions/github-script@v2.0.0 seems to be support only the en-US locale
+            const date = new Date()
+            const year = date.getFullYear().toString()
+            const month = (date.getMonth() + 1).toString().padStart(2, '0')
+            const day = date.getDate().toString().padStart(2, '0')
+            const hour = date.getHours().toString().padStart(2, '0')
+            const minute = date.getMinutes().toString().padStart(2, '0')
+
+            const title = `Deploy ${year}-${month}-${day} ${hour}:${minute}`
+            const body = `- #${lastMergedPull.number}`
+
+            const pull = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              head: 'main',
+              base: process.env.DEPLOY_BRANCH,
+            })
+
+            const pull_number = pull.data.number
+
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pull_number,
+              labels: ['deploy'],
+            })

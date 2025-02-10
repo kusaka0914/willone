@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/* デフォルト */
+.melon-toastNotification {
+  position : fixed; right : 0; left:0; z-index: 1000;
+  background-color : rgba(242,237,231,0.85); opacity : 0;
+}
+
+.melon-toastNotification_btn {
+  display : block;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0,0,0,0.12));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0,0,0,0.12));
+  background-color : #4eb91f;
+  text-decoration : none; color : #FFF !important; text-align: center;
+}
+
+/* type1 */
+.melon-toastNotification-type1 {
+  right : 5px; left: auto; width: 80%; bottom : -100%; font-size:110%; line-height :160%; padding : 2.5%;
+  -webkit-animation: alert-ease 7s ease-out 1s 1 normal; animation: alert-ease 7s ease-out 1s 1 normal;
+}
+.melon-toastNotification-type1 .melon-toastNotification_btn {
+  background : #00B28E; width : 95%; padding : 5% 0; margin : 3% auto; box-shadow : 0px 2px 0px #088C71; border-radius : 2px; font-size : 100%; font-weight : bold;
+}
+@-webkit-keyframes alert-ease{
+  0%, 100%{opacity:0;bottom:-15px;}
+  15%, 85% {opacity:1;bottom:5px;}
+}
+@keyframes alert-ease{
+  0%, 100%{opacity:0;bottom:-15px;}
+  15%, 85% {opacity:1;bottom:5px;}
+}
+
+/* type2 */
+.melon-toastNotification-type2 { bottom: 0; opacity: 1; padding: 3.5%;}
+.melon-toastNotification-type2 .melon-toastNotification_btn { padding: 4% 0; margin:0; background : #00B28E; box-shadow : 0px 2px 0px #088C71; border-radius : 2px; font-size : 1.167rem; font-weight : bold;}

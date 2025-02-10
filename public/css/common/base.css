@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/*------------------------------------------------------------
+	デフォルトスタイル
+------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	background:transparent;
+	border:0;
+	outline:0;
+	font-size:1em;
+	-webkit-text-size-adjust:none;
+}
+body, table, input, textarea, select, option {
+	font-family:ArialMT, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3";
+	font-size:1em;
+}
+ol, ul { list-style:none; }
+div:after, ul:after, dl:after, dt:after, dd:after, td:after, article:after, aside:after, canvas:after, details:after, figcaption:after, figure:after, footer:after, header:after, hgroup:after, menu:after, nav:after, section:after, summary:after {
+	content:"";
+	height:0;
+	clear:both;
+	display:block;
+	visibility:hidden;
+}
+/*------------------------------------------------------------
+	共通レイアウト
+------------------------------------------------------------*/
+body {
+	background-color:#fff9f3;
+	color:#707070;
+	font-size: 13px;
+	line-height:1.5;
+	text-align:center;
+}
+.header {
+    height: 30px;
+    padding: 10px 0;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.header-logo {
+    width: 80px;
+}
+
+.flatpickr-time {
+	display: flex;
+	justify-content: center;
+}
+.flatpickr-time .flatpickr-hour,
+.flatpickr-time .flatpickr-minute {
+	display: none;
+}
+.flatpickr-time .custom-time-slot {
+	width: 100%;
+}
+
+.mgn-t5 {
+  margin-top: 5px;
+}
+
+.mgn-t20 {
+  margin-top: 20px;
+}

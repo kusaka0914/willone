@@ -1,0 +1,641 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "edge.willone.jp template"
+Parameters:
+  ImageRepository:
+    Type: String
+    Description: ex. 967125328503.dkr.ecr.ap-northeast-1.amazonaws.com/woa_laravel:xxxx
+  WilloneJpEdgeDomain:
+    Type: String
+    Description: ex. pr-${{ github.event.pull_request.number }}.edge.willone.jp
+  JinzaibankEdgeDomain:
+    Type: String
+    Description: ex. pr-${{ github.event.pull_request.number }}.edge.jinzaibank.com
+  EdgeName:
+    Type: String
+    Description: ex. woa-pr-${{ github.event.pull_request.number }}
+  AppName:
+    Type: String
+    Description: ex. woa
+  AppFramework:
+    Type: String
+    Default: laravel
+  VpcId:
+    Type: String
+    Default: vpc-0ef57055bf6d1da8a # dev-jinzaibank-vpc
+  PublicSubnetAId:
+    Type: String
+    Default: subnet-093f8e5f3ba738fa0 # dev-jinzaibank-public-a
+  PublicSubnetCId:
+    Type: String
+    Default: subnet-07a4ded79fc25cb10 # dev-jinzaibank-public-c
+  ProtectedSubnetAId:
+    Type: String
+    Default: subnet-07a87f3f74e649171 # dev-jinzaibank-protected-a
+  ProtectedSubnetCId:
+    Type: String
+    Default: subnet-0e3997d59892775dd # dev-jinzaibank-protected-c
+  PrivateSubnetAId:
+    Type: String
+    Default: subnet-0ff8567b77759a999 # dev-jinzaibank-private-a
+  PrivateSubnetCId:
+    Type: String
+    Default: subnet-051bc76c000322809 # dev-jinzaibank-private-c
+  Route53ZoneId:
+    Type: String
+    Default: Z068731811GKMMJB78H89 # edge.willone.jp
+  JinzaibankRoute53ZoneId:
+    Type: String
+    Default: Z042949419HJD737A18V9 # edge.jinzaibank.com
+  AwsAccountId:
+    Type: String
+    Default: 967125328503 # SMS DEV NJB
+  WilloneJoAcmArn:
+    Type: String
+    Default: 'arn:aws:acm:ap-northeast-1:967125328503:certificate/b60ded14-f9c1-476d-9de2-76706938b96e' # edge.willone.jp
+  JinzaibankComAcmArn:
+    Type: String
+    Default: 'arn:aws:acm:ap-northeast-1:967125328503:certificate/095d4894-a745-4dd7-a0d0-1a1f2b40007b' # edge.jinzaibank.com
+  DevVpnIp:
+    Type: String
+    Default: 202.221.153.173/32
+  SmsVpnMacIp:
+    Type: String
+    Default: 150.249.204.182/32
+  SmsClientZoneIp:
+    Type: String
+    Default: 152.165.115.91/32
+  SmsPub5Ip:
+    Type: String
+    Default: 202.221.153.172/32
+  SmsVpnIp:
+    Type: String
+    Default: 39.110.213.105/32
+  TmpSmsClientIp:
+    Type: String
+    Default: 202.232.234.144/32
+  EcsClusterName:
+    Type: String
+    Default: WOA_Edge
+Resources:
+  EdgeTaskDefTaskRole: # todo: Administrator policyをアタッチする？
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+        Version: '2012-10-17'
+  EdgeTaskDefTaskRoleDefaultPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - ssm:DescribeParameters
+              - ssm:GetParameters
+              - ssm:GetParameter
+              - ssm:GetParameterHistory
+              - ssm:GetParametersByPath
+              - ecs:ListTaskDefinitions
+              - ecs:RunTask
+              - iam:PassRole
+            Effect: Allow
+            Resource: '*'
+          - Action:
+              - s3:*
+            Effect: Allow
+            Resource:
+              - arn:aws:s3:::dev-*
+        Version: '2012-10-17'
+      PolicyName: EdgeTaskDefTaskRoleDefaultPolicyWOA
+      Roles:
+        - !Ref 'EdgeTaskDefTaskRole'
+  EdgeTaskLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/ecs/${AppName}/${EdgeName}"
+  EdgeTaskDef:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        - Name: !Sub "${AppFramework}-edge"
+          Image: !Ref 'ImageRepository'
+          Environment:
+            - Name: APP_NAME
+              Value: 'woa'
+            - Name: APP_ENV
+              Value: 'edge'
+            - Name: APP_DEBUG
+              Value: 'TRUE'
+            - Name: APP_LOG_LEVEL
+              Value: 'debug'
+            - Name: APP_URL
+              Value: !Sub "https://${JinzaibankEdgeDomain}/woa"
+            - Name: DB_CONNECTION
+              Value: 'mysql'
+            - Name: DB_HOST
+              Value: 'dev-jinzaibank-db-cluster.cluster-c1jvfkkua8gb.ap-northeast-1.rds.amazonaws.com'
+            - Name: DB_PORT
+              Value: '3306'
+            - Name: DB_DATABASE
+              Value: 'dev_woa'
+            - Name: DB_USERNAME
+              Value: 'dev_woa_u'
+            - Name: DB_HOST_S
+              Value: 'dev-jinzaibank-db-cluster.cluster-ro-c1jvfkkua8gb.ap-northeast-1.rds.amazonaws.com'
+            - Name: DB_USERNAME_S
+              Value: 'dev_woa_s'
+            - Name: DB_HOST_COMEDICAL
+              Value: 'dev-jinzaibank-db-cluster.cluster-ro-c1jvfkkua8gb.ap-northeast-1.rds.amazonaws.com'
+            - Name: DB_PORT_COMEDICAL
+              Value: '3306'
+            - Name: DB_DATABASE_COMEDICAL
+              Value: 'dev_comedical'
+            - Name: DB_USERNAME_COMEDICAL
+              Value: 'dev_co_s'
+            - Name: BROADCAST_DRIVER
+              Value: 'log'
+            - Name: CACHE_DRIVER
+              Value: 'file'
+            - Name: SESSION_DRIVER
+              Value: 'memcached'
+            - Name: SESSION_SECURE_COOKIE
+              Value: 'true'
+            - Name: QUEUE_DRIVER
+              Value: 'sync'
+            - Name: MEMCACHED_HOST_1
+              Value: 'dev-jinzaibank-cache.wce9tk.cfg.apne1.cache.amazonaws.com'
+            - Name: MEMCACHED_HOST_2
+              Value: 'dev-jinzaibank-cache.wce9tk.cfg.apne1.cache.amazonaws.com'
+            - Name: MEMCACHED_PORT
+              Value: '11211'
+            - Name: MEMCACHED_USERNAME
+              Value: ''
+            - Name: MEMCACHED_PASSWORD
+              Value: ''
+            - Name: REDIS_HOST
+              Value: '127.0.0.1'
+            - Name: REDIS_PASSWORD
+              Value: 'null'
+            - Name: REDIS_PORT
+              Value: '6379'
+            - Name: MAIL_DRIVER
+              Value: 'smtp'
+            - Name: MAIL_HOST
+              Value: 'devstg-relay-conversion.bm-sms.info'
+            - Name: MAIL_PORT
+              Value: '25'
+            - Name: MAIL_ENCRYPTION
+              Value: 'null'
+            - Name: PUSHER_APP_ID
+              Value: ''
+            - Name: PUSHER_APP_KEY
+              Value: ''
+            - Name: PUSHER_APP_SECRET
+              Value: ''
+            - Name: PUSHER_APP_CLUSTER
+              Value: 'mt1'
+            - Name: SF_LOGIN_URL
+              Value: 'https://test.salesforce.com/'
+            - Name: SF_USERNAME
+              Value: 'salesforce_comedical@jinzaibank.mobi.partial'
+            - Name: SLACK_URL
+              Value: 'https://hooks.slack.com/services/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'
+            - Name: S3_ACCESS_KEY
+              Value: ''
+            - Name: S3_SECRET_KEY
+              Value: ''
+            - Name: S3_REGION
+              Value: 'ap-northeast-1'
+            - Name: S3_BUCKET
+              Value: 'dev-jb-pentaho'
+            - Name: S3_BATCH_REGION
+              Value: 'ap-northeast-1'
+            - Name: S3_BATCH_BUCKET
+              Value: 'dev-jb-batch'
+            - Name: S3_CO_IMAGE_REGION
+              Value: 'ap-northeast-1'
+            - Name: S3_CO_IMAGE_BUCKET
+              Value: 'dev-co-image'
+            - Name: JOBNOTE_URL
+              Value: 'https://dev.job-note.jp'
+            - Name: S3_CO_IMAGE_URL
+              Value: 'https://dev-image.jinzaibank.com'
+            - Name: OPCACHE_URL
+              Value: 'http://localhost'
+            - Name: KUROHON_MYPAGE
+              Value: 'https://wp-stg.kurohon.jp/my-page'
+            - Name: LOG_CHANNEL
+              Value: 'stderr'
+            - Name: SYSTEM_TYPE
+              Value: 'webapp'
+            - Name: HUBSPOT_REDIRECT_URI
+              Value: 'https://pr-583.edge.jinzaibank.com/woa/admin/hubspot/callback'
+            - Name: HUBSPOT_API_URL
+              Value: 'https://api.hubapi.com'
+            - Name: HUBSPOT_OAUTH_URL
+              Value: 'https://app.hubspot.com/oauth/authorize'
+            - Name: HUBSPOT_GET_TOKEN_ENDPOINT
+              Value: '/oauth/v1/token'
+            - Name: HUBSPOT_GET_CONTACT_ENDPOINT
+              Value: '/crm/v3/objects/contacts'
+            - Name: SENTRY_TRACES_SAMPLE_RATE
+              Value: '0.0'
+            - Name: SENTRY_SAMPLE_RATE
+              Value: '1.0'
+          Secrets:
+            - Name: APP_KEY
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:APP_KEY::'
+            - Name: DB_PASSWORD
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:DB_PASSWORD::'
+            - Name: DB_PASSWORD_S
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:DB_PASSWORD_S::'
+            - Name: DB_PASSWORD_COMEDICAL
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:DB_PASSWORD_COMEDICAL::'
+            - Name: MAIL_USERNAME
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:MAIL_USERNAME::'
+            - Name: MAIL_PASSWORD
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:MAIL_PASSWORD::'
+            - Name: ACC_MAILMGS_ENCRYPT_KEY64
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:ACC_MAILMGS_ENCRYPT_KEY64::'
+            - Name: SF_PASSWORD
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:SF_PASSWORD::'
+            - Name: HUBSPOT_CLIENT_ID
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:HUBSPOT_CLIENT_ID::'
+            - Name: HUBSPOT_CLIENT_SECRET
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:HUBSPOT_CLIENT_SECRET::'
+            - Name: SENTRY_LARAVEL_DSN
+              ValueFrom: 'arn:aws:secretsmanager:ap-northeast-1:967125328503:secret:/woa/development/ecs/webapp/secrets-8lbDPg:SENTRY_LARAVEL_DSN::'
+          Essential: true
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Sub "/ecs/${AppName}/${EdgeName}"
+              awslogs-stream-prefix: webapp
+              awslogs-region: ap-northeast-1
+          PortMappings:
+            - ContainerPort: 80
+              Protocol: tcp
+          Privileged: false
+          ReadonlyRootFilesystem: false
+          HealthCheck:
+            Command: [ 'CMD-SHELL', 'curl -f http://localhost || exit 1' ]
+            Interval: 30
+            Retries: 3
+            Timeout: 5
+      Family: !Sub '${AppName}-edge'
+      Cpu: '1024'
+      Memory: '2048'
+      ExecutionRoleArn: !GetAtt 'EdgeTaskDefExecutionRole.Arn'
+      TaskRoleArn: !GetAtt 'EdgeTaskDefTaskRole.Arn'
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+  EdgeTaskDefExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+        Version: '2012-10-17'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/SecretsManagerReadWrite'
+  EdgeTaskDefExecutionRoleDefaultPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - ecr:BatchCheckLayerAvailability
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+            Effect: Allow
+            Resource: !Join
+              - ''
+              - - 'arn:'
+                - !Ref 'AWS::Partition'
+                - !Sub ":ecr:ap-northeast-1:${AwsAccountId}:repository/${AppName}_${AppFramework}"
+          - Action: ecr:GetAuthorizationToken
+            Effect: Allow
+            Resource: '*'
+          - Action:
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Effect: Allow
+            Resource: !Sub "arn:aws:logs:ap-northeast-1:${AwsAccountId}:log-group:/ecs/${AppName}/${EdgeName}:*"
+        Version: '2012-10-17'
+      PolicyName: EdgeTaskDefExecutionRoleDefaultPolicyWOA
+      Roles:
+        - !Ref 'EdgeTaskDefExecutionRole'
+  EdgeLBSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${EdgeName}-${AppName}-alb"
+      GroupName: !Sub "${EdgeName}-${AppName}-alb"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          Description: DEV-VPN
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'DevVpnIp'
+        - IpProtocol: tcp
+          Description: SMS-VPN-MAC
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'SmsVpnMacIp'
+        - IpProtocol: tcp
+          Description: SMS-CLIENT-ZONE
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'SmsClientZoneIp'
+        - IpProtocol: tcp
+          Description: SMS-PUB5
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'SmsPub5Ip'
+        - IpProtocol: tcp
+          Description: SMS-VPN
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'SmsVpnIp'
+        - IpProtocol: tcp
+          Description: tmp_SMS-CLIENT
+          FromPort: 443
+          ToPort: 443
+          CidrIp: !Ref 'TmpSmsClientIp'
+      VpcId: !Ref 'VpcId'
+      Tags:
+        - Key: Name
+          Value: !Sub "${EdgeName}-${AppName}-alb"
+# jinzaibank.com
+  JinzabankComEdgeLB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub  "${EdgeName}-jinzaibank-com"
+      Scheme: internet-facing
+      SecurityGroups:
+        - !Ref 'EdgeLBSg'
+      Subnets:
+        - !Ref 'PublicSubnetAId'
+        - !Ref 'PublicSubnetCId'
+      Type: application
+  JinzabankComHTTPListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref 'JinzabankComEdgeAlbTg'
+          Type: forward
+      LoadBalancerArn: !Ref 'JinzabankComEdgeLB'
+      Port: 80
+      Protocol: HTTP
+  JinzabankComHTTPSListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref 'JinzabankComEdgeAlbTg'
+          Type: forward
+      LoadBalancerArn: !Ref 'JinzabankComEdgeLB'
+      Port: 443
+      Protocol: HTTPS
+      Certificates:
+        - CertificateArn: !Ref 'JinzaibankComAcmArn'
+  JinzabankComHlisnerRule1:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: forward
+        TargetGroupArn:
+          !Ref JinzabankComEdgeAlbTg
+      Conditions:
+      - Field: path-pattern
+        Values:
+          - "/woa"
+          - "/woa/*"
+      ListenerArn: !Ref JinzabankComHTTPSListener
+      Priority: 32
+  JinzabankComEdgeAlbTg:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub "${EdgeName}-jinzaibank-com"
+      HealthCheckPath: /
+      HealthCheckProtocol: HTTP
+      Port: 80
+      Protocol: HTTP
+      TargetType: ip
+      VpcId: !Ref 'VpcId'
+      Matcher:
+        HttpCode: '200'
+# willone.jp
+  WilloneJpEdgeLB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub "${EdgeName}-willone-jp"
+      Scheme: internet-facing
+      SecurityGroups:
+        - !Ref 'EdgeLBSg'
+      Subnets:
+        - !Ref 'PublicSubnetAId'
+        - !Ref 'PublicSubnetCId'
+      Type: application
+  WilloneJpHTTPListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref 'WilloneJpEdgeAlbTg'
+          Type: forward
+      LoadBalancerArn: !Ref 'WilloneJpEdgeLB'
+      Port: 80
+      Protocol: HTTP
+  WilloneJpHTTPSListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - TargetGroupArn: !Ref 'WilloneJpEdgeAlbTg'
+          Type: forward
+      LoadBalancerArn: !Ref 'WilloneJpEdgeLB'
+      Port: 443
+      Protocol: HTTPS
+      Certificates:
+        - CertificateArn: !Ref 'WilloneJoAcmArn'
+  WilloneJpHTTPSListenerlisnerRule1:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: forward
+        TargetGroupArn:
+          !Ref WilloneJpEdgeAlbTg
+      Conditions:
+      - Field: path-pattern
+        Values:
+          - "/detail/kyujinbox/*"
+          - "/detail/indeed/*"
+          - "/detail/stanby/*"
+      ListenerArn: !Ref WilloneJpHTTPSListener
+      Priority: 2
+  WilloneJpHTTPSListenerlisnerRule2:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: forward
+        TargetGroupArn:
+          !Ref WilloneJpEdgeAlbTg
+      Conditions:
+      - Field: path-pattern
+        Values:
+          - "/woa/*"
+          - "/api/*"
+      ListenerArn: !Ref WilloneJpHTTPSListener
+      Priority: 3
+  WilloneJpHTTPSListenerlisnerRule3:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: forward
+        TargetGroupArn:
+          !Ref WilloneJpEdgeAlbTg
+      Conditions:
+      - Field: path-pattern
+        Values:
+          - "/glp/*"
+          - "/entry/*"
+      ListenerArn: !Ref WilloneJpHTTPSListener
+      Priority: 4
+  WilloneJpHTTPSListenerlisnerRule4:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: forward
+        TargetGroupArn:
+          !Ref WilloneJpEdgeAlbTg
+      Conditions:
+      - Field: path-pattern
+        Values:
+          - "/_debugbar/*"
+      ListenerArn: !Ref WilloneJpHTTPSListener
+      Priority: 5
+  WilloneJpHTTPSListenerlisnerRule5:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+      - Type: redirect
+        RedirectConfig:
+          Protocol : "HTTPS"
+          Port : 443
+          Host : !Ref JinzaibankEdgeDomain
+          Path : "/woa/#{path}"
+          Query : "#{query}"
+          StatusCode : "HTTP_301"
+      Conditions:
+      - Field: host-header
+        Values:
+          - !Ref WilloneJpEdgeDomain
+      ListenerArn: !Ref WilloneJpHTTPSListener
+      Priority: 12
+  WilloneJpEdgeAlbTg:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub "${EdgeName}-willone-jp"
+      HealthCheckPath: /
+      HealthCheckProtocol: HTTP
+      Port: 80
+      Protocol: HTTP
+      TargetType: ip
+      VpcId: !Ref 'VpcId'
+      Matcher:
+        HttpCode: '200'
+  EdgeEcsTaskSg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${EdgeName}-${AppName}-ecs-task"
+      GroupName: !Sub "${EdgeName}-${AppName}-ecs-task"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          Description: Load balancer to target
+          FromPort: 80
+          ToPort: 80
+          SourceSecurityGroupId: !Ref 'EdgeLBSg'
+      VpcId: !Ref 'VpcId'
+      Tags:
+        - Key: Name
+          Value: !Sub "${EdgeName}-${AppName}-ecs-task"
+  RdsSecurityGroup:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      Description: pr-${{ github.event.pull_request.number }}
+      FromPort: 3306
+      GroupId: 'sg-0d92cc715b8c43ac9' # dev-jinzaibank-sg-db
+      IpProtocol: tcp
+      SourceSecurityGroupId:
+        Ref: 'EdgeEcsTaskSg'
+      ToPort: 3306
+  ElasticacheSecurityGroup:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      Description: pr-${{ github.event.pull_request.number }}
+      FromPort: 11211
+      GroupId: 'sg-0a9c8e69e6fc151b8' # dev-jinzaibank-sg-elasticache
+      IpProtocol: tcp
+      SourceSecurityGroupId:
+        Ref: 'EdgeEcsTaskSg'
+      ToPort: 11211
+  EdgeService:
+    Type: AWS::ECS::Service
+    Properties:
+      ServiceName: !Ref 'EdgeName'
+      Cluster: !Ref 'EcsClusterName'
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 100
+      DesiredCount: 1
+      EnableECSManagedTags: false
+      HealthCheckGracePeriodSeconds: 60
+      CapacityProviderStrategy:
+        - Base: 1
+          CapacityProvider: FARGATE_SPOT
+          Weight: 1
+      LoadBalancers:
+        - ContainerName: !Sub '${AppFramework}-edge'
+          ContainerPort: 80
+          TargetGroupArn: !Ref 'JinzabankComEdgeAlbTg'
+        - ContainerName: !Sub '${AppFramework}-edge'
+          ContainerPort: 80
+          TargetGroupArn: !Ref 'WilloneJpEdgeAlbTg'
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: DISABLED
+          SecurityGroups:
+            - !Ref 'EdgeEcsTaskSg'
+          Subnets:
+            - !Ref 'ProtectedSubnetAId'
+            - !Ref 'ProtectedSubnetCId'
+      PlatformVersion: LATEST
+      TaskDefinition: !Ref 'EdgeTaskDef'
+    DependsOn:
+      - JinzabankComHTTPListener
+      - JinzabankComHTTPSListener
+      - WilloneJpHTTPListener
+      - WilloneJpHTTPSListener
+      - RdsSecurityGroup
+  WilloneJpAliasRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !Ref 'WilloneJpEdgeDomain'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt 'WilloneJpEdgeLB.DNSName'
+        HostedZoneId: !GetAtt 'WilloneJpEdgeLB.CanonicalHostedZoneID'
+      HostedZoneId: !Ref 'Route53ZoneId'
+  JinzaibankAliasRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !Ref 'JinzaibankEdgeDomain'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt 'JinzabankComEdgeLB.DNSName'
+        HostedZoneId: !GetAtt 'JinzabankComEdgeLB.CanonicalHostedZoneID'
+      HostedZoneId: !Ref 'JinzaibankRoute53ZoneId'

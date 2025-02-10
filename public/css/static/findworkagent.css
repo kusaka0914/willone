@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 700px;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom; /* 画像下部の余白を消す */
+  display: block; /* インライン要素による余白を消す */
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* デフォルトスタイル */
+.on {
+  display: none;
+}
+
+.off {
+  display: block;
+}
+
+/* ボックスのスタイル */
+.box1, .box2, .box3, .box4 {
+  position: relative;
+}
+
+.box + .box {
+  margin-top: 10px;
+}
+
+.btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.fka {
+  background-color: #37B1DE;
+  padding-top: 55px;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.fv {
+  position: relative;
+  top: -40px;
+  margin-bottom: -40px;
+}
+
+.fva {
+  width: 569px;
+  height: 108px;
+  display: block;
+  bottom: 319px;
+  left: 73px;
+}
+
+.toggle {
+  padding: 90px 25px;
+}
+
+footer {
+  img {
+    max-width: 490px;
+    margin: auto;
+  }
+
+  .fva {
+    width: 493px;
+    height: 94px;
+    display: block;
+    bottom: 295px;
+    left: 102px;
+  }
+}
+
+.guide {
+  max-width: 210px;
+  position: absolute;
+  top: 34px;
+  right: 24px;
+  z-index: 1;
+}
+
+.sp {
+
+  main {
+    max-width: 90%;
+  }
+
+  .fv {
+    top: -6vw;
+    margin-bottom: -6vw;
+  }
+
+  .fka {
+    padding-top: 10%;
+  }
+
+  .toggle {
+    padding: 15vw 3vw;
+  }
+
+  .fva {
+    width: 73vw;
+    left: 39px;
+    height: 15vw;
+    top: 124vw;
+  }
+
+  .guide {
+    max-width: 31vw;
+    position: absolute;
+    top: 25px;
+    right: 8px;
+    z-index: 1;
+  }
+
+  footer {
+    img {
+      max-width: 80%;
+    }
+
+    .fva {
+      width: 72vw;
+      height: 14vw;
+      display: block;
+      left: 9vw;
+      top: 16vw;
+    }
+  }
+}

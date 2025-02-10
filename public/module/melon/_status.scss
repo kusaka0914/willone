@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.js-elemVisible { display: block !important; @extend .animated, .fadeIn;}
+.js-elemInvisible { display: none !important;}
+
+.js-elemVisible.melon-form_varidate { @extend .bounceIn;}
+
+
+.melon-hidden { visibility: hidden;}

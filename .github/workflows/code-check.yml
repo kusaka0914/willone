@@ -1,0 +1,138 @@
+name: code-check
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+    tags-ignore:
+      - '**'
+
+jobs:
+  code-check:
+    runs-on: ubuntu-20.04
+    container: php:8.2.1-apache
+    timeout-minutes: 5
+    env:
+      TZ: 'Asia/Tokyo'
+
+    services:
+      ci-mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: passw0rd
+          MYSQL_DATABASE: 'ci_woa'
+          MYSQL_USER: 'ci_user'
+          MYSQL_PASSWORD: 'passw0rd'
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Setup container environment
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends libzip-dev zlib1g-dev libpq-dev unzip libmcrypt-dev openssl git
+          docker-php-ext-install zip pdo_mysql mysqli bcmath
+          apt-get clean
+          rm -rf /var/lib/apt/lists/*
+          a2enmod rewrite
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Copy config file
+        run: |
+          cp ./public/.htaccess.local ./public/.htaccess
+          cp ./docker/ci/php/php.ini /usr/local/etc/php/php.ini
+          cp ./docker/ci/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+      - name: Create Symbolic link
+        run: ln -s ${GITHUB_WORKSPACE} /var/www/jb
+
+      - name: Start Apache
+        run: apache2ctl start
+
+      - name: Setup Composer
+        run: |
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php
+          php -r "unlink('composer-setup.php');"
+          mv composer.phar /usr/local/bin/composer
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Copy env file
+        run: cp .env.ci .env
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Change Permissions
+        run: chmod -R 777 storage bootstrap/cache
+
+      - name: Set Repository Name
+        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+
+      - name: Setting safe.directory
+        run: git config --global --add safe.directory /__w/${{ env.REPOSITORY_NAME }}/${{ env.REPOSITORY_NAME }}
+
+      - name: Output the diff from main branch
+        id: diff
+        run: |
+          diff=$(git diff --name-only --diff-filter=ACMR origin/main..origin/${{ github.ref_name }} -- '*.php')
+          echo $diff
+          echo "diff=$(echo $diff)" >> $GITHUB_OUTPUT
+
+      - name: Run PHP CodeSniffer
+        if: steps.diff.outputs.diff != ''
+        run: vendor/bin/phpcs --standard=phpcs.xml ${{ steps.diff.outputs.diff }}
+
+  #      自動テスト時コメント解除
+  #      - name: Run Migration
+  #        run: php artisan migrate -v
+  #
+  #      - name: Run Seeder
+  #        run: php -d memory_limit=512M artisan db:seed -v
+
+      - name: Test with phpunit
+        run: vendor/bin/phpunit -c phpunit.xml
+
+  slack-notification:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 1
+    if: ${{ !success() }}
+    needs: code-check
+
+    steps:
+      - name: Replace line feed code in commit message
+        id: replace
+        run: |
+          message="${{ github.event.head_commit.message }}"
+          echo "message=$(echo $message)" >> $GITHUB_OUTPUT
+      - name: Send GitHub Action trigger data to Slack workflow
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "status": "${{ needs.code-check.result }}",
+              "user": "${{ github.actor }}",
+              "repository": "${{ github.event.repository.name }}",
+              "branch": "${{ github.ref_name }}",
+              "commit_message": "${{ steps.replace.outputs.message }}",
+              "commit_url": "${{ github.event.head_commit.url }}",
+              "workflow_url": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WORKFLOW_WEBHOOK_URL }}

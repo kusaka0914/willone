@@ -1,0 +1,50 @@
+name: Deploy to development woa ecs environment
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    name: docker build and push
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: development
+      url: https://development.willone.jp/
+    steps:
+      # https://github.com/aws-actions/configure-aws-credentials#usage
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use docker-build-push action
+        uses: ./.github/actions/docker-build-push
+        with:
+          AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+          SERVER_TYPE: woa_laravel
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: development
+      url: https://development.willone.jp/
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: ecspresso deploy
+        uses: ./.github/actions/deploy
+        with:
+          AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+          SERVER_TYPE: webapp
+          ENVIRONMENT: ${{ vars.ENVIRONMENT }}

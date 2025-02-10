@@ -1,0 +1,43 @@
+.entryBtn {
+    margin-top: 30px;
+    width: 212px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.melon-btn-block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.melon-btn-flat {
+    background-color: #f0f0f0;
+    padding: 1.2em 2.3em 1em;
+    margin: 0 auto 0.5em;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    color: #555;
+    line-height: 1;
+    position: relative;
+}
+.melon-btn-flat-king {
+    background-color: #F39E4A;
+    color: #fff;
+    width: 212px;
+    font-weight: bold;
+    font-size: 12px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.melon-btn-flat-king img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+}

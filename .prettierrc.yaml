@@ -1,0 +1,6 @@
+# prettier設定
+# ここの設定 + .editorconfig の設定が適用される
+
+printWidth: 120
+semi: true
+singleQuote: true

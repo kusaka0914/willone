@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* Scss Document */
+
+.melon-label { background: #e4e4e4; display: inline-block; text-align: center; border-radius: 100px; line-height: 1; padding:0.35em 0.5em 0.2em; vertical-align: 2px; margin: 0 0 0 2px; color: #777;}
+
+.melon-badge { border: 1px solid; background-color: #fff; padding: 0.33em; border-radius: 100%; min-width: 1.8em; min-height: 1.8em; text-align: center;}
+
+.melon-label-border { background-color: #ff8200; color: #fff; padding: 0.4em 0.6em; display: inline-block; line-height:1;}
+
+.melon-label-simple { border: 1px solid #eee; background-color: #fff; border-radius: 2px; display: inline-block; padding: 0 0.5em; min-width: 5.1em; margin-right: 0.3em; text-align: center; text-align-last: justify;}
+
+
+.melon-label2 { background-color: #eee; display: inline-block; text-align: center; border-radius: 3px; line-height: 1; padding: 0.45em 0.6em; margin: 4px 0; color: #777; font-size: 0.875em;}
+.melon-label2 i { font-size: 1.175em; border-right: 1px solid #fff; padding-right: 0.4em; margin-right: 0.4em;}
+
+.melon-label2-green { background-color: #e6fbc1; color: #86b122;}
+.melon-label2-braun { background-color: #f7eddc; color: #cf8f29;}
+.melon-label2-orange { background-color: #ffe8d4; color: #fa8e31;}
+.melon-label2-purple { background-color: #f3e3fa; color: #c785e5;}
+.melon-label2-magenta { background-color: #f9e2f2; color: #e381c7;}
+
+.melon-label-block,
+.melon-label2-block { display: block; margin:0;}

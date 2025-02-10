@@ -1,0 +1,37 @@
+name: 'Docker build'
+description: 'Docker build'
+inputs:
+  AWS_ACCOUNT_ID:
+    description: 'AWS account id'
+    required: true
+  SERVER_TYPE:
+    description: 'woa_laravel'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        # Terraformから作成したIAM Role名を指定する
+        # see: https://github.com/aws-actions/configure-aws-credentials
+        role-to-assume: arn:aws:iam::${{ inputs.AWS_ACCOUNT_ID }}:role/github_actions
+        aws-region: ap-northeast-1
+
+    # https://github.com/aws-actions/amazon-ecr-login#examples-of-usage
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+
+    - name: Build, tag, and push docker image to Amazon ECR
+      shell: bash
+      env:
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REPOSITORY: ${{ inputs.SERVER_TYPE }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -f docker/woa-web/Dockerfile .
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        docker build -t $REGISTRY/$REPOSITORY:latest -f docker/woa-web/Dockerfile .
+        docker push $REGISTRY/$REPOSITORY:latest

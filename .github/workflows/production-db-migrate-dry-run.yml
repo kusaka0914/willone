@@ -1,0 +1,75 @@
+name: Production dry run database migrate
+
+on:
+  pull_request:
+    branches:
+      - "deploy"
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'database/sqldef/schema_production.sql'
+jobs:
+  add-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add db-migration label
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['db-migrate']
+            })
+
+  build-production:
+    name: Production docker build image and push
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: production
+      url: https://www.willone.jp/
+    steps:
+      # https://github.com/aws-actions/configure-aws-credentials#usage
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use docker-build-push action
+        uses: ./.github/actions/docker-build-push
+        with:
+          AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+          SERVER_TYPE: 'woa_laravel'
+
+  dry-db-migrate-production:
+    name: Production dry run db migrate to production
+    runs-on: ubuntu-latest
+    needs: build-production
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+      issues: write
+      pull-requests: write
+    environment:
+      name: production
+      url: https://www.willone.jp/
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Dry run DB migrate
+        uses: ./.github/actions/db-migrate
+        with:
+          AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+          ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+          ECSPRESSO_CONFIG_NAME: 'oneshot_db_migrate'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DB_MIGRATE_APPLY: 0 # 1のときだけapply。それ以外はdry run

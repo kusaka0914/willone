@@ -1,0 +1,95 @@
+.recommendTopMessage {
+    background-color: #fff;
+    margin: 0 auto;
+    display: table;
+    padding: 20px 40px;
+    text-align: left;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+    width: 530px;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.recommendBox {
+    box-shadow:0px 0px;
+    margin:15px auto 50px;
+    width:620px;
+}
+
+.recommendOrderWrap {
+    padding: 5px 0 0;
+    overflow: hidden;
+}
+
+.recommendOrder {
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+}
+
+.recommendHeader {
+    margin: 1rem 1.8rem;
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.recommendOrderName {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #0b2c88;
+    text-align: center;
+}
+
+.recommendTitle {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.recommendComment {
+    font-size: 1.1em;
+    color: #7c7a6a;
+    margin: 10px;
+}
+
+.recommendDetail {
+    margin-top: 20px;
+}
+
+.btnArea {
+    text-align: center;
+    padding: 0 0 90px 0;
+}
+
+.recommendEntryBtn {
+    width: 50%;
+    margin: 1.2rem auto;
+    padding: 8px 0;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border-color: #6598ff;
+    background: linear-gradient(to bottom, #6598ff 0%, #6598ff 50%, #2e5ad7 50%, #2e5ad7 100%);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.recommendEntryBtn::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 10px;
+    border-color: transparent transparent transparent #fff;
+}

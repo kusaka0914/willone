@@ -1,0 +1,8 @@
+* text=auto
+*.css linguist-vendored
+*.scss linguist-vendored
+*.js linguist-vendored
+CHANGELOG.md export-ignore
+make-tunnel.sh eol=lf
+container-up.sh eol=lf
+container-utility.sh eol=lf

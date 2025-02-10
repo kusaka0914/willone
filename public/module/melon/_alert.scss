@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* Scss Document */
+
+// common 
+.melon-alert { padding: 1em; margin: 1em 0; border: 1px solid rgba(0, 0, 0, 0); border-radius: 2px; background-color: #fff;}
+.melon-alert_title { font-size: 1.1667em; margin: 0 0 0.3em;}
+.melon-alert_body {}
+
+// infomation
+.melon-alert-info { border-color: #eae8c4; background-color: #FFFEF1; color: #7d761b;}
+.melon-alert-info .melon-alert_title { color: #b3a602;}
+.melon-alert-info .melon-alert_body {}
+
+// error
+.melon-alert-error { border-color: #ffdede; background-color: #ffecec; color: #ab5d5d;}
+.melon-alert-error .melon-alert_title { color: #ef5959;}
+.melon-alert-error .melon-alert_body {}
+

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.melon-l_container { margin: 0 auto; max-width: 768px; padding: 0 2.5%;}
+.pc .melon-l_container { padding: 0 8px; max-width: 940px;}
+
+.melon-l_header { padding: 0.45em 0 0; @extend .melon-f-9; line-height: 1.5;}
+.sp {
+  .melon-l_header { background-color: #fff; padding:0;
+    .melon-l_container { padding:0;}
+  }
+  .melon-l_header_row { margin:0; min-height: 4.6em;}
+  .melon-l_header_col-logo { margin-top:0; -webkit-flex-basis: 53%; flex-basis: 53%;}
+  .melon-l_header_col-secondary { margin-top:0; padding: 1em 0 0; -webkit-flex-basis: 18%; flex-basis: 18%; max-width: 100px;}
+  .melon-l_header_col-primary { padding: 1.3em 0; margin-bottom: 0; -webkit-flex-basis: 29%; flex-basis: 29%; max-width: 170px; box-shadow: none !important; border-radius: 0 !important;}
+  
+  .animation_section:not(#area) .anotherPrefectures { display: none;}
+}
+
+.melon-l_container-bottom,
+.melon-l_headerBottom { 
+  li:last-child { margin-top: -4px;
+    .melon-btn { margin-bottom: 4px; color: #fff !important; padding-left: 1.5em; padding-right: 1.5em;}
+  }
+}
+
+.melon-l_container-top,
+.melon-l_headerTop { padding: 7px 0;
+  [class*="fx-col"]:nth-child(2) { border: 3px dotted #ffe8d5; border-width: 0 3px; padding: 4px 0;}
+}
+.melon-l_container-bottom,
+.melon-l_headerBottom { border: 1px solid #e7e5cd; border-width: 1px 0;
+background: -webkit-linear-gradient( left, #faf3de, #faf9de 50%, #faf3de); background: linear-gradient( to right, #faf3de, #faf9de 50%, #faf3de);
+  [class*="fx-col"]:first-child { border-right: 3px dotted #e7e5cd;}
+}
+
+.melon-l_breadcrumb { background: #fafafa; border-bottom: 1px solid #f2f2f2; padding: 1% 0;}
+
+
+.melon-l_main { margin: 1.5em 0 2.3em;}
+.melon-l_main > :first-child,
+.melon-l_main .melon-l_container > :first-child { margin-top:0;}
+
+.melon-l_contentsTop,
+.melon-l_contentsBottom,
+.melon-l_contents { padding: 3rem 0;}
+.melon-l_contents { background-color: #fafaf0; border: 1px solid #eeede2; border-width: 1px 0;}
+.sp .melon-l_contents { @extend .melon-f-14;}
+
+.melon-l_aside { background-color: #fff; padding: 3rem 0;}
+
+.melon-l_footer { text-align: center; position: relative;}
+.melon-l_footer small { display: inline-block; margin: 0.5em 0; color: #999;}
+
+.melon-l_footerTop { background-color: #faf9de; padding: 1em 0;}
+.melon-l_footerBottom { background-color: #4c3d2d; color: #fff; padding: 1em 0; @extend .melon-f-9;}
+
+.melon-l_chatch { max-width: 640px; margin: auto;}

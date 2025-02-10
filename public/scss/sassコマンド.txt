@@ -1,0 +1,19 @@
+
+【1】コマンドプロンプトを起動
+
+Windowsボタン → 「cmd」入力して、Enter
+
+
+【2】 ディレクトリ移動
+
+「cd 」入力（半角スペースも）、
+エクスプローラーでこのcssフォルダをドラッグ・アンド・ドロップして、
+「cd C:\Users\masashi-maeda\Documents\SVN\RJB\public_html\css」
+で、Enter
+
+
+【3】 コンパイルコマンド
+
+対象ファイルは2つ。下記2つを実行。
+
+sass melon.scss:../css/melon.min.css --style compressed --no-cache

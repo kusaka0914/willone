@@ -1,0 +1,92 @@
+on:
+  pull_request:
+    types: [labeled, reopened]
+
+name: Deploy to edge environment
+
+env:
+  APP_NAME: woa
+  ECR_REPOSITORY: woa_laravel
+  EDGE_NAME: pr-${{ github.event.pull_request.number }}
+  SERVICE_DOMAIN: edge.willone.jp
+  SERVICE_DOMAIN_SUB: edge.jinzaibank.com
+
+jobs:
+  deploy:
+    if: contains(github.event.pull_request.labels.*.name, 'edge環境')
+    name: Deploy
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: edge
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github_actions
+          aws-region: ap-northeast-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ env.EDGE_NAME }}-${{ github.sha }}
+        run: |
+          # `github.sha` contains dynamic merge commit with 1 depth. Show revision in commit message
+          # git log --format='%s' ${{ github.sha }} > ./REVISION
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -f docker/woa-web/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Deploy ECS task definition
+        id: deploy-edge-service
+        env:
+          IMAGE: ${{ steps.build-image.outputs.image }}
+        run: |
+          aws cloudformation deploy --stack-name ${APP_NAME}-${EDGE_NAME} --template-file .github/aws/edge-template.yml --parameter-overrides "AppName=${APP_NAME}" "ImageRepository=${IMAGE}" "WilloneJpEdgeDomain=${EDGE_NAME}.${SERVICE_DOMAIN}" "JinzaibankEdgeDomain=${EDGE_NAME}.${SERVICE_DOMAIN_SUB}" "EdgeName=${APP_NAME}-${EDGE_NAME}" --capabilities CAPABILITY_NAMED_IAM
+  result:
+    runs-on: ubuntu-latest
+    if: always() && contains(github.event.pull_request.labels.*.name, 'edge環境')
+    needs: [deploy]
+    steps:
+      - name: Success workflows
+        if: needs.deploy.result == 'success'
+        shell: bash
+        run: |
+          BODY=$(echo "Success: Edge environment has been deployed [Open](https://${EDGE_NAME}.${SERVICE_DOMAIN})")
+          echo "body=${BODY}" >> $GITHUB_OUTPUT
+        id: success
+
+      - name: Failed workflows
+        if: needs.deploy.result == 'failure'
+        shell: bash
+        run: |
+          BODY=$(echo ":exclamation: Failed: ${{ github.actor }}'s workflow ([See more](${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}))")
+          echo "body=${BODY}" >> $GITHUB_OUTPUT
+        id: failed
+
+      - name: Notify results
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = "${{ steps.success.outputs.body }}" || "${{ steps.failed.outputs.body }}"
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            })

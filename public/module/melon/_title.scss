@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+.melon-title-pageTitle { text-align: center; font-weight: 200; line-height: 1.5; padding: 1.2em 0; color: #444;}
+
+.melon-title-signboard { display: table; border: 3px dotted #ff8000; border-radius: 4px; color: #403b0f; font-weight: bold; font-size: 1.25rem; padding: 0.42em 0.9em 0.23em; position: relative; line-height: 1.35; margin: -1.38em 0 1em; transform-origin: 50% -40%; -webkit-animation: melon-wobble-bottom 1.5s ease-in-out 1; animation: melon-wobble-bottom 1.5s ease-in-out 1;
+  &:hover { -webkit-animation: melon-wobble-bottom-hover 1.5s ease-in-out 1; animation: melon-wobble-bottom-hover 1.5s ease-in-out 1;}
+  b { @extend .melon-boldY; }
+}
+.melon-title-signboard::before { content:''; position: absolute; bottom: 110%; left: 0.9em; right: 0.9em; height: 1.1em; border: 3px dotted #ff8000; border-width: 0 3px;}
+
+@-webkit-keyframes melon-wobble-bottom {
+	16.65% { -webkit-transform: skew(-6deg);}
+	33.3% { -webkit-transform: skew(5deg);}
+	49.95% { -webkit-transform: skew(-3deg);}
+	66.6% { -webkit-transform: skew(2deg);}
+	83.25% { -webkit-transform: skew(-1deg);}
+	100% { -webkit-transform: skew(0deg);}
+}
+@keyframes melon-wobble-bottom {
+	16.65% { transform: skew(-6deg);}
+	33.3% { transform: skew(5deg);}
+	49.95% { transform: skew(-3deg);}
+	66.6% { transform: skew(2deg);}
+	83.25% { transform: skew(-1deg);}
+	100% { transform: skew(0deg);}
+}
+@-webkit-keyframes melon-wobble-bottom-hover {
+	16.65% { -webkit-transform: skew(-6deg);}
+	33.3% { -webkit-transform: skew(5deg);}
+	49.95% { -webkit-transform: skew(-3deg);}
+	66.6% { -webkit-transform: skew(2deg);}
+	83.25% { -webkit-transform: skew(-1deg);}
+	100% { -webkit-transform: skew(0deg);}
+}
+@keyframes melon-wobble-bottom-hover {
+	16.65% { transform: skew(-6deg);}
+	33.3% { transform: skew(5deg);}
+	49.95% { transform: skew(-3deg);}
+	66.6% { transform: skew(2deg);}
+	83.25% { transform: skew(-1deg);}
+	100% { transform: skew(0deg);}
+}
+
+.melon-title-ring { font-weight: bold; @extend .melon-f-15; color: #403b0f; margin-bottom: 0.37rem; padding-left:1.4em; line-height: 1.4;
+  b, strong { color: #ff8000;}
+}
+.melon-title-ring::before { content:''; display: inline-block; width: 1em; height: 1em; border: 0.15em dotted #ff8000; border-radius: 100%; vertical-align: -0.15em; margin: 0 0.4em 0 -1.4em; -webkit-animation: melon-ring-turn 10s linear infinite; animation: melon-ring-turn 10s linear infinite;}
+
+.sp .melon-title-ring::before { vertical-align: inherit;}
+
+@keyframes melon-ring-turn {
+	100% { transform: rotate(359deg);}
+}
+@-webkit-keyframes melon-ring-turn {
+	100% { -webkit-transform: rotate(359deg);}
+}
+
+
+.melon-title-brackets { text-align: center;}
+.melon-title-brackets_inn { background-color: #fff; border-radius: 4px; display: inline-block; padding: 1em 1.8em 0.5em; line-height: 1.4; letter-spacing: 1px; font-weight: bold; color: #40326e; position: relative;}
+.melon-title-brackets_inn::before,
+.melon-title-brackets_inn::after { content: ''; position: absolute; border-color: #332e7d; border-style: solid; width: 10px; height: 10px;}
+.melon-title-brackets_inn::before { border-width: 3px 0 0 3px; top: 3px; left: 3px; }
+.melon-title-brackets_inn::after { border-width: 0 3px 3px 0; bottom: 3px; right: 3px;}
+
+
+.melon-title-border { border: 2px solid; background-color: #fff; border-radius: 4px; text-align: center; padding: 0.7em 0.7em 0.45em; font-size: 0.9375rem; line-height: 1.35; margin: 0 0 1rem; color: #332e7d;}
+
+.melon-title-dynamite { font-size: 2.16667rem; color: #403b0f; line-height: 1.15; border-bottom: 0.625rem dotted #e1e1d4; padding: 0 0 0.3em; margin: 0 0 0.8em;}
+.sp .melon-title-dynamite { font-size: 1.66667rem; margin-top: 0.2em;}
+
+.melon-title-softly { font-weight: 400; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-flex-wrap: wrap; flex-wrap: wrap; margin: 0.6em 0 0.2em; color: #4e4c3f;}
+.melon-title-softly::after { content:''; -webkit-flex: 1 1 auto; flex: 1 1 auto; background-color: rgba(136, 132, 106, 0.1); height:1px; margin: -3px 0 0 0.5em;}

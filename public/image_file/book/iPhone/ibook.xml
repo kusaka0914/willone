@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+  <AuthVersion>ActiBook  [[2.6.0.1_SD]]</AuthVersion>
+  <name>ウィルワン・アカデミー［デジタルパンフレット］</name>
+  <title>ウィルワン・アカデミー［デジタルパンフレット］</title>
+  <total>20</total>
+  <cover/>
+  <w>320</w>
+  <h>449.885437011719</h>
+  <div>
+    <w>320</w>
+    <h>460</h>
+  </div>
+  <zoom_s>1,2,3</zoom_s>
+  <step/>
+  <update>2011/07/11 11:35:40</update>
+  <download/>
+  <streaming/>
+  <pagelink_color>255255000</pagelink_color>
+  <pagelink_highlight>1</pagelink_highlight>
+</book>

@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+.instructor {
+  font-family: "Noto Sans JP", sans-serif;
+  font-style: normal;
+  max-width: 768px;
+  margin: auto;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+body {
+  background-color: #fff;
+}
+
+.s1h {
+  width: 100%;
+  margin: auto;
+  top: calc(50% - 23px);
+
+  h1 {
+    color: #fff;
+    font-size: 15px;
+  }
+}
+
+.s2 {
+  h2 {
+    color: #ee7600;
+    font-weight: bold;
+    font-size: 19px;
+  }
+
+  img {
+    width: 120px;
+    z-index: -1;
+  }
+
+  .s2h {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.s3 {
+
+  margin-bottom: 10px;
+
+  img {
+    height: 120px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.s3txt {
+  text-align: center;
+  max-width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-shadow: 0px 0px 15px -5px #b0b0b0;
+  line-height: 1.6;
+  padding: 20px 0 15px;
+  position: relative;
+  top: -25px;
+  z-index: 1;
+  border-radius: 5px;
+  background: #fff;
+
+  .s3txt1 {
+    color: #424242;
+    background-color: #eee;
+    font-size: 12px;
+    padding: 2px 55px;
+    margin-bottom: 10px;
+  }
+  .s3txt2 {
+    color: #63B9D7;
+    font-size: 14px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  position: relative;
+  padding-left: 15px;
+  font-weight: 400;
+  margin-bottom: 20px;
+
+  &:before {
+    content: "";
+    height: 25px;
+    width: 5px;
+    background-color: #38AFDD;
+    position: absolute;
+    left: 0px;
+    border-radius: 20px;
+  }
+}
+
+.h3-box-o {
+  h3:before {
+    background-color: #EC7600;
+  }
+}
+
+.txt-box {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.schedule-container {
+  max-width: 400px;
+  margin: 5px auto;
+}
+
+.schedule-item {
+  display: flex;
+  position: relative;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.schedule-item:nth-child(even) {
+  background-color: #EEF8FA;
+}
+
+.time {
+  position: relative;
+  flex: 0 0 120px;
+  height: 20px;
+  padding: 0 10px;
+  margin-right: 15px;
+  background-color: #fff;
+  border: 1px solid #35B1DF;
+  border-radius: 3px;
+  color: #35B1DF;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.time::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #E0E3E8;
+}
+
+.schedule-item:last-child .time::after {
+  display: none;
+}
+
+.content {
+  flex: 1;
+  padding: 5px 0;
+  color: #333;
+  font-size: 14px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.caution {
+	font-size: 0.5em; /*　文字サイズ調整 */
+	vertical-align: top;  /* 文字の位置調整 */
+}
+
+.txt-area {
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 300;
+
+    & + p {
+      margin-top: 14px;
+    }
+
+    span {
+      &.line {
+        background: linear-gradient(transparent 10%, #FFE48D 10%);
+      }
+    }
+  }
+}
+
+.desc {
+  background-color: #F7F7F7;
+  color: #69878f;
+  font-size: 13px;
+  padding: 20px 5%;
+
+  p {
+    & + p {
+      margin-top: 15px;
+    }
+  }
+}
+
+.bgimg {
+  img {
+    height: 130px;
+    object-fit: cover;
+    width: 100%;
+  }
+  img.bgimg2 {
+    object-position: bottom;
+  }
+
+}
+
+.s4{
+  margin-top: 15px;
+}
+
+section.s9b.desc {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+
+  .s1h {
+    top: calc(50% - 30px);
+
+    h1 {
+        color: #fff;
+        font-size: 20px;
+    }
+  }
+
+  .s2 {
+    h2 {
+        font-size: 23px;
+    }
+  }
+
+  .s3 {
+    img {
+        height: 150px;
+    }
+  }
+
+  .s3txt {
+    display: block;
+
+    .s3txt1 {
+      max-width: 70%;
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .s3txt2 {
+      color: #63B9D7;
+      font-size: 19px;
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+
+    &:before {
+      height: 32px;
+    }
+
+  }
+
+  .content {
+    line-height: 1.4;
+    font-size: 16px;
+  }
+
+  .txt-area {
+    p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+
+  main.instructor {
+    margin-bottom: 20px;
+  }
+
+}

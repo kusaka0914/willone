@@ -1,0 +1,7 @@
+<?php
+
+return [
+    'CLIENT_ID' => env('GOOGLE_API_CLIENT_ID'),
+    'CLIENT_SECRET' => env('GOOGLE_API_CLIENT_SECRET'),
+    'REFRESH_TOKEN' => env('GOOGLE_API_REFRESH_TOKEN'),
+];

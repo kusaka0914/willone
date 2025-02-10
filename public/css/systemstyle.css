@@ -1,0 +1,115 @@
+.exlist {
+    color: #000;
+}
+
+.accessTitle02 {
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #b2b2b2;
+    font-size: 16px;
+    color: #333333;
+    padding-left: 20px;
+    line-height: 25px;
+    margin: 0;
+}
+
+.accessTxt01 {
+    font-size: 14px;
+    color: #333333;
+    margin: 20px 0 33px;
+}
+
+.ul_accessList01 {
+    display: block;
+    margin: 20px 0 30px;
+    padding: 0;
+}
+
+.ul_accessList01 li {
+    background: url(../img/access/ico_circle.png) left center no-repeat;
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.ul_accessList01 span {
+    margin: 0 0 0 20px;
+}
+
+.accessBox01 {
+    background: url(../img/access/bg_02.png) no-repeat;
+    width: 569px;
+    height: 200px;
+    padding: 0 20px;
+    margin: 57px auto 0;
+}
+
+.ul_accessList02 {
+    float: left;
+    width: 225px;
+    margin: 52px 0 0;
+}
+
+.ul_accessList02 li {
+    background: url(../img/access/ico_circle.png) left center no-repeat;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.ul_accessList02 span {
+    margin-left: 15px;
+}
+
+.ul_accessList03 {
+    float: right;
+
+    width: 250px;
+}
+
+.bloglist_img {
+    max-width: 200px;
+    max-height: 100px;
+}
+
+.bloglist_text {
+    font-size: 1.7rem;
+}
+
+.kurohon_bnr {
+    width: 80%;
+    height: 80%;
+    margin: 40px auto 0;
+}
+
+.kurohon_bnr.is-sp {
+    margin: auto;
+}
+
+.linkJudoseifukushi27_pc {
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.linkJudoseifukushi27_sp {
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.employ_inquiry_link {
+    border: 1px solid #2ba6cb;
+    color: #2ba6cb;
+    border-radius: 4px;
+}
+
+.popup{
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

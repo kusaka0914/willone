@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  woa-rproxy:
+    container_name: woa-rproxy
+    image: nginx
+    ports:
+      - 443:443
+    volumes:
+      - ./docker/woa-rproxy/etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/woa-rproxy/etc/nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - woa-web
+
+  woa-web:
+    container_name: woa-web
+    build:
+      context: .
+      dockerfile: docker/woa-web/development.dockerfile
+    volumes:
+      - ./:/var/www/html:delegated
+      - ./docker/woa-web/usr/local/etc/php/php.local.ini:/usr/local/etc/php/php.ini
+      - ./docker/woa-web/etc/apache2/sites-enabled/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./docker/woa-web/etc/apache2/mods-available/mpm_prefork.conf:/etc/apache2/mods-available/mpm_prefork.conf
+      - ./docker/woa-web/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - ./public/.htaccess.local:/var/www/html/public/.htaccess
+      - /var/www/html/vendor # vendorだけを空マウントする設定。マウントするとI/Oパフォーマンスが低下するのでdocker build時にcopyしている
+
+    depends_on:
+      - woa-db
+
+  woa-mail:
+    container_name: woa-mail
+    image: axllent/mailpit
+    ports:
+      - ${MAIL_LOCAL_PORT:-8025}:8025
+
+  woa-cache:
+    container_name: woa-cache
+    image: memcached:1.6.12
+
+  woa-phpmyadmin:
+    container_name: woa-phpmyadmin
+    build:
+      context: .
+      dockerfile: docker/woa-phpmyadmin/Dockerfile
+    ports:
+      - ${PHPMYADMIN_LOCAL_PORT:-8080}:80
+    tty: true
+    volumes:
+      - ./.env:/var/www/html/.env
+      - ./docker/woa-phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_PORT: ${DB_PORT}
+      PMA_USER: ${DB_USERNAME}
+      PMA_PASSWORD: ${DB_PASSWORD}
+
+  woa-db:
+    container_name: woa-db
+    image: mysql:8.0
+    platform: linux/amd64
+    command: --default-authentication-plugin=mysql_native_password --default-time-zone=Asia/Tokyo
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: woaadmin
+      MYSQL_DATABASE: dev_woa
+      MYSQL_USER: dev_woa_u
+      MYSQL_PASSWORD: woaapp
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/woa-db/etc/mysql/conf.d:/etc/mysql/conf.d
+      - mysql_data:/var/lib/mysql
+    tmpfs:
+      - /tmp # /tmp/mysql-general.logが圧迫しないようコンテナ再起動のたびにログをクリアするために設定
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mysql_data:

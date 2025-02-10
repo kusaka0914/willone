@@ -1,0 +1,26 @@
+# EditorConfig for IDE の設定
+# prettier(js,css修正)でもこの設定を使用
+
+root = true
+
+[*]
+charset = utf-8
+# インデント種類
+indent_style = space
+# インデントサイズ
+indent_size = 4
+# 行末のスペース削除
+trim_trailing_whitespace = true
+# 改行コード
+end_of_line = lf
+# 最終行に空行追加
+insert_final_newline = true
+
+[*.{js,mjs,css,scss,yaml,yml,json}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.min.js]
+insert_final_newline = false

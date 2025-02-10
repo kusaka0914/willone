@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@500;700&display=swap');
+
+body {
+  background-image: none;
+}
+
+.contents {
+  margin: 2% auto 0;
+}
+
+@media (max-width: 800px) {
+  .contents {
+    margin: 10% auto 0;
+  }
+}
+
+.header {
+  height: 20px;
+  line-height: 25px;
+  padding: 5px 0;
+}
+
+.header-logo {
+  height: 20px;
+  width: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background-color: #F7F6EA;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333333;
+}
+
+#dialog {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.dialog-box-tel {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 10px;
+  max-width: 240px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.dialog-header img {
+  width: 160px;
+  margin: 0 auto;
+}
+
+.dialog-header-heading {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.dialog-header-heading p {
+  font-size: 18px;
+  color: #333333;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  background: linear-gradient(transparent 95%, #EF5921 0%);
+  display: inline-block;
+  padding: 0 1px 0px;
+  margin: 0;
+  line-height: 1.6em;
+}
+
+.dialog-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.dialog-box.dialog-box-kurohon-logo {
+  padding: 30px 20px;
+}
+
+.dialog-box + .dialog-box {
+  margin-top: 20px;
+}
+
+.dialog-box-woa {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.dialog-box-woa a {
+  display: block;
+  color: #0A9BD2;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.dialog-box-btn {
+  height: 55px;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 6px 6px 0px 2px #777777;
+  border-radius: 0px;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  margin: 0 auto;
+}
+
+.dialog-box-btn img {
+  position: absolute;
+  right: 10px;
+}
+
+.dialog-kurohon-btn {
+  background-color: #F0E903;
+  box-shadow: 2px 2px 1px 0px #A39C0B;
+}
+
+.dialog-kurohon-btn-sub {
+  background: #fff;
+  border: 1px solid #8A8979;
+  color: #61604c;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.dialog-kurohon-btn + .dialog-kurohon-btn-sub {
+  margin-top: 15px;
+}
+
+.dialog-kurohon-jobnote-btn {
+  height: 70px;
+  background-color: #F0E903;
+  box-shadow: 2px 2px 1px 0px #A39C0B;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kurohon-thanksBtn-text {
+  font-size: 0.6em;
+}
+
+.dialog-kurohon-jobnote-btn + .dialog-kurohon-btn-sub {
+  margin-top: 15px;
+}
+
+.dialog-line-btn {
+  background-color: #06C755;
+  box-shadow: 2px 2px 1px 0px #048E3D;
+  width: 230px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.kurohon-logo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 0 55px;
+}
+
+@media (max-width: 800px) {
+  .kurohon-logo {
+    padding: 0 15px;
+  }
+}
+
+.kurohon-logo img {
+  width: 100%;
+}
+
+.dialog-box-sub {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.dialog-box-sub + .dialog-box-sub {
+  margin-top: 40px;
+}
+
+.dialog-box-sub:last-child {
+  margin-bottom: 10px;
+}
+
+.dialog-box h2 {
+  font-size: 14px;
+  margin: 0;
+  background-color: #F7F6EA;
+  padding: 10px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.dialog-box h3 {
+  color: #333333;
+  font-weight: bold;
+  border-left: #EF5921 3px solid;
+  font-size: 14px;
+  padding-left: 7px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.dialog-box-tel img {
+  width: 30px;
+}
+
+.dialog-box-tel a {
+  font-weight: bold;
+  color: #333333;
+  font-size: 30px;
+  margin: 0;
+}
+
+.dialog-box-tel-second {
+  margin-top: 10px;
+}
+
+.dialog-box-tel-second p {
+  color: #333333;
+  font-size: 14px;
+}
+
+.dialog-box-tel-second p span {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.dialog-box-mail {
+  display: grid;
+  grid-template-columns: 1fr 35px;
+  font-size: 14px;
+  gap: 10px;
+  max-width: 270px;
+  margin: 0 auto;
+  align-items: center;
+  font-weight: bold;
+}
+
+.dialog-box-mail .clipboard-btn {
+  cursor: pointer;
+  position: relative;
+}
+
+.dialog-box-mail .clipboard-btn p {
+  display: none;
+  position: absolute;
+  top: -33px;
+  font-size: 12px;
+  width: 100px;
+  background: #0A9BD2;
+  color: #fff;
+  padding: 5px;
+  border-radius: 20px;
+  left: -37px;
+}
+
+.dialog-box-num {
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0A9BD2;
+  position: relative;
+}
+
+.dialog-box-num::before {
+  content: "";
+  border-left: 1px dotted #0A9BD2;
+  position: absolute;
+  top: 35px;
+  left: 17px;
+  height: 52px;
+}
+
+.dialog-box-num-last::before {
+  content: none;
+}
+
+.dialog-box-flow-step {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  align-items: center;
+  gap: 10px;
+}
+
+.dialog-box-flow-card {
+  border: 1px solid #0A9BD2;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.dialog-box-flow-card p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.dialog-box-flow-card h4 {
+  color: #0A9BD2;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.dialog-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.dialog-header-text {
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+.dialog-box-flow {
+  max-width: 300px;
+  margin: 20px auto 0;
+}
+
+.dialog-box-flow-step + .dialog-box-flow-step {
+  margin-top: 10px;
+}
+
+body #footer {
+  position: relative;
+  margin-top: 20px;
+}
+
+body .holidayInfo {
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+}

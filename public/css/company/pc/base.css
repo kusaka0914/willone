@@ -1,0 +1,412 @@
+/* ===========================
+   Base
+   =========================== */
+* {
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+
+body {
+    font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    background: #fff;
+}
+
+section {
+	overflow: hidden;
+}
+
+button,input,select,textarea {
+    font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+hr {
+    display: block;
+    /*height: 1px;*/
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+.imgRight{
+	float:right;
+	margin:2px 6px 0  0;
+}
+a img:hover {
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+
+.gnav > li a img:hover {
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+.hidden {
+	display: none;
+}
+
+.non-text-decoration {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.txt-left {
+	text-align: left;
+}
+
+.txt-right {
+	text-align: right;
+}
+
+.txt-center {
+	text-align: center;
+}
+
+.txt-nowrap {
+	white-space: nowrap;
+}
+
+.txt-middle {
+	vertical-align: middle;
+}
+.txt-top {
+	vertical-align: top;
+}
+.txt-indent {
+	text-indent: -1em; 
+	margin-left: 1em;
+}
+
+
+tbody {
+	width: 100%;
+}
+.notice {
+	font-size: 12px;
+	font-size: 1.2rem;
+	padding: .214em 0;
+	font-weight: normal;
+}
+
+/* ===========================
+   見出しサイズ
+   =========================== */
+h1 {
+	font-weight: normal;
+}
+h2 {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+h3 {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+.txt-bold {
+	font-weight: bold;
+}
+.txt-normal {
+	font-weight: normal;
+}
+/* ===========================
+   フォントサイズ
+   =========================== */
+.ft-10px {
+	font-size: 10px;
+	font-size: 1rem;
+}
+.ft-11px {
+	font-size: 11px;
+	font-size: 1.1rem;
+}
+.font-size12 {
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+.font-size13 {
+	font-size: 13px;
+	font-size: 1.3rem;
+}
+.font-size14 {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+.font-size15 {
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+.font-size16 {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+.font-size17 {
+	font-size: 17px;
+	font-size: 1.7rem;
+}
+.font-size18 {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.font-size22 {
+	font-size: 22px;
+	font-size: 2.2rem;
+}
+.font-size24 {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+.font-size26 {
+	font-size: 26px;
+	font-size: 2.6rem;
+}
+
+/* ===========================
+   余白 /*14px base*/
+   =========================== */
+.mgn-none {
+	margin: 0;
+}
+.mgn-rl2 {
+	margin: 0 .143em;
+}
+.mgn-tb5 {
+	margin: .357em 0;
+}
+.mgn-t5 {
+	margin: .357em 0 0;
+}
+.mgn-t10 {
+	margin: .714em 0 0;
+}
+.mgn-t20 {
+	margin: 1.429em 0 0;
+}
+.mgn-t40 {
+	margin: 2.857em 0 0;
+}
+.mgn-b10 {
+	margin-bottom: .714em;
+}
+.mgn-b20 {
+	margin-bottom: 1.429em;
+}
+.mgn-l5 {
+	margin-left: .357em;
+}
+.mgn-r5 {
+	margin-right: .357em;
+}
+.mgn-r15 {
+	margin-right: 1.071em;
+}
+.mgn-l10 {
+	margin-left: .714em;
+}
+.mgn-l20 {
+	margin-left: 1.250em;
+}
+.mgn-l30 {
+	margin-left: 1.875em;
+}
+.mgn-tb10 {
+	margin: .714em 0;
+}
+.mgn-tb20 {
+	margin: 1.429em 0;
+}
+.mgn-rl10 {
+	margin: 0 .714em;
+}
+.mgn-rl15 {
+	margin: 0 1.071em;
+}
+.mgn-all10 {
+	margin: .714em;
+}
+.mgn-al15 {
+	margin: 1.071em;
+}
+.pdg-al20 {
+	padding: 1.429em;
+}
+.pdg-al15 {
+	padding: 1.071em;
+}
+.pdg-al5 {
+	padding: .357em;
+}
+.pdg-al10 {
+	padding: .714em;
+}
+.pdg-b5 {
+	padding-bottom: .357em;
+}
+.pdg-tb5 {
+	padding: .357em 0;
+}
+.pdg-t10 {
+	padding-top: .714em;
+}
+.pdg-t20 {
+	padding-top: 1.429em;
+}
+.pdg-b10 {
+	padding-bottom: .714em;
+}
+.pdg-b20 {
+	padding-bottom: 1.429em;
+}
+.pdg-t15 {
+	padding-top: 1.071em;
+}
+.pdg-tb10 {
+	padding: .714em 0;
+}
+.pdg-tb20 {
+	padding: 1.429em 0;
+}
+.pdg-t5 {
+	padding-top: .357em;
+}
+.pdg-rl20 {
+	padding: 0 1.429em;
+}
+.pdg-rl10 {
+	padding: 0 .714em;
+}
+.pdg-rl15 {
+	padding: 0 1.071em;
+}
+.pdg-rlt15 {
+	padding: 1.071em 1.071em 0 1.071em;
+}
+.pdg-r15 {
+	padding-right: 1.071em;
+}
+.pdg-l15 {
+	padding-left: 1.071em;
+}
+.pdg-r5 {
+	padding-right: .357em;
+}
+.mgn-b-10 {
+	margin-bottom: -.714em;
+}
+.mgn-t-10 {
+	margin-top: -0.714em;
+}
+.mgn-t-5px {
+	margin-top: -5px;
+}
+.mgn-b-5px {
+	margin-bottom: -5px;
+}
+
+/* ===========================
+   左/右/中央/寄せ＆クリア
+   =========================== */
+.float-right {
+	float: right;
+}
+.float-left {
+	float: left;
+}
+.center {
+	display: block;
+	margin: 0 auto;
+}
+.clear {
+	clear: both;
+}
+
+/* ===========================
+   リスト
+   =========================== */
+.no-liststyle {
+	list-style-type: none;
+}
+.no-padding-list {
+	padding: 0;
+}
+.upper-latin {
+	list-style-type: upper-latin;
+}
+
+/* ===========================
+   角丸
+   =========================== */
+.rounded-corners-top5 {
+	-webkit-border-radius: .357em .357em 0 0;
+	-moz-border-radius: .357em .357em 0 0;
+	-ms-border-radius: .357em .357em 0 0;
+	-o-border-radius: .357em .357em 0 0;
+	border-radius: .357em .357em 0 0;
+}
+.rounded-corners-bottom5 {
+	-webkit-border-radius: 0 0 .357em .357em;
+	-moz-border-radius: 0 0 .357em .357em;
+	-ms-border-radius: 0 0 .357em .357em;
+	-o-border-radius: 0 0 .357em .357em;
+	border-radius: 0 0 .357em .357em;
+}
+.rounded-corners-top8 {
+	-webkit-border-radius: .571em .571em 0 0;
+	-moz-border-radius: .571em .571em 0 0;
+	-ms-border-radius: .571em .571em 0 0;
+	-o-border-radius: .571em .571em 0 0;
+	border-radius: .571em .571em 0 0;
+}
+.rounded-corners-bottom8 {
+	-webkit-border-radius: 0 0 .571em .571em;
+	-moz-border-radius: 0 0 .571em .571em;
+	-ms-border-radius: 0 0 .571em .571em;
+	-o-border-radius: 0 0 .571em .571em;
+	border-radius: 0 0 .571em .571em;
+}
+.rounded-corners-top10 {
+	-webkit-border-radius: .714em .714em 0 0;
+	-moz-border-radius: .714em .714em 0 0;
+	-ms-border-radius: .714em .714em 0 0;
+	-o-border-radius: .714em .714em 0 0;
+	border-radius: .714em .714em 0 0;
+}
+.rounded-corners-bottom10 {
+	-webkit-border-radius: 0 0 .714em .714em;
+	-moz-border-radius: 0 0 .714em .714em;
+	-ms-border-radius: 0 0 .714em .714em;
+	-o-border-radius: 0 0 .714em .714em;
+	border-radius: 0 0 .714em .714em;
+}
+.rounded-corners-al5 {
+	-webkit-border-radius: .357em .357em;
+	-moz-border-radius: .357em .357em;
+	-ms-border-radius: .357em .357em;
+	-o-border-radius: .357em .357em;
+	border-radius: .357em .357em;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media ( min-width : 768px ) {
+	.mgn-none {
+		margin: 0;
+	}
+}
