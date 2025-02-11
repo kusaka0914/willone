@@ -1,0 +1,35 @@
+name: Destroy edge environment
+
+on:
+  pull_request:
+    types: [closed, unlabeled]
+
+env:
+  APP_NAME: woa
+  EDGE_NAME: pr-${{ github.event.pull_request.number }}
+
+jobs:
+  destroy:
+    if: ${{ github.event.action == 'closed' || github.event.label.name == 'edge環境' }}
+    name: Destroy Edge-stack
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    environment:
+      name: edge
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/github_actions
+          aws-region: ap-northeast-1
+
+      - name: Destroy Edge-stack
+        id: destroy-edge-stack
+        run: |
+          aws cloudformation delete-stack --stack-name ${APP_NAME}-${EDGE_NAME}

@@ -1,0 +1,328 @@
+@charset "utf-8";
+
+/* ブラウザを縮小した際に背景が切れるのを防ぐ */
+@media screen {
+    body {
+        min-width: 940px;
+    }
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#33000000, EndColorStr=#33000000);
+    /*IE8以下用*/
+}
+
+/* font-family */
+body {
+    font-family: Meiryo, "メイリオ", "ＭＳ Ｐゴシック", sans-serif;
+}
+
+body,
+textarea {
+    font-family: "Lucida Grande", Meiryo, "メイリオ", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+        "ＭＳ Ｐゴシック", sans-serif;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("/woa/img/form_bg.jpg") bottom center no-repeat #fafbfb fixed;
+}
+
+.header {
+    height: 60px;
+    line-height: 60px;
+    padding: 10px 0;
+    text-align: center;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* margin-bottom */
+.mb50 {
+    margin-bottom: 50px;
+}
+
+.mb80 {
+    margin-bottom: 80px;
+}
+
+/* 枠 */
+.formContents {
+    margin: 0 auto 20px;
+    width: 760px;
+}
+
+.formContents .err {
+    background: #faa2b0;
+}
+
+.formContents .noteTxt {
+    color: #ff78a1;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.formContents .commonForm {
+    background: #ffd1e0;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.formContents .commonForm .form {
+    background: #ffffff;
+}
+
+.formContents table {
+    color: #707070;
+    font-size: 13px;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.formContents .tit {
+    background: #ffffff;
+    border-bottom: 2px dashed #ffd1e0;
+    padding: 10px 0 10px 10px;
+    text-align: center;
+    width: 162px;
+}
+
+.formContents .tit div {
+    background: #faa2b0;
+    text-align: center;
+    width: 140px;
+}
+
+.formContents td {
+    border-bottom: 2px dashed #ffd1e0;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.formContents .essential {
+    background: #ffffff;
+    border-bottom: 2px dashed #ffd1e0;
+    padding: 0;
+    width: 19px;
+    color: #faa2b0;
+}
+
+.formContents .error_area {
+    border: 10px solid #ff0000;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    color: #ff0000;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.formContents .error_area p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.formContents .error_area li {
+    font-size: 13px;
+}
+
+.required_error {
+    background: #ffffff;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* 入力項目 */
+.nameInput {
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 240px;
+}
+
+.nameInput_err {
+    background: #ffdfdf;
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 240px;
+}
+
+.birth_year,
+.birth_month,
+.birth_day {
+    padding-left: 4px;
+    width: 100px;
+    font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック",
+        "MS PGothic", sans-serif;
+}
+
+.zipInput,
+.zipInput_err {
+    background: #ffffff;
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 160px;
+}
+
+.selectAddr,
+.selectReqate {
+    padding-left: 4px;
+    width: 180px;
+    font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック",
+        "MS PGothic", sans-serif;
+}
+
+.addrInput {
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 220px;
+}
+
+.addrInput_err {
+    background: #ffdfdf;
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 220px;
+}
+
+.mobileInput {
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 240px;
+}
+
+.mobileInput_err {
+    background: #ffdfdf;
+    border: 1px solid #d7d7d7;
+    padding: 6px;
+    width: 240px;
+}
+
+.SubmitbtnArea {
+    padding: 10px;
+    text-align: center;
+}
+
+.SubmitbtnArea span {
+    background: url(/woa/img/arrow.gif) no-repeat scroll 0 center;
+    font-size: 13px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+/* footer */
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: #1d1d1d;
+    text-align: center;
+    z-index: 100;
+}
+
+#footer .innerfooter {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#footer small {
+    color: #ffffff;
+}
+
+#footer .footLink {
+    margin-top: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+/* modal
+ ----------------------------------------------------- */
+.modal {
+    display: none;
+    text-align: left;
+}
+
+.modalBody {
+    position: fixed;
+    z-index: 999999;
+    background: #fff;
+    width: 80%;
+    height: 80%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding: 13px;
+    line-height: 1.6;
+    border-radius: 4px;
+}
+.modalBody h2 {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #2bb2ff;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2bb2ff;
+}
+.modalBody h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+.modalBody dl {
+    margin-bottom: 1em;
+}
+.modalBody dt {
+    font-weight: bold;
+}
+.modalBK {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+}
+.btns {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.window_close,
+.close {
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: underline;
+    color: #fff;
+    background-color: #999;
+    border-radius: 4px;
+    line-height: 32px;
+    font-size: 1.2rem;
+}
+.scroll_box {
+    overflow-y: auto;
+    height: 90%;
+    padding: 2px;
+}
+.scroll_box::-webkit-scrollbar {
+    width: 5px;
+    background: #d7d7d7;
+}
+.scroll_box::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 2px;
+}

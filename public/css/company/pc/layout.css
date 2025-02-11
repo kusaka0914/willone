@@ -1,0 +1,272 @@
+/* ===========================
+	Layout:エリア分け
+   =========================== */
+
+/* ===========================
+	Block
+   =========================== */
+
+/* ヘッダー */
+.l-header {
+	display: block;
+	box-sizing: border-box;
+    width: 100%;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+    z-index: 999;
+}
+.l-header-area {
+	width: 980px;
+	height: auto;
+	margin: 0 auto;
+}
+.l-header-area2 {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+}
+.l-header-inner {
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+}
+
+
+.reqAdopt{
+	display: none;
+}
+
+/* パンくず */
+.l-breadcrumb {
+    display: table;
+	box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    padding-left: .9em;
+}
+
+/* コンテンツブロック */
+.l-main {
+	display: block;
+	overflow: hidden;
+	box-sizing: border-box;
+	width: 100%;
+	height: auto;
+}
+
+.l-main-2c {
+	float: left;
+	overflow: hidden;
+	width: 480px;
+	height: auto;
+}
+.l-main-2c:last-child {
+	margin-left: 20px;
+}	
+
+.l-article {
+	display: block;
+	overflow: hidden;
+	box-sizing: border-box;
+    margin: 0 0 1.071em;
+	padding: 0 1em;
+}
+
+.l-discription {
+	display: block;
+	overflow: visible;
+	box-sizing: border-box;
+    margin: 1.071em;
+	padding: .5em .9em;
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 1.6;
+	text-align:justify;  
+	text-justify: inter-ideograph;  
+}
+
+/* 1カラムブロック */
+.l-1column {
+	width: 980px;
+	overflow: hidden;
+	margin: 0 auto 20px;
+	box-sizing: initial;
+	/*border: solid 1px #000;*/
+}
+
+
+/* 2カラムブロック */
+.l-2column {
+	width: 980px;
+	overflow: hidden;
+	margin: 0 auto 20px;
+	box-sizing: initial;
+	/*border: solid 1px #000;*/
+}
+
+.l-2c-main {
+	float: left;
+	width: 700px;
+	height: auto;
+	overflow: hidden;
+	/*border: solid 1px #000;*/
+}
+.l-2c-side {
+	float: right;
+	width: 260px;
+	height: auto;
+	overflow: hidden;
+	/*border: solid 1px #000;*/
+}
+
+/* フッター */
+.l-footer {
+	display: block;
+    width: 100%;
+}
+
+.l-footer-nav {
+	display: table;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.l-copyright {
+	margin: 0;
+	padding: .3em 0;
+	font-size: 10px;
+	font-size: 1rem;
+	line-height: 1.6;
+	text-align: center;
+}
+
+/* ===========================
+	Display
+   =========================== */
+.l-dp-block {
+	display: block;
+}
+   
+.l-dp-inline {
+	display: inline-block;
+}
+
+.l-dp-tc {
+	display: table-cell;
+}
+
+.l-dp-inlineTbl {
+	display: inline-table;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+   
+@media ( min-width : 480px ) {
+	.l-header-inner {
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+	}
+
+	.l-article {
+		display: block;
+		overflow: hidden;
+		box-sizing: border-box;
+	    margin: 0 auto 1.071em;
+		padding: 0 1em;
+	}
+
+}
+   
+
+@media ( min-width : 768px ) {
+
+	/* ===========================
+		Block
+	   =========================== */
+
+	/* ヘッダー */
+	.reqAdopt{
+		display: block;
+		width: 184px;
+		height: 41px;
+		position: relative;
+		right: 0;
+		top: 0;
+		z-index: 0;
+	}
+	
+	/* パンくず */
+	.l-breadcrumb {
+	    display: table;
+	    width: 980px;
+	    height: 2.143em;
+	    margin: .714em auto 0;
+	    padding-left: 0;
+	}
+	.l-breadcrumb2 {
+		display: table;
+	    width: 980px;
+	    margin: 0 auto .714em;
+	    padding-left: 0;
+	}
+
+}
+
+@media ( min-width : 800px ) {
+
+	/* コンテンツブロック */
+	.l-main {
+		display: block;
+		overflow: hidden;
+		box-sizing: border-box;
+		/*width: 80%;*/
+		width: 980px;
+		height: auto;
+		margin: 0 auto 20px;
+	}
+	
+	.l-main-box {
+		display: block;
+		overflow: hidden;
+		box-sizing: border-box;
+		/*width: 80%;*/
+		width: 980px;
+		height: 400px;
+		margin: 0 auto 20px;
+		border: solid 1px #f00;
+	}
+
+	.l-discription {
+		/*width: 80%;*/
+		width: 980px;
+		margin: 0 auto;
+	}
+	
+	/* フッター */
+	.l-footer {
+		display: block;
+	    /*width: 80%;*/
+		width: 980px;
+	    margin: 2em auto 0;
+	}
+	
+	.l-footer-nav {
+		display: inline-block;
+		box-sizing: border-box;
+		width: 55%;
+		/*width: 50%;*/
+		margin-bottom: .5em;
+		list-style: none;
+	}
+}
+
+
+

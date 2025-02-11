@@ -1,0 +1,179 @@
+@charset "utf-8";
+/************************************
+	採用担当者ページ
+*************************************/
+.mainConts{
+	width: 920px;
+	margin: 0 auto;
+}
+
+.topCont { margin-top : 20px; }
+.topCont h2 { margin : 0; }
+.topCont h2 img { vertical-align : bottom ; }
+.topCont h3 { margin : 0; }
+.topCont h3 img { vertical-align : bottom ; }
+.topCont .pointList { margin-top: 27px; }
+.topCont .pointList li { float : left; }
+.topCont .pointList li img { vertical-align : bottom; }
+.contArea {
+	margin: 0 0 55px;
+	padding: 0 0 30px;
+	_padding: 15px 0 30px;
+	overflow: hidden;
+	background-color : #f5f2ed;
+}
+.inquiryBox {
+	width: 880px;
+	margin: 19px auto 20px;
+	padding: 14px 0;
+	background-color: #ffffff;
+}
+.inquiryBox h3 {
+	width: 840px;
+	margin: 0 auto;
+}
+.inquiryBox p {
+	width: 748px;
+	margin: 17px auto 0;
+}
+.contArea #inputForm {
+	/*width: 624px;*/
+	width: 96%;
+	height: 620px;
+	padding: 0 148px 0 108px;
+	margin: 0 20px 30px;
+	border: none;
+	background-color: #ffffff;
+}
+.contArea .pointArea dl { overflow : hidden; }
+.contArea .pointArea dl dt { text-align : center; }
+.contArea .pointArea dl dd.left { float : left; }
+.contArea .pointArea dl dd.right { float : right; }
+.contArea .pointArea #point01 dt { margin-bottom : 11px; }
+.contArea .pointArea #point01 dd.left {
+	margin-left: 64px;
+	_margin-left: 32px;
+}
+.contArea .pointArea #point01 dd.right {
+	margin-right: 38px;
+	_margin-right : 19px;
+}
+.contArea .pointArea #point02 { margin-bottom : 14px; }
+.contArea .pointArea #point02 dt { margin-bottom : 6px; }
+.contArea .pointArea #point02 dd.left {
+	margin-left: 64px;
+	_margin-left: 32px;
+}
+.contArea .pointArea #point02 dd.right {
+	margin-right : 47px;
+	_margin-right: 23px;
+}
+.contArea .pointArea #point03 { margin-bottom : 33px; }
+.contArea .pointArea #point03 dt { margin-bottom : 7px; }
+.contArea .pointArea #point03 dd.left {
+	margin-left: 78px;
+	_margin-left: 39px;
+}
+.contArea .pointArea #point03 dd.right {
+	margin-right: 38px;
+	_margin-right: 19px;
+}
+.contArea .inquiryBox .inquirySelect .phoneNum {
+	width: 389px;
+	margin: 7px 0 0 52px;
+	_margin: 17px 0 0 26px;
+	float: left;
+}
+.contArea .inquiryBox .inquirySelect .inquiry {
+	width: 359px;
+	margin: 21px 40px 0 0;
+	_margin: 23px 20px 0 0;
+	float: right;
+}
+.serviceFlow {
+	width: 878px;
+	margin: 0 auto;
+	padding-top: 1px;
+	position: relative;
+	border: 1px solid #dddddd;
+	background-color : #ffffff;
+	overflow: hidden;
+}
+.serviceFlow ul {
+	padding: 0 10px;
+	list-style: none;
+}
+.serviceFlow ul li {
+	width: 203px;
+	margin-right: 9px;
+	float: left;
+}
+.serviceFlow ul li.step04 {
+	width: 220px;
+	margin: 0;
+}
+.serviceFlow ul li dl dt { margin-bottom : 7px; }
+.serviceFlow ul li dl dd {
+	margin: 0;
+	padding: 9px 11px;
+	font-size: 13px;
+	text-align: left;
+	line-height: 20px;
+	background-color: #f5f5f5;
+	box-sizing: initial;
+}
+.serviceFlow ul li dl dd span {
+	display: block;
+	margin-bottom: 5px;
+	color: #f04919;
+	font-size: 14px;
+	font-weight: bold;
+}
+.serviceFlow .flowIcon { 
+	margin: 0;
+	position: absolute;
+	left: 794px;
+	top: 87px;
+}
+.serviceFlow h3 {
+	margin: 0;
+}
+
+/* clearfix */
+.clear:after {
+	display: block;
+	content: ".";
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+.clear { display:inline-block; }
+* html .clear { height:1%; }
+.clear { display:block; }
+
+.for_cus_h1 {
+	font-size: 11px;
+	font-size: 1.1rem;
+	font-weight: normal;
+	margin: .3em 0 .97em;
+}
+
+#inputForm {
+	/*width: 624px;*/
+	width: 624px;
+	height: 620px;
+	padding: 0 0 0 0;
+	margin: 0 20px 30px;
+	border: none;
+	background-color: #ffffff;
+}
+form > div.form-style-1 { /* フォーム下テキスト */
+	text-align: center!important;
+	padding: 20px 0;
+}
+
+
+/*下記、EJB用に追加*/
+
+.header-inner { width: 920px; margin: 20px auto 0px; }
+.serviceFlow .clear{ padding-top:33px;}

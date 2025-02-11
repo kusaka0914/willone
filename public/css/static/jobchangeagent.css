@@ -1,0 +1,67 @@
+body.jobChangeAgent-body {
+  background-color: #f9f6eb;
+  @media screen and (max-width: 769px) {
+    background-color: #37B1DE;
+  }
+}
+.main {
+  background-color: #37B1DE;
+  max-width: 780px;
+  margin: 50px auto 0;
+  @media screen and (max-width: 769px) {
+    margin: 35px auto 0;
+  }
+}
+
+.main.guideIndex-main {
+  margin-top: 0;
+}
+
+.main img {
+  max-width: 100%;
+  height: auto;
+}
+.main .toggle-btn {
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+}
+.main .toggle-btn.toggle-inverted {
+}
+.main .toggle-target {
+  display: none;
+}
+.main .cv-btn {
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: transparent;
+}
+.main .cv-btn:hover {
+  opacity: 0.7;
+}
+
+.main .toggle-box {
+  position: relative;
+}
+
+.main .toggle-box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7%;
+  right: 7%;
+  bottom: 0;
+  background-color: #fff;
+}
+
+footer.jobChangeAgent-footer {
+  position: relative;
+}
+@media screen and (max-width: 769px) {
+  footer.jobChangeAgent-footer .pMark {
+    width: 100%;
+  }
+  footer.jobChangeAgent-footer #footer .footLink {
+    width: 100%;
+  }
+}

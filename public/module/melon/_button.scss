@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* Scss Document */
+
+.melon-btn { border-radius: 3px; background-color: #e0e0e0; padding: 0.72em 1em 0.58em; margin: 0 auto 0.5em; display: inline-block; text-align: center; box-shadow: 0 4px 0 #bbb, 0 4px 10px rgba(0,0,0,0.2); font-weight: 700; border: 1px solid rgba(255,255,255,0.05); 
+background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.12)); 
+background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.12)); 
+position: relative; top:0; -webkit-transition: 0.2s; transition: 0.2s; color: #555; line-height: 1.5;}
+
+.melon-btn:hover { opacity: 0.9; cursor: pointer; top: 4px; box-shadow:0 0 0px rgba(0,0,0,0); color: #555;}
+.melon-btn:visited { color: #555;}
+.melon-btn:disabled,
+.melon-btn.melon-btn-disabled { box-shadow:0 0 0px rgba(0,0,0,0); top: 4px; cursor: not-allowed; opacity: 0.8;}
+
+/* 色違い */
+
+.melon-btn-king { background-color: #4eb91f; box-shadow: 0 4px 0 #328c0a, 0 4px 10px rgba(0,0,0,0.2); color: #fff; text-shadow:0 0 1px rgba(0,0,0,0.1), 0 0 0.3em rgba(0,0,0,0.3);text-shadow:0 0 1px rgba(0,0,0,0.1), 0 0 0.3em rgba(0,0,0,0.3);
+  &:hover, &:visited { color: #fff !important;}
+}
+
+.melon-btn-queen { background-color: #ff8200; box-shadow: 0 4px 0 #c56500, 0 4px 10px rgba(0,0,0,0.2); color: #fff;
+  &:hover, &:visited { color: #fff !important;}
+}
+
+.melon-btn-jack { background-color: rgba(255,255,255,0); color: #3b8bba;
+  &:hover { color: #58C1DA;}
+  &:visited { color: #3b8bba;}
+}
+.melon-btn-joker { background-color: #ffd205; box-shadow: 0 4px 0 #887604, 0 4px 10px rgba(0,0,0,0.2); color: #000;
+  &:hover, &:visited { color: #000 !important;}
+  b, strong { font-size: 1.4em;}
+  strong { color: #da0000;}
+}
+
+/* フラット系 */
+.melon-btn-flat { background-color: #f0f0f0; padding: 1.2em 2.3em 1em; margin: 0 auto 0.5em; display: inline-block; text-align: center; border-radius: 3px; 
+-webkit-transition: 0.2s; transition: 0.2s; color: #555; line-height: 1; box-shadow:inset 0 0 0 1px #ddd, 0 3px 5px rgba(0,0,0,0.3); position: relative;
+  &:hover { top: 1px; box-shadow: inset 0 0 0 1px #ddd, 0 2px 4px rgba(0,0,0,0.4); -webkit-filter: hue-rotate(30deg); filter: hue-rotate(30deg); cursor: pointer;}
+  &:active { top: 4px; box-shadow: inset 0 0 0 1px #ddd, 0 0 1px rgba(0,0,0,0.1); cursor: pointer;}
+  .fa-chevron-right { margin: 0 -1em 0 1em;}
+}
+
+.melon-btn-flat-king { background-color: #4eb91f; color: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  &:hover, &:visited { color: #fff !important; box-shadow: 0 2px 4px rgba(0,0,0,0.4);}
+}
+
+.melon-btn-flat-queen { background-color: #ff8200; color: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  &:hover, &:visited { color: #fff !important; box-shadow: 0 2px 4px rgba(0,0,0,0.4);}
+}
+
+.melon-btn-flat-joker { background-color: #ffd205; color: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  &:hover, &:visited { color: #fff !important; box-shadow: 0 2px 4px rgba(0,0,0,0.4);}
+}
+
+/* 装飾あり */
+
+.melon-btn-arrow { }
+.melon-btn-arrow::before { position: absolute; top:5%; right: 4%; bottom:0; font-family:'FontAwesome'; content:"\f054"; margin: auto; height:1em; line-height:1;}
+
+/* その他 */
+.melon-btn-block { display: block; width: 100%; padding-left:0; padding-right:0;}
+
+.melon-btn-border { display: inline-block; border: 1px solid; border-radius: 4px; text-align: center; padding: 0.7em 0.7em 0.45em; line-height: 1.35;}
+
+.melon-btn-miniRight { float: right; padding: 0.3em 0.8em 0.25em; font-size: 0.75rem; margin-top: 0.3em;}
+
+/* 枠なしのメニューボタン */
+.melon-menuBtn,
+a.melon-menuBtn { padding: 0.4em 0.6em 0em; display: inline-block; text-align: center; color: #999; line-height: 1.35;}

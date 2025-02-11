@@ -1,0 +1,179 @@
+name: Compress Images
+
+# NOTE: 暫定実装
+#  marketplaceにある下記画像圧縮プラグインがmainとの差分ファイルのみの圧縮に対応していないため(対応したら切り替え)
+#  https://github.com/marketplace/actions/image-actions
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'public/**/*.jpg'
+      - 'public/**/*.png'
+      - 'public/**/*.webp'
+
+permissions:
+  contents: write
+
+jobs:
+  compress-images:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 3
+    env:
+      TZ: 'Asia/Tokyo'
+      TARGET_JPG: 'public/*.jpg'
+      TARGET_PNG: 'public/*.png'
+      TARGET_WEBP: 'public/*.webp'
+
+    steps:
+      - name: Setup git and compress images package
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends git pngquant jpegoptim webp
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set repository name
+        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
+
+      - name: Set safe.directory
+        run: git config --global --add safe.directory /__w/${{ env.REPOSITORY_NAME }}/${{ env.REPOSITORY_NAME }}
+
+      - name: Output the diff of the image from main branch
+        id: diff
+        run: |
+          IFS=' ' read -r -a target_jpg_list <<< "$TARGET_JPG"
+          jpg_diff=$(git diff --name-only --diff-filter=ACMR origin/main..origin/${{ github.ref_name }} -- "${target_jpg_list[@]}")
+          echo $jpg_diff
+          echo "jpg_diff=$(echo $jpg_diff)" >> $GITHUB_OUTPUT
+          IFS=' ' read -r -a target_png_list <<< "$TARGET_PNG"
+          png_diff=$(git diff --name-only --diff-filter=ACMR origin/main..origin/${{ github.ref_name }} -- "${target_png_list[@]}")
+          echo $png_diff
+          echo "png_diff=$(echo $png_diff)" >> $GITHUB_OUTPUT
+          IFS=' ' read -r -a target_webp_list <<< "$TARGET_WEBP"
+          webp_diff=$(git diff --name-only --diff-filter=ACMR origin/main..origin/${{ github.ref_name }} -- "${target_webp_list[@]}")
+          echo $webp_diff
+          echo "webp_diff=$(echo $webp_diff)" >> $GITHUB_OUTPUT
+
+      # JPG圧縮(同ファイルが同じコマンドで複数回圧縮されることを考慮し圧縮率10%以上ならコミット)
+      - name: JPG compress
+        if: steps.diff.outputs.jpg_diff != ''
+        run: |
+          jpegoptim -m85 -P --threshold=10 --strip-all ${{ steps.diff.outputs.jpg_diff }}
+
+      # PNG圧縮(同ファイルが同じコマンドで複数回圧縮されることを考慮し圧縮率20%以上ならコミット)
+      - name: PNG compress
+        if: steps.diff.outputs.png_diff != ''
+        run: |
+          for tmp_file in ${{ steps.diff.outputs.png_diff }}; do
+            compress_file="${tmp_file}_${RANDOM}"
+            pngquant --quality=85-90 --speed=1 --strip "$tmp_file" -o "$compress_file" || (exitcode=$?; if [ $exitcode -ne 98 ] && [ $exitcode -ne 99 ]; then exit $exitcode; fi)
+            before_size=$(stat -c '%s' "$tmp_file")
+            threshold_size=$(echo "$before_size * 0.8" | bc | awk '{printf("%d\n", $1)}')
+            after_size=$( [ -f "$compress_file" ] && stat -c '%s' "$compress_file" || echo "$before_size" )
+            tmp_result_text=$(echo 'before:' $before_size ' threshold:' $threshold_size ' after:' $after_size)
+            if [ ! -f "$compress_file" ]; then
+              echo $tmp_file ' skipped. ' $tmp_result_text
+            elif [ "$after_size" -lt "$threshold_size" ]; then
+              rm "$tmp_file"
+              mv "$compress_file" "$tmp_file"
+              echo $tmp_file ' compressed. ' $tmp_result_text
+            else
+              rm "$compress_file"
+              echo $tmp_file ' skipped. ' $tmp_result_text
+            fi
+          done
+
+      # WEBP圧縮(同ファイルが同じコマンドで複数回圧縮されることを考慮し圧縮率10%以上ならコミット)
+      - name: WEBP compress
+        if: steps.diff.outputs.webp_diff != ''
+        run: |
+          for tmp_file in ${{ steps.diff.outputs.webp_diff }}; do
+            compress_file="${tmp_file}_${RANDOM}"
+            cwebp -q 80 -m 6 -metadata none "$tmp_file" -o "$compress_file"
+            before_size=$(stat -c '%s' "$tmp_file")
+            threshold_size=$(echo "$before_size * 0.9" | bc | awk '{printf("%d\n", $1)}')
+            after_size=$(stat -c '%s' "$compress_file")
+            tmp_result_text=$(echo 'before:' $before_size ' threshold:' $threshold_size ' after:' $after_size)
+            if [ "$after_size" -lt "$threshold_size" ]; then
+              rm "$tmp_file"
+              mv "$compress_file" "$tmp_file"
+              echo $tmp_file ' compressed. ' $tmp_result_text
+            else
+              rm "$compress_file"
+              echo $tmp_file ' skipped. ' $tmp_result_text
+            fi
+          done
+
+      # 画像圧縮したファイル取得
+      - name: Modified files
+        id: modified-files
+        run: |
+          IFS=' ' read -r -a target_list <<< "$TARGET_JPG $TARGET_PNG $TARGET_WEBP"
+          modified=$(git ls-files -m -- "${target_list[@]}")
+          echo $modified
+          echo "modified=$(echo $modified)" >> $GITHUB_OUTPUT
+
+      # 変更ファイルチェック(git-auto-commit-actionを利用するので余分な変更ファイルないか確認)
+      - name: Modified files Check
+        if: steps.modified-files.outputs.modified != ''
+        id: modified-files-check
+        run: |
+          IFS=' ' read -r -a target_list <<< "$TARGET_JPG $TARGET_PNG $TARGET_WEBP"
+          modified_count=$(git ls-files -m -- "${target_list[@]}" | wc -l)
+          all_modified_count=$(git diff --stat | grep -v 'changed,' | wc -l)
+          echo 'modified_count:' $modified_count ' all_modified_count:' $all_modified_count
+          if [ ! $modified_count -eq $all_modified_count ]; then
+            exit 1
+          fi
+
+      # コミットMSG生成
+      - name: Set commit message
+        if: steps.modified-files.outputs.modified != ''
+        id: set-commit-message
+        run: |
+          echo 'commit_message<<EOF' >> $GITHUB_OUTPUT
+          echo 'Automatic Image Compression By Github Actions' $'\n\n' >> $GITHUB_OUTPUT
+          echo "$(git diff --stat)" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      - name: Git commit push
+        if: steps.modified-files.outputs.modified != '' && steps.set-commit-message.outputs.commit_message != ''
+        id: auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ steps.set-commit-message.outputs.commit_message }}
+
+  slack-notification:
+    needs: compress-images
+    if: ${{ !success() }}
+    runs-on: ubuntu-20.04
+    timeout-minutes: 1
+    steps:
+      - name: Replace line feed code in commit message
+        id: replace
+        run: |
+          message="${{ github.event.head_commit.message }}"
+          echo "message=$(echo $message)" >> $GITHUB_OUTPUT
+
+      - name: Send GitHub Action trigger data to Slack workflow
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "status": "${{ needs.code-check.result }}",
+              "user": "${{ github.actor }}",
+              "repository": "${{ github.event.repository.name }}",
+              "branch": "${{ github.ref_name }}",
+              "commit_message": "${{ steps.replace.outputs.message }}",
+              "commit_url": "${{ github.event.head_commit.url }}",
+              "workflow_url": "${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WORKFLOW_WEBHOOK_URL }}

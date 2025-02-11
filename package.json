@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "",
+        "development": "",
+        "watch": "",
+        "watch-poll": "",
+        "hot": "",
+        "prod": "",
+        "production": ""
+    },
+    "devDependencies": {
+        "blade-formatter": "^1.32.3",
+        "prettier": "2.8.1"
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ActiBook_Contents Count="16">
+  <Content Title="表紙" DestPage="1" Level="0"></Content>
+  <Content Title="メッセージ" DestPage="2" Level="0"></Content>
+  <Content Title="OUTLINE" DestPage="3" Level="0"></Content>
+  <Content Title="キャリアステップ" DestPage="4" Level="0"></Content>
+  <Content Title="資料請求から、就職まで" DestPage="6" Level="0"></Content>
+  <Content Title="受講&amp;バックアップ" DestPage="8" Level="0"></Content>
+  <Content Title="コース紹介" DestPage="10" Level="0">  <Content Title="整体ベーシックコース,整体セラピストコース" DestPage="10" Level="1"></Content>
+    <Content Title="整体プロフェッショナルコース" DestPage="11" Level="1"></Content>
+    <Content Title="整体アドバンス・プロフェッショナルコース,ウィルワン総合実践経営コース" DestPage="12" Level="1"></Content>
+    <Content Title="ADDITIONAL COURSE" DestPage="13" Level="1"></Content>
+  </Content>
+  <Content Title="講師インタビュー" DestPage="14" Level="0"></Content>
+  <Content Title="現役生インタビュー" DestPage="15" Level="0"></Content>
+  <Content Title="卒業生インタビュー" DestPage="16" Level="0"></Content>
+  <Content Title="卒業生インタビュー" DestPage="17" Level="0"></Content>
+  <Content Title="会社概要" DestPage="18" Level="0"></Content>
+</ActiBook_Contents>

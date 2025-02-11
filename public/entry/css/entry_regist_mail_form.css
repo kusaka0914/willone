@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+#mailForm{
+  background: #E2F0D9;
+  border: #444;
+  margin: 0.5em 0;
+  padding: 0.9em 10px;
+}
+#mailForm .note {
+  color: #666;
+  font-size: .8em;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  width: 97%;
+}
+@media (max-width: 800px) {
+  #mailForm .sp_br{
+    display: none;
+  }
+  #mailForm .note{
+    font-size: 0.7em;
+  }
+}
+html.pc #entryFinForm {
+  width: 60%;
+}
+#entryFinForm {
+  text-align: center;
+  margin: auto;
+}
+#mail_inp {
+  font-weight: lighter;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 0.5em;
+  width: 97%;
+}
+#entryFinForm .button {
+  color: #fff;
+  background: #00B050;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 0.5em;
+  cursor: pointer;
+}
+#err_msg{
+  color: #FF0000;
+  font-size: 12.5px;
+  margin: 0.5rem 0 1rem;
+}

@@ -1,0 +1,349 @@
+body,
+table,
+input,
+textarea,
+select,
+option {
+  color: #707070;
+  font-family: "sans-serif", "ArialMT", "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic" ;
+  font-size: 1em;
+  font-weight:600;
+}
+
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  /* 半透明の白 */
+  backdrop-filter: blur(5px);
+  /* 背景にブラー効果を適用 */
+  z-index: 9999;
+  /* 他の要素の上に表示 */
+}
+
+/* スライダー全体のコンテナ */
+#slider-container {
+  background: #fff;
+  width: 85%;
+  max-width: 400px;
+  /* スライドの幅 */
+  height: auto;
+  /* 高さを自動調整 */
+  overflow: hidden;
+  position: relative;
+  margin: 30px auto;
+  /* 中央寄せ */
+  padding: 0;
+  box-shadow: 0px 0px 20px 16px rgba(169, 169, 178, 0.08);
+}
+
+/* スライドを横並びに配置 */
+#slider {
+  display: flex;
+  width: 100%;
+  position: relative;
+  left: 0;
+  /* 初期位置 */
+}
+
+/* 各スライド */
+.slide {
+  flex: 0 0 100%;
+  /* スライドの幅をコンテナに合わせる */
+  width: 50%;
+  text-align: center;
+}
+
+.slide label {
+  color: #707070;
+}
+
+/* ボタンのスタイル */
+button {
+  margin: 10px;
+}
+
+.slide-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 10px;
+  max-width: 290px;
+  margin: 20px auto;
+}
+
+#req_emp_type_li_6,
+#req_emp_date_li_1 {
+  grid-column: 1 / 3;
+
+}
+
+#req_emp_type_li_6 label,
+#req_emp_date_li_1 label {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 70px;
+}
+
+ul.slide-wrap.retirement_intention_ul {
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+ul.slide-wrap.retirement_intention_ul li label {
+  height: 45px;
+}
+
+.slide-wrap li label {
+  height: 120px;
+  place-content: center;
+  display: grid;
+  padding: 3px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+}
+
+.slide-wrap img {
+  display: block;
+  height: 60px;
+  margin: 0 auto;
+  filter: invert(50%);
+  object-fit: contain;
+}
+
+li#req_emp_type_li_9 {
+  display: none;
+}
+
+li.selected label {
+  border: 2px solid #ff348e;
+  background: #ff348e !important;
+  color: #fff;
+}
+
+li.selected label img {
+  filter: invert(100%);
+}
+
+.slide[data-index="2"] li.selected label img {
+  filter: invert(0%);
+}
+
+.stop-subscription {
+  text-align: right;
+  padding: 20px 0;
+  max-width: 300px;
+  margin: 10px auto;
+}
+
+.stop-subscription.stop-subscription-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.stop-subscription-btn {
+  color: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button.prev {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.step-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.step-bar-num {
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  border-radius: 50%;
+  background: #C5C5C5;
+  display: grid;
+  place-content: center;
+}
+
+.step-bar-num-active {
+  background-color: #1FC9FA;
+}
+
+.formMuscle {
+  padding-top: 50px;
+}
+
+p.step-bar-desc {
+  text-align: center;
+  font-size: 14px;
+  font-weight: inherit;
+}
+
+/* 配信停止案内 */
+.unsubscribe-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1000;
+  height: auto;
+  margin: auto !important;
+  padding: 60px 30px 30px 30px;
+  width: 90vw;
+  max-width: 640px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #fff;
+  display: none;
+}
+
+.unsubscribe-box.active {
+  display: block;
+}
+
+.unsubscribe-box .close {
+  position: absolute;
+  top: -45px;
+  right: 10px;
+}
+
+.unsubscribe-box .close span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.unsubscribe-box .close span:before,
+.unsubscribe-box .close span:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #ccc;
+}
+
+.unsubscribe-box .close span:before {
+  transform: rotate(45deg);
+}
+
+.unsubscribe-box .close span:after {
+  transform: rotate(-45deg);
+}
+
+.unsubscribe-box p {
+  margin-bottom: 8px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.unsubscribe-box .mail-box {
+  border: 1px solid #ddd;
+  padding-bottom: 2px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.unsubscribe-box .mail-box span {
+  display: block;
+  background: #999;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.cover {
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: none;
+}
+
+.cover.active {
+  display: block;
+}
+
+.relative {
+  position: relative;
+}
+
+button.cv {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: bold;
+  text-align: center;
+  background-color: #aab3b0;
+  box-shadow: 0 -2px 0px #86928d, inset 0 0 30px #86928d;
+  cursor: pointer;
+  -webkit-transform: translateY(6px);
+  transform: translateY(6px);
+  border-radius: 6px;
+  margin: 0 auto 0.4em;
+  padding: 12px 0 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border: none;
+  width: 100%;
+  max-width: 290px;
+}
+
+button.cv.cv-active {
+  background-color: #0dc582;
+  box-shadow: 0 6px 0 rgba(10, 150, 99, 1);
+}
+
+.step3-error-msg {
+  padding: 0.2em 0;
+  text-align: center;
+  font-size: 12px;
+  color: #c00;
+  font-weight: 700;
+  border: 2px solid;
+  background-color: #F3D1D1;
+  border-radius: 2px;
+  max-width: 290px;
+  margin: auto;
+  position: relative;
+  top: 10px;
+}

@@ -1,0 +1,31 @@
+/node_modules
+/public/.htaccess
+/public/hot
+/public/storage
+/public/uploads
+/public/willone_sitemap.xml
+/public/upload/job/*
+/public/upload/job
+/public/upload/blog
+/public/upload/images
+/storage/*.key
+/storage/debugbar
+/vendor
+/.idea
+/.vagrant
+/nohup.out
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env*
+!.env.ci
+.phpunit.result.cache
+# Sublime Text SFTP Config File
+sftp-config.json
+# key
+/.ssh
+/.vscode
+*.pem
+docker/woa-db/backup
+/.phpunit.cache

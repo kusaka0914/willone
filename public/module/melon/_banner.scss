@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* Scss Document */
+
+.melon-banner-A1 { display: block; margin: 0 auto; padding: 10px; background: url(/img/banner/kaogmeGutsRight-300.png) no-repeat -2% 100% #80bec8; background-position: calc(50% - 34vw) 100%; background-size: auto 97%;}
+.melon-banner-A1 .melon-banner_copy { display: block; margin: 3px 0 12px 28%; color: #fff; text-align: left; text-shadow: 1px 1px 0 #80bec8,1px -1px 0 #80bec8,-1px 1px 0 #80bec8,-1px -1px 0 #80bec8,1px 0px 0 #80bec8,0px 1px 0 #80bec8,-1px 0px 0 #80bec8,0px -1px 0 #80bec8; line-height: 1.6;}
+.melon-banner-A1 .melon-banner_btn { display: block; background-color: #fff; border-radius: 4px; text-align: center; padding: 0.6em 0; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.4);}
+.pc .melon-banner-A1 { background-position: 5% 100%;}
+.pc .melon-banner-A1 .melon-banner_copy { margin: 18px 0 27px 28%;}
+
+.melon-banner-B1 { display: block; padding: 15px 10px; text-align: left; background: url(/img/sp/secret.png) no-repeat -40px -3px /288px auto #000; font-size: 15px; color: #fff; position: relative; overflow: hidden;}
+.melon-banner-B1 .melon-banner_text { font-size: 1.2em; line-height: 1.3; font-weight: bold; text-align: right; margin: 0 0 8px;}
+.melon-banner-B1 .melon-banner_text b,
+.melon-banner-B1 .melon-banner_text strong { font-size: 1.3em; }
+.melon-banner-B1 .melon-banner_text strong { color: #ff8100; text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff, 1px 0px 0 #fff, 0px 1px 0 #fff, -1px 0px 0 #fff, 0px -1px 0 #fff;}
+.melon-banner-B1 .melon-banner_btn { display: inline-block; float: right; background-color: #35be43; padding: 11px 10px 9px 16px; border: solid 3px #fff; border-radius: 6px; box-shadow: rgba(204, 204, 204, 0.55) 0px 0px 4px 2px; text-align: center; color: #fff; font-size: 20px; font-weight: bold; }
+.melon-banner-B1 .melon-banner_btn p { text-shadow: 2px 2px 0 #ff8100,2px 1px 0 #ff8100,2px 0px 0 #ff8100,2px -1px 0 #ff8100,2px -2px 0 #ff8100, 1px 2px 0 #ff8100,1px 1px 0 #ff8100,1px 0px 0 #ff8100,1px -1px 0 #ff8100,1px -2px 0 #ff8100, 0px 2px 0 #ff8100,0px 1px 0 #ff8100,0px 0px 0 #ff8100,0px -1px 0 #ff8100,0px -2px 0 #ff8100, -1px 2px 0 #ff8100,-1px 1px 0 #ff8100,-1px 0px 0 #ff8100,-1px -1px 0 #ff8100,-1px -2px 0 #ff8100, -2px 2px 0 #ff8100,-2px 1px 0 #ff8100,-2px 0px 0 #ff8100,-2px -1px 0 #ff8100,-2px -2px 0 #ff8100;}
+
+.melon-banner-B2 { display: block; padding: 15px 10px; text-align: left; font-size: 15px; color: #fff; position: relative; overflow: hidden;
+background: url(/img/sp/secret.png) no-repeat -40px -3px /288px auto, -webkit-linear-gradient( left top, #35be43, #2a7906);
+background: url(/img/sp/secret.png) no-repeat -40px -3px /288px auto, linear-gradient( to right bottom, #35be43, #2a7906);}
+.melon-banner-B2 .melon-banner_text { line-height: 1.3; font-weight: bold; float: right; margin: 0 0 8px;}
+.melon-banner-B2 .melon-banner_text b { color: #ff8100; text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff, 1px 0px 0 #fff, 0px 1px 0 #fff, -1px 0px 0 #fff, 0px -1px 0 #fff;}
+.melon-banner-B2 .melon-banner_btn { display: inline-block; float: right; background-color: #000; padding: 11px 10px 9px 16px; border: solid 3px #fff; border-radius: 6px; box-shadow: rgba(204, 204, 204, 0.55) 0px 0px 4px 2px; text-align: center; color: #fff; font-size: 20px; font-weight: bold; }
+
+.melon-prefMainImg-A1 { background-image: -webkit-linear-gradient(145deg,#ffd331,#f7cc2e); background-image: linear-gradient(145deg,#ffd331,#f7cc2e);}
+.melon-prefMainImg-A1 .melon-prefMainImg_box { padding: 2rem 0;}
+.melon-prefMainImg-A1 .melon-prefMainImg_textBox { width: 390px;}
+.melon-prefMainImg-A1 .melon-prefMainImg_title { color: #1e356a; line-height: 1.3;}
+.melon-prefMainImg-A1 .descText { background-color: #fff; border-radius: 2px; padding: 15px; margin: 12px 0 0; min-height: 150px;}
+
+.melon-banner-C1 {padding: 1rem; background: url(/img/banner/kagome_suit_here_upperBody.png) no-repeat -12px 40px; background-size: 190px auto; background-color: #7bbbc1;}
+.melon-banner-C1 .melon-banner_title { color: #ffeb3b; font-size: 1.5rem; text-align: center; font-weight: 700; margin: 0.2em 0 0.3em;}
+.melon-banner-C1 .melon-banner_copy { color: #fff; margin-left: 35%; }
+.melon-banner-C1 .melon-banner_box { padding: 1em; background-color: #fff; border-radius: 4px; margin: 1em 0;}
+.melon-banner-C1 .melon-banner_box ul { padding: 0 0 0 2em;}
+.melon-banner-C1 .melon-banner_box li { font-size: 1.2em; text-indent: -0.78em; line-height: 1.3; margin: 0.3em 0;}
+.melon-banner-C1 .melon-banner_box .fa { color: #ff8100; vertical-align: text-bottom;}
+.melon-banner-C1 .melon-btn { font-size: 1.3em; position: relative; padding-right: 1em;}
+.melon-banner-C1 .melon-btn i { position: absolute; top:0; bottom:0; margin:auto; right: 0.5em; height: 1em; line-height: 1; font-size: 1.4em;}
+.melon-banner-C1 .melon-btn b { color: #ffeb3b;}
+
+/* WEB上職場見学のバナー */
+#kengakuBanner-pcTop {}
+#kengakuBanner-pcBtm { margin-bottom: 3em;}
+#kengakuBanner-spBtm {}
+.kengakuBanner { display: block; margin-bottom: 1em;}
+#kengakuBanner-pcTop .kengakuBanner { margin-bottom: 2em;}

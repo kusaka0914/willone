@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+.melon-paren {}
+.melon-paren::before { content:'(';}
+.melon-paren::after { content:')';}
+
+.melon-img-center { display: block; text-align: center; margin-left: auto; margin-right: auto;}
+
+/* フォントサイズ
+ * デバイス幅によって、基準のフォントサイズが変わります（_base.scss を参照）。
+ * .melon-f-◯ の◯に入る数字は、デバイス幅320px時のフォントサイズをpx値にしたものです。
+ */
+
+.melon-f-6, { font-size: 0.5rem;} // w320px:6px , w800px:8px
+.melon-f-7, { font-size: 0.58333rem;} // w320px:7px , w800px:9.33px
+.melon-f-8, { font-size: 0.66667rem;} // w320px:8px , w920px:11.33339px
+.melon-f-8L, { font-size: 0.70588rem;} // w320px:8.47px , w920px:12px
+.melon-f-9, { font-size: 0.75rem;} // w320px:9px , w920px:12.75px
+
+.melon-f-10 { font-size: 0.83333rem;} // w320px:10px , w800px:14.16661px
+.melon-f-10L { font-size: 0.875rem;} // w320px:10.5px , w920px:14.875px
+.melon-f-11 { font-size: 0.91667rem;} // w320px:11px , w920px:15.58339px
+.melon-f-12 { font-size: 1rem;} // w320px:12px , w920px:17px
+.melon-f-13 { font-size: 1.08333rem;} // w320px:13px , w800px:17.33px
+.melon-f-14 { font-size: 1.16667rem;} // w320px:14px , w800px:18.66px
+.melon-f-15 { font-size: 1.25rem;} // w320px:15px , w800px:20px
+.melon-f-16 { font-size: 1.33333rem;} // w320px:16px , w800px:21.33px
+.melon-f-17 { font-size: 1.41667;} // w320px:17px , w800px:22.66px
+.melon-f-18 { font-size: 1.5rem;} // w320px:18px , w800px:24px
+
+.melon-f-20 { font-size: 1.66667rem;} // w320px:20px , w800px:26.66px
+.melon-f-22 { font-size: 1.83333rem;} // w320px:22px , w800px:29.33px
+.melon-f-24 { font-size: 2rem;} // w320px:24px , w800px:32px
+.melon-f-26 { font-size: 2.16667rem;} // w320px:26px , w800px:34.66px
+.melon-f-28 { font-size: 2.33333rem;} // w320px:28px , w800px:37.33px
+.melon-f-30 { font-size: 2.5rem;} // w320px:30px , w800px:40px
+
+.melon-f-33 { font-size: 2.75rem;} // w320px:33px , w800px:44px
+.melon-f-36 { font-size: 3rem;} // w320px:36px , w800px:48px
+.melon-f-40 { font-size: 3.33333rem;} // w320px:40px , w800px:53.33px
+.melon-f-45 { font-size: 3.75rem;} // w320px:45px , w800px:60px
+.melon-f-50 { font-size: 4.16667rem;} // w320px:50px , w800px:66.66px
+.melon-f-55 { font-size: 4.58333rem;} // w320px:55px , w800px:73.33px
+.melon-f-60 { font-size: 5rem;} // w320px:60px , w800px:80px
+.melon-f-65 { font-size: 5.41667rem;} // w320px:65px , w800px:86.66px
+.melon-f-70 { font-size: 5.83333rem;} // w320px:70px , w800px:93.33px
+.melon-f-80 { font-size: 6.66667rem;} // w320px:80px , w800px:106.66px
+.melon-f-90 { font-size: 7.5rem;} // w320px:90px , w800px:120px
+.melon-f-100 { font-size: 8.33333rem;} // w320px:40px , w800px:133.33px
+.melon-f-120 { font-size: 10rem;} // w320px:120px , w800px:160px
+
+
+
+/* テキストカラー */
+
+.melon-t-white,
+.melon-t-fff { color: #fff; }
+
+.melon-t-ccc { color: #ccc; }
+
+.melon-t-orange { color: #ff8200; }
+.melon-t-blue { color: #1e86d2; }
+.melon-t-red { color: #f93d10; }
+.melon-t-green { color: #4eb91f; }
+
+
+.melon-t-blue2 { color: #70bef2; }
+.melon-t-red2 { color: #f58a6c; }
+.melon-t-green2 { color: #5fd16b; }
+.melon-t-yellow2 { color: #cfc100; }
+.melon-t-purple2 { color: #b578bf; }
+.melon-t-orange2 { color: #fa8e31; }
+
+
+
+
+.melon-t-yellow3 { color: #d3d2c9; }
+
+
+
+
+
+/* 背景色 */
+.melon-bg-white { background-color: #fff;}
+
+.melon-bg-blue { background-color: #d7eaf7;}
+.melon-bg-red { background-color: #fce9e3;}
+.melon-bg-green { background-color: #defae1;}
+
+.melon-bg-gradYellow {}
+
+
+
+/* 装飾 */
+.melon-boldY { margin-left: 2px; margin-right: 2px; 
+background: -webkit-linear-gradient(rgba(255,255,255,0) 55%, #fffb78 55%, #fffb78 85%, rgba(255,255,255,0) 85%); 
+background: linear-gradient(rgba(255,255,255,0) 55%, #fffb78 55%, #fffb78 85%, rgba(255,255,255,0) 85%);
+}
+
+/* ポジション */
+.melon-pos { position: relative;}
+.melon-pos_item { position: absolute;}
+a.melon-pos_item { transition:0.2s;}
+a.melon-pos_item:hover { opacity: 0.8; -webkit-transform: translateY(2px); transform: translateY(2px);}
+
+/* グラデーション */
+.melon-gradient-highlight1 {background-image: -webkit-linear-gradient( rgba(255,255,255,0.3), rgba(255,255,255,0)); background-image: linear-gradient( rgba(255,255,255,0.3), rgba(255,255,255,0));}
+
+.melon-stripe-tateW1 { 
+background-image: -webkit-linear-gradient( left, rgba(255,255,255,0) 50%, rgba(255,255,255,0.3) 50%); 
+background-image: linear-gradient( to right, rgba(255,255,255,0) 50%, rgba(255,255,255,0.3) 50%); 
+background-size: 10px 10px; background-repeat: repeat;}
+
+.melon-stripe-nanameW1 { 
+background-image: -webkit-linear-gradient( -45deg, rgba(255,255,255,0) 25%, rgba(255,255,255,0.7) 25.1%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 50.1%, rgba(255,255,255,0) 75%, rgba(255,255,255,0.7) 75.1%); 
+background-image: linear-gradient( -45deg,  rgba(255,255,255,0) 25%, rgba(255,255,255,0.7) 25.1%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 50.1%, rgba(255,255,255,0) 75%, rgba(255,255,255,0.7) 75.1%); 
+background-size: 6px 6px; background-repeat: repeat;}

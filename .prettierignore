@@ -1,0 +1,5 @@
+*.php
+storage
+vendor
+node_modules
+*.min.js

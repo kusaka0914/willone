@@ -1,0 +1,1722 @@
+/* ===========================
+   ロゴ
+   =========================== */
+.sp-header .logo-box {
+	display: block;
+	float: none;
+	width: 100%;
+	text-align: left!important;
+}
+.sp-logo-img {
+   width: 200px;
+   margin: .714em 0 0 .714em;
+}
+.sp-logo-img-form {
+   width: 80%;
+   max-width:200px ;
+   margin: .714em 0 .357em;
+}
+.logo-box p {
+	font-size: 10px;
+	font-size: 1rem;
+	margin: 0;
+	padding: 3px 0 10px;
+}
+
+/* ===========================
+   ヘッダー
+   =========================== */
+.sp-header {
+	display: block;
+	overflow: visible;
+	box-sizing: border-box;
+    min-width: 320px;
+    height: auto;
+    text-align: center;
+    positopn: relative;
+}
+.sp-login {
+	background: url(/woa/img/sp/tri_map_bl.png) no-repeat 5px 50%;
+	-webkit-background-size: 5px 8px;
+	-moz-background-size: 5px 8px;
+	background-size: 5px 8px;
+	color: #707070;
+	cursor: pointer;
+	font-weight: bold;
+	display: block;
+	padding: 5px 8px 4px 14px;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+.sp-login-btn {
+	position: absolute;
+	top: 0;
+	right: 6px;
+	width: 75px;
+	height: auto;
+	background: -moz-linear-gradient( top, #fefefe 0%, #efefef 75%, #efefef);
+	background: -webkit-gradient( linear, left top, left bottom, from(#fefefe), color-stop(0.75, #efefef), to(#efefef));
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid #eeeeee;
+	-moz-box-shadow:
+	0px 1px 1px rgba(000,000,000,0.3), inset 0px 0px 1px rgba(255,255,255,1);
+	-webkit-box-shadow:
+	0px 1px 1px rgba(000,000,000,0.3), inset 0px 0px 1px rgba(255,255,255,1);
+	box-shadow:
+	0px 1px 1px rgba(000,000,000,0.3), inset 0px 0px 1px rgba(255,255,255,1);
+	text-shadow:
+	0px -1px 0px rgba(000,000,000,0), 0px 1px 0px rgba(255,255,255,0);
+	font-size: 10px;
+	font-size: 1rem;
+} 
+/* ===========================
+   トップメインイメージ部
+   =========================== */
+.sp-main-photo {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 200px;
+	margin: 0 auto;
+	padding: 0;
+	background: url(/woa/img/hojb/sp/sp_top_main_pt.png) 0 0 no-repeat;
+	background-size:cover;
+	border-bottom: 1px solid #d5d5d5;
+}
+.sp-main-btn {
+	position: relative;
+	top: 145px;
+}
+.sp-gray-box {
+	width: 100%;
+	padding: 1em 0;
+	border-bottom: 1px solid #d5d5d5;
+	background: #f7f7f7;
+	text-align: center;
+}
+
+/* ===========================
+   トップ下部サブメニュー
+   =========================== */
+.sp-sub-menu a,
+.sp-ditaile-bottom-menu a {
+	display: block;
+    border-bottom: solid 1px #d5d5d5;
+    background: #fff;
+    margin: 0 0 1px 0;
+	padding: 10px;
+	cursor: pointer;
+	position: relative;
+	border-radius: 0;
+	text-decoration: none;
+	font-size: 1.6rem;
+	font-size: 16px;
+	text-decoration: none;
+	color: #737373;
+}
+.sp-sub-menu a:after {
+	font-family: 'FontAwesome';
+	content: "\f054";
+	top: 50%;
+	left: 10px;
+	float: right;
+}
+.sp-ditaile-bottom-menu a:after {
+	font-family: 'FontAwesome';
+	content: "\f054";
+	top: 10px;
+	right: 5px;
+	float: right;
+	position: relative;
+}
+
+/* ===========================
+   検索結果一覧ページ
+   =========================== */
+.sp-search-photo {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 180px;
+	margin: 0 auto;
+	padding: 0;
+	background: url(/woa/img/sp/sp_search_main_pt.png) 0 0 no-repeat;
+	background-size:cover;
+	border-bottom: 1px solid #d5d5d5;
+}
+.sp-search-ttl-lg {
+	font-size: 24px;
+	font-size: 2.4rem;
+	text-align: left;
+	padding: .357em 0 .357em .714em
+}
+.sp-search-ttl-sm {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+.sp-search-btn {
+	position: relative;
+	top: -22px;
+}
+.sp-pagenavi{
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+.next,.prev {
+	display: table-cell;
+	box-sizing: border-box;
+	padding: 0 5px;
+}
+
+.next span,.next a,
+.prev span,.prev a{
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.next span,.prev span{
+	color: #cccccc;
+	background: #f5f5f5;
+	background: #f5f5f5;
+}
+
+.next a,.prev a{
+	font-weight: bold;
+	text-decoration: none;
+	background: -moz-linear-gradient( top, #f5f5f5 0%, #EDEAE8);
+	background: -webkit-gradient( linear, left top, left bottom, from(#f5f5f5), to(#EDEAE8));
+}
+
+.next {
+	text-align: right;
+}
+.sp-btn-submit{
+	display: block;
+    text-align: center;
+    width: 240px;
+	margin: 0 auto;
+	padding: .5em .9em;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: bold;
+	text-decoration:none;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+/* ===========================
+   詳細ページ
+   =========================== */
+.sp-ttl-line {
+	border-left: 3px solid #fff;
+	margin: .5em;
+	padding: 0 .5em;
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-align: left;
+}
+div.toggle-button-detail {
+	background-color: #fff;
+	color: #7ecef4;
+	width: 6%;
+	text-align: center;
+	display: inline-block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	margin-left: 65%;
+}
+.word-break {
+	word-break: break-all;
+}
+
+
+/* ===========================
+   パンくず
+   =========================== */
+.sp-breadcrumb {
+	dispaly: table;
+	box-sizing: border-box;
+	width: 96%;
+	height: auto;
+	margin-bottom: 1em;
+	padding: 10px 5px 0;
+}
+
+/* ===========================
+   Formページ
+   =========================== */
+.sp-step_bar li {
+	font-size: 13px;
+	font-size: 1.35rem;
+    line-height: 46px;
+    color: #bfbfc0;
+    text-decoration: none;
+    padding: 0 10px 0 20px;
+    background: #f7f7f7;
+    display: inline-block;
+}
+.sp-step_bar li::after {
+    position: relative;
+    display: block;
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: -20px;
+    height: 22px;
+    width: 20px;
+    content: " ";
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -ms-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    transform: skew(-30deg);
+    background: #f7f7f7;
+    border-right: 1px solid #e6e6e6;
+}
+
+.sp-step_bar li::before {
+    float: right;
+    display: block;
+    margin-bottom: -25px;
+    margin-left: auto;
+    margin-right: -20px;
+    height: 21px;
+    width: 20px;
+    content: " ";
+    -webkit-transform: skew(30deg);
+    -moz-transform: skew(30deg);
+    -ms-transform: skew(30deg);
+    -o-transform: skew(30deg);
+    transform: skew(30deg);
+    background: #f7f7f7;
+    border-right: 1px solid #e6e6e6;
+}
+
+.sp-step_bar li:first-child {
+    padding-left: 18px;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    -ms-border-radius: 5px 0 0 5px;
+    -o-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+}
+
+.sp-step_bar li:last-child {
+    padding-left: 20px;
+    padding-right: 15px;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    -ms-border-radius: 0 5px 5px 0;
+    -o-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+.sp-step_bar li:last-child::before {
+    border: 0;
+    background: transparent !important;
+}
+.sp-step_bar li:last-child::after {
+    border: 0;
+    background: transparent !important;
+}
+.sp-step_bar li.current {
+    background: #ff8e6b;
+    color: #fff;
+}
+.sp-step_bar li.current::before {
+    background: #ff8e6b;
+}
+.sp-step_bar li.current::after {
+    background: #ff8e6b;
+}
+.sp-step_bar li.current:last-child::before {
+    border: 0;
+    background: transparent !important;
+}
+
+.sp-step_bar li.current:last-child::after {
+    border: 0;
+    background: transparent !important;
+}
+#sp-step_bar_box {
+	width: 100%;
+    margin: 0 auto;
+    padding: .2em 0 0;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+}
+ol.sp-step_bar  {
+	list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.sp-form-box {
+	width: 85%;
+    margin: 0 auto;
+    padding: 0 1.429em;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.sp-login-box {
+	width: 90%;
+    margin: 0 auto;
+    /*padding: 0 1.429em;*/
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+.sp-btn-login-box {
+	width: 100%;
+	padding: 5px 0 5px 10px;
+	text-align: left;
+	/*background: #f7f7f7;*/
+}
+.sp-logout-btn {
+	display:inline-block;
+	box-sizing: border-box;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	padding: .5em 0;
+	font-size: 13px;
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-decoration:none;
+	color: #737373;
+}
+.sp-mypage-btn {
+	display:inline-block;
+	box-sizing: border-box;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	padding: .5em;
+	font-size: 13px;
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-decoration:none;
+	color: #737373;
+}
+.autologin_sp{
+	background: #fcfbff;
+	width: 90%; 
+	padding:5px;
+	margin: 0 auto;
+	text-align: center;
+	border: solid 1px #ccc;
+}
+.list_checkbox03 li:nth-child(even){ margin : 0; }
+
+.list_checkbox03.syugyoList{
+	width: 95%;
+	display: table;
+}
+
+.list_checkbox03.syugyoList li{
+	padding: 0;
+	width: 33%;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border:1px #ccc solid;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	overflow: hidden;
+}
+
+.list_checkbox03.syugyoList li:first-child{
+	border-radius:12px 0 0 12px;
+	border-right:none;
+}
+
+.list_checkbox03.syugyoList li:last-child{
+	border-radius:0 12px 12px 0;
+	border-left:none;
+}
+
+.list_checkbox03.syugyoList li label{
+	display: block;
+	width:100%;
+	height:100%;
+	position: relative;
+	color: #000;
+}
+
+.list_checkbox03.syugyoList li input{
+	margin: 0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	-webkit-appearance:button;
+	appearance:button;
+	opacity:0;
+	left: 0;
+	top: 0;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.list_checkbox03.syugyoList li span{
+	display: block;
+	width:100%;
+	padding: 10px 0;
+	margin:0;
+	background:#fbfbfb;
+	background:-moz-linear-gradient(top, #fbfbfb 0%, #d4d4d4 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbfbfb), color-stop(100%,#d4d4d4));
+	background:-webkit-linear-gradient(top, #fbfbfb 0%,#d4d4d4 100%);
+	background:linear-gradient(to bottom, #fbfbfb 0%,#d4d4d4 100%);
+	color:#000;
+	font-weight:bold;
+	font-size:14px;
+	text-align:center;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-moz-box-shadow:0 1px 1px #fff;
+	-webkit-box-shadow:0 1px 1px #fff;
+	box-shadow:0 1px 1px #fff;
+}
+
+.list_checkbox03.syugyoList li input:checked + span{
+	background:#a9a9a9;
+	background:-moz-linear-gradient(top, #16a5ff 0%, #4ac1ff 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#16a5ff), color-stop(100%,#4ac1ff));
+	background:-webkit-linear-gradient(top, #16a5ff 0%,#4ac1ff 100%);
+	background:linear-gradient(to bottom, #16a5ff 0%,#4ac1ff 100%);
+	color: #ffffff;
+}
+
+.list_checkbox03.syugyoList li:first-child span{
+	border-radius:12px 0 0 12px;
+}
+
+.list_checkbox03.syugyoList li:last-child span{
+	border-radius:0 12px 12px 0;
+}
+
+/* ピンクチェックボックス*/
+.list_checkbox_hor li {
+	width: 50%;
+	margin: 0;
+	padding-bottom: .7em;
+	float: left;
+	font-size: 16px;
+	font-size: 1.6rem;
+	list-style-type: none;
+	display: inline;
+}
+.list_checkbox_hor{
+    margin: 0;
+    padding: .5em;
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+.list_checkbox_hor input[type="checkbox"] {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin: 0 8px 0 0;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border: solid 2px #999;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	appearance: none;
+	background: #fff;
+	vertical-align: middle;
+	position: relative;
+}
+.list_checkbox_hor input[type="checkbox"]:checked:before {
+	content: "";
+	width: 12px;
+	height: 5px;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 17px;
+	background: #f00;
+	-webkit-transform: rotate(45deg);
+	-webkit-transform-origin: right center;
+	transform-origin: right center;
+}
+
+.list_checkbox_hor input[type="checkbox"]:checked:after {
+	content: "";
+	width: 20px;
+	height: 5px;
+	display: block;
+	position: absolute;
+	left: 9px;
+	top: 17px;
+	background: #f00;
+	-webkit-transform: rotate(-53deg);
+	-webkit-transform-origin: left center;
+	transform-origin: left center;
+}
+.select01 {
+	-webkit-appearance: none;
+	background-image: url(/woa/img/sp/arrow_dd2.png);
+	background-position: right center, left top;
+	background-repeat: no-repeat, repeat-x;
+	color: #000;
+	font-size: 18px;
+	border: 1px solid #999;
+	width: 100%;
+	height: 33px;
+	outline: 0;
+	padding-left: 10px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+}
+.select02 {
+	-webkit-appearance: none;
+	background-color: #fff;
+	background-image: url(/woa/img/sp/arrow_dd2.png);
+	background-position: right center, left top;
+	background-repeat: no-repeat, repeat-x;
+	color: #000;
+	font-size: 18px;
+	border: 1px solid #ccc;
+	width: 90%;
+	height: 40px;
+	outline: 0;
+	padding:.4em .2em .4em ;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+}
+/* ===========================
+	エントリーボタン
+   =========================== */
+.btn-freeentry {
+	display:block;
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	padding: .5em 0;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-decoration:none;
+	text-align: center;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+
+
+/* ===========================
+	平均給与・年収 
+   =========================== */
+.sp-ttl-ss {
+	font-size: 25px;
+	font-size: 2.5rem;
+	padding: 0 .3em;
+	font-weight: normal;
+}
+.sp-as_tab {
+	display: inline-block;
+	color: #3ebcec;
+	border: 1px solid #7ecef4;
+	margin-right: 2px;
+	padding: 10px 8px;
+	-webkit-border-radius: .357em .357em;
+	-moz-border-radius: .357em .357em;
+	-ms-border-radius: .357em .357em;
+	-o-border-radius: .357em .357em;
+	border-radius: .357em .357em;
+}
+.active {
+	display: inline-block;
+	color: #fff;
+	background: #7ecef4;
+	border: 1px solid #7ecef4;
+	margin-right: 2px;
+	padding: 10px 8px;
+	-webkit-border-radius: .357em .357em;
+	-moz-border-radius: .357em .357em;
+	-ms-border-radius: .357em .357em;
+	-o-border-radius: .357em .357em;
+	border-radius: .357em .357em;
+	text-decoration: none;
+}
+.sp-inner {
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+/* ===========================
+	臨床検査技師になるには 
+   =========================== */
+.sp-quote-left {
+	background-color:#f8f8f8;
+	padding: 1.3em 1.3em .5em;
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+.sp-quote-left:before {
+	font-family: 'FontAwesome';
+	content: "\f10d";
+	font-size: 160%;
+	color: #d5d5d5;
+	position:absolute;
+	left: 20px;
+	top: 5px;
+}
+
+/* ===========================
+	職務経歴書の書き方 
+   =========================== */
+.popup-btn  {
+	display: inline-block;
+	color: #fff;
+	background: #ff961b;
+	border: 1px solid #ff961b;
+	padding: 10px 5px;
+	-webkit-border-radius: .357em .357em;
+	-moz-border-radius: .357em .357em;
+	-ms-border-radius: .357em .357em;
+	-o-border-radius: .357em .357em;
+	border-radius: .357em .357em;
+	text-decoration: none;
+}
+.popup-btn:hover {
+	color: #ff961b;
+	background: #fff;
+	border: 1px solid #ff961b;
+}
+
+/* ===========================
+	認定資格について
+   =========================== */
+select {
+	font-size: 16px;
+}
+option {
+	padding: 10px;
+}
+.selectmenu {
+	display: block;
+	width: 100%;
+	margin: 10px 0 20px 0;
+}
+.license-list {
+	padding: 0 0 0 20px;
+}
+
+
+/* ===========================
+	採用の流れ
+   =========================== */
+#saiyoFlow .readBox{
+	margin: 10px;
+}
+
+#saiyoFlow .readBox h4{
+	margin: 0;
+}
+
+#saiyoFlow .readBox h4 span{
+	color: #ffc0cb;
+}
+
+#saiyoFlow .readBox p{
+	color: #ff0000;
+}
+
+#saiyoFlow .articleBlock{
+	margin: 0 0 10px;
+	display: none;
+}
+
+#saiyoFlow .articleBlock .job-detail-full{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#saiyoFlow .articleBlock .job-detail-full .processText p{
+	margin: 20px 0 0;
+	padding: 0 0 0 1em;
+	text-indent: -1em;
+	position: relative;
+}
+
+#saiyoFlow .articleBlock .job-detail-full .processText p{
+	margin: 20px 0 0;
+	padding: 0 0 0 1em;
+	text-indent: -1em;
+	position: relative;
+}
+
+#saiyoFlow .articleBlock .job-detail-full .processText p:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top: 8px solid #7ecef4;
+	position: absolute;
+	left: 50%;
+	bottom: -35px;
+	margin: 0 0 0 -15px;
+}
+
+#saiyoFlow .articleBlock .job-detail-full .processText p:last-child:after{
+	display: none;
+}
+
+#saiyoFlow .articleBlock .job-detail-full .processText p:first-child{
+	margin: 0;
+}
+
+#saiyoFlow .btnArea{
+	margin: 10px;
+	text-align: right;
+}
+
+#saiyoFlow .conditions_area{
+	margin: 10px 0 0;
+}
+
+#saiyoFlow .btnArea .btnLink{
+	display: inline-block;
+	padding: 5px 10px 5px 20px;
+	color: #7ecef4;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-weight: bold;
+	text-decoration: none;
+	background: -moz-linear-gradient( top, #f5f5f5 0%, #EDEAE8);
+	background: -webkit-gradient( linear, left top, left bottom, from(#f5f5f5), to(#EDEAE8));
+	position: relative;
+}
+
+#saiyoFlow .btnArea #btnClose{
+	display: none;
+}
+
+#saiyoFlow .btnArea .btnLink:before{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-bottom: 8px solid #7ecef4;
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	margin: -4px 0 0;
+}
+
+#saiyoFlow .btnArea #btnOpen:before{
+	display: block;
+	border-top: 8px solid #7ecef4;
+	border-bottom: 6px solid transparent;
+}
+
+#saiyoFlow .btnArea #btnClose:before{
+	display: block;
+	border-bottom: 6px solid #7ecef4;
+	border-top: 8px solid transparent;
+	margin: -12px 0 0;
+}
+
+/* ===========================
+	転職体験談
+   =========================== */
+.sp-user_voice {
+	display: block;
+	margin: 10px 0;
+	position: relative;
+}
+.sp-face_box {
+	display: block;
+	width: 120px;
+	height: auto;
+	text-align: center;
+}
+.sp-arrow_box {
+	position: relative;
+	padding: 20px;
+	width: 500px;
+	height: auto;
+	background: #fefef2;
+	border-radius: 6px;
+	margin-left: 140px;
+	border: 1px solid #f9e6ab;
+}
+.sp-arrow_box:after, .sp-arrow_box:before {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.sp-arrow_box:after {
+	border-color: rgba(254, 254, 252, 0);
+	border-right-color: #fefef2;
+	border-width: 7px;
+	margin-top: -7px;
+}
+.sp-arrow_box:before {
+	border-color: rgba(249, 230, 171, 0);
+	border-right-color: #f9e6ab;
+	border-width: 8px;
+	margin-top: -8px;
+}
+.sp-uv-list {
+	margin: 20px auto;
+	padding-left: 0;
+}
+.sp-uv-list-box {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: auto;
+	/*padding: 20px 24px;*/
+	padding: 20px 0;
+	box-sizing: border-box;
+	text-align: center;
+	background: url(/woa/img/contents/dot_line.png) repeat-x top;
+}
+.sp-uv-list-box:first-child {
+	padding: 0 0 20px;
+	background: none;
+}
+
+/* 一覧吹き出し */
+.sp-arrow_box_b {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 10px;
+	height: 100px;
+	/*height: 122px;*/
+	border-radius: 6px;
+	margin-bottom: 5px;
+	background: #fefef2;
+	border: 1px solid #f9e6ab;
+	text-align: left;
+	font-size: 14px;
+	font-size: 1.4rem;
+	box-sizing: border-box;
+}
+.uv_partition-box {
+	box-sizing: border-box;
+	margin: 0 .1em;
+	padding: .5em 0 0 0;
+	background: url(/woa/img/contents/dot_line.png) repeat-x top;
+}
+.sp-attribute {
+	margin:0;
+	padding-left: 0;
+	list-style-type: none;
+}
+.sp-attribute li {
+	margin-bottom: 5px;
+}
+.new-icon {
+	position: absolute;
+	left: -8px;
+	top: -8px;
+	z-index: 999;
+	
+}
+.new-icon-top {
+	position: absolute;
+	left: -10pxpx;
+	top: -3px;
+	z-index: 999;
+}
+.sp-uv-quote-left {
+	background-color:#f8f8f8;
+	padding: 1.3em 1.3em .1em;
+	position: relative;
+	text-align: left;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+.sp-uv-quote-left:before {
+	font-family: 'FontAwesome';
+	content: "\f10d";
+	font-size: 160%;
+	color: #d5d5d5;
+	position:absolute;
+	left: 20px;
+	top: 5px;
+}
+.sp-face-icon {
+	float: right;
+}
+
+/* ===========================
+	キャリアコンサルタント紹介
+   =========================== */
+#slider1 {
+	padding: 0;
+}
+.sp-bottom-cc {
+	display: table-cell;
+	width: 60%;
+	height: 215px;
+	margin: 0 auto;
+	padding: 0 5px;
+	text-align: center;
+}
+.sp-bottom-cc-txt {
+	margin: .357em auto;
+	text-align: left;
+	width: 60%;
+}
+
+
+/************************************
+	newentry SP_1
+************************************/
+#inputAreaNewentry01_sp{
+	background: #ece9e6;
+}
+
+#inputAreaNewentry01_sp #mail.mail_input_bg_yellow{
+	background: #fffbce;
+}
+
+#inputAreaNewentry01_sp .form-box-inner{
+	position: relative;
+}
+
+#inputAreaNewentry01_sp .form-box-inner .messageBox{
+	padding: 5px 10px;
+	display: none;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	background: #f48c8c;
+	position: absolute;
+	left: 30px;
+	top: -5px;
+}
+
+#inputAreaNewentry01_sp .submitImg{
+	text-align: center;
+}
+.form-note{
+	font-size: 14px;
+	line-height: 1.4;
+	text-indent: -0.4em;
+	padding-left: 1em;
+	width: 90%;
+	margin: 0 auto;
+}
+
+/* top page お知らせ */
+.news-box {
+	display: block;
+	width: 680px;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #fff;
+}
+.news {
+	display: table;
+}
+.date {
+	display: table-cell;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.detail {
+	display: table-cell;
+	padding-left: 10px;
+	color: #737373;
+}
+
+/**********************
+	気になる条件！ 
+***********************/
+#btmJobLink{
+	margin: -12px 0 0;
+}
+
+#btmJobLink .jobLinkTtl{
+	padding: 0 5px;
+	background: #ff8100;
+}
+
+#btmJobLink .jobLinkTtl p{
+	display: table-cell;
+}
+
+#btmJobLink .jobLinkTtl p.leftImg,
+#btmJobLink .jobLinkTtl p.leftImg img{
+	vertical-align: bottom;
+}
+
+#btmJobLink .jobLinkTtl p.rightText{
+	padding: 5px 5px;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#btmJobLink .btmLinkList{
+	border-top: 1px solid #cccccc;
+}
+
+#btmJobLink .btmLinkList a{
+	display: block;
+	padding: 20px 20px 20px 60px;
+	border-bottom: 1px solid #cccccc;
+	position: relative;
+	text-align: left;
+	font-size: 14px;
+	text-decoration: none;
+	color: #707070;
+}
+#btmJobLink .btmLinkList a > span{
+	color: #ff0000;
+	font-weight: bold;
+}
+
+#btmJobLink .btmLinkList a:after{
+	content: "";
+	visibility: visible;
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin-top: -6px;
+	border-top: solid 2px #ff0000;
+	border-right: solid 2px #ff0000;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	position: absolute;
+	right: 10px;
+	top: 50%;
+}
+
+#btmJobLink .btmLinkList a.kyuryou{
+	background: url(/woa/img/recruit/sp/icon_kyuryou.gif) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+
+#btmJobLink .btmLinkList a.kyujitsu{
+	background: url(/woa/img/recruit/sp/icon_kyujitsu.gif) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+
+#btmJobLink .btmLinkList a.zangyo{
+	background: url(/woa/img/recruit/sp/icon_zangyo.gif) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+
+#saiyoFlow .processText p{
+	margin: 20px 0 0;
+	padding: 0 0 0 1em;
+	text-indent: -1em;
+	position: relative;
+}
+
+/**********************
+	気になる条件！水色 
+***********************/
+
+#btmJobLink .btmLinkList-bl {
+	border-top: 1px solid #cccccc;
+}
+
+#btmJobLink .btmLinkList a.bl{
+	display: block;
+	padding: 20px 20px 20px 60px;
+	border-bottom: 1px solid #cccccc;
+	position: relative;
+	text-align: left;
+	font-size: 14px;
+	color: #707070;
+}
+#btmJobLink .btmLinkList a.bl > span{
+	color: #2cc5f1;
+	font-weight: bold;
+}
+#btmJobLink .btmLinkList a.bl:after{
+	content: "";
+	visibility: visible;
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin-top: -6px;
+	border-top: solid 2px #2cc5f1;
+	border-right: solid 2px #2cc5f1;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	position: absolute;
+	right: 10px;
+	top: 50%;
+}
+
+#btmJobLink .btmLinkList a.pen{
+	background: url(/woa/img/recruit/sp/icon_pen.png) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+
+#btmJobLink .btmLinkList a.people{
+	background: url(/woa/img/recruit/sp/icon_people.png) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+
+#btmJobLink .btmLinkList a.calendar{
+	background: url(/woa/img/recruit/sp/icon_calendar.png) no-repeat 10px center #ffffff;
+	background-size: 45px 45px;
+}
+.btmLinkList:nth-child(2) {
+	display: none!important;
+}
+
+/* ===========================
+   各ページ
+   =========================== */
+.sp-inner-box {
+	width: 95%;
+	margin: .714em auto;
+	overflow: hidden;
+	background: #fff;
+}
+.sp-title-bar {
+	margin: 0;
+	padding: .5em .95em;
+	font-size: 16px;
+	font-size: 1.6rem;
+	/*color: #fff;*/
+	/*background-color: #ff8e6b;*/
+	font-weight: bold;
+}
+.sp-form-box {
+	width: 280px;
+    margin: 20px auto;
+    padding: 20px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+}
+/* ===========================
+   登録フォーム
+   =========================== */
+input[type="radio"] {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	margin-right: 10px;
+}
+.error-messageB {
+	padding: 0 0 0 10px;
+}
+.error-messageB li {
+	/*display: inline-block; skk*/ 
+}
+	
+/* top page お知らせ */
+.news-box {
+	display: block;
+	width: 680px;
+	margin: 0 auto;
+	padding: 20px;
+	box-sizing: border-box;
+	background: #fff;
+}
+.news {
+	display: table;
+}
+.date {
+	display: table-cell;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.detail a {
+	display: table-cell;
+	padding-left: 5px;
+	text-align: left;
+	color: #737373;
+}
+.member-detail input,
+.member-detail textarea{
+	font-size: 1.6rem;
+}
+ /************************
+	登録フォーム　ラジオボタン
+ *************************/
+ .radioBox{
+	width: 100%;
+	display: table;
+	border-collapse:separate;
+}
+
+.radioBox p{
+	padding: 0;
+	width: 50%;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-right:1px #ccc solid;
+	border-top:1px #ccc solid;
+	border-bottom:1px #ccc solid;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	overflow: hidden;
+}
+.radioBox.shugyo p{
+	width: 33%;
+}
+.radioBox.shikaku p{
+	width: 25%;
+}
+.radioBox p:first-child{
+	border-radius:12px 0 0 12px;
+	-webkit-border-radius:12px 0 0 12px;
+	border-left:1px #ccc solid;
+}
+.radioBox p:last-child{
+	border-radius:0 12px 12px 0;
+	-webkit-border-radius:0 12px 12px 0;
+}
+.radioBox label{
+	display: inline-flex;
+	width:100%;
+	height:100%;
+	position: relative;
+}
+.radioBox label input{
+	margin: 0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	-webkit-appearance:button;
+	appearance:button;
+	opacity:0;
+	left: 0;
+	top: 0;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+.radioBox label span{
+	display: block;
+	width:100%;
+	padding: 8px 0;
+	margin:0;
+	background:#fbfbfb;
+	background:-moz-linear-gradient(top, #eee 0%, #fefefe 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#eee), color-stop(100%,#fefefe));
+	background:-webkit-linear-gradient(top, #fefefe 0%,#eee 100%);
+	background:linear-gradient(to bottom, #fefefe 0%,#eee 100%);
+	color:#666;
+	font-weight:bold;
+	font-size:1.3em;
+	font-size:1.3rem;
+	text-align:center;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+.radioBox  label span img{
+	width: 40%;	
+}
+.shugyo label span img{
+	width: 70%;	
+	max-width: 100px;
+}
+.shikaku label span img{
+	width: 80%;	
+}
+.radioBox label input:checked + span{
+	background:#eb90a1;
+	color: #ffffff;
+}
+
+.radioBox p:first-child span{
+	border-radius:12px 0 0 12px;
+}
+
+.radioBox p:last-child span{
+	border-radius:0 12px 12px 0;
+}.fsmall{
+	font-size: small;
+}
+
+.tableWrap{
+	width: 95%;
+	padding: 20px;
+	margin: 1em auto 2em;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	background: #c1ebff;
+}
+
+.tableWrap .job-detail-2c{
+	width: 100%;
+	margin: 0 auto;
+	border: none;
+}
+
+.tableWrap .ttlLink{
+	color: #5656f5;
+}
+
+.tableWrap .ttlLink:hover{
+	color: #f55656;
+}
+
+.tableWrap .job-detail-number{
+	border-top: 1px solid #d5d5d5;
+	border-left: 1px solid #d5d5d5;
+	border-right: 1px solid #d5d5d5;
+	border-bottom: 2px solid #5656f5;
+}
+
+.tableWrap .job-detail-2c th{
+	border-left: 1px solid #d5d5d5;
+}
+
+.tableWrap .job-detail-btn-s {
+	color:#fff;
+	border:1px solid #e36565;
+	background:-moz-linear-gradient( center top, #f46b6b 5%, #e54a4a 100% );
+	background:-ms-linear-gradient( top, #f46b6b 5%, #e54a4a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f46b6b', endColorstr='#e54a4a');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f46b6b), color-stop(100%, #e54a4a) );
+	background-color: #f46b6b;
+	text-shadow: 1px 1px 0px #f26666;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #f26666;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #f26666;
+ 	box-shadow: inset 1px 1px 0px 0px #f26666;
+}
+
+/* ===========================
+	掘り起こし
+   =========================== */
+.reentry_header{
+  width: 95%;
+  margin: 1em auto;
+
+}
+.reentry-table{
+  width: 95%;
+  height: auto;
+  margin: 1em auto;
+  text-align: left;
+  vertical-align: top;
+}
+.reentry_osusume_comment2{
+  width: 95%;
+  margin: 2em auto 3em;
+
+}
+.reentry-th {
+  background: #eaf7fd;
+  box-sizing: border-box;
+  width: 95px;
+  padding: .5em .9em;
+  border-right: 1px solid #d5d5d5;
+}
+.reentry-th2 {
+  background: #7ecef4;
+  box-sizing: border-box;
+  width: 95px;
+  padding: .5em .9em;
+  border-right: 1px solid #d5d5d5;
+}
+.reentry-th tr,.reentry-th td{
+  border: 1px solid #d5d5d5;
+  border-right: 1px solid #d5d5d5;
+  padding: .5em .9em;
+}
+.reentry-td{
+  padding: .5em .9em;
+}
+.reentry-recommend{
+  padding: .5em .9em;
+}
+.reentry-notice{
+  font-size: 1.2rem;
+  padding-top: 19px;
+
+}
+.reentry-notice p{
+  font-size: 1.0rem;
+}
+
+.reentry_inquiry_noOrder_sp{
+  font-size: 1.6rem;
+  padding: 13px 0;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.reentry_noOrder_sp{
+  margin: 0 auto;
+  width:90%;
+  padding-top:7px;
+}
+.btn_reentry_noOrder_sp {
+  color: #fff;
+  border: 1px solid #68c6f2;
+  background: -moz-linear-gradient( center top, #9fdaf5 5%, #7ecff4 100% );
+  background: -ms-linear-gradient( top, #9fdaf5 5%, #7ecff4 100% );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fdaf5', endColorstr='#7ecff4');
+  background: -webkit-gradient( linear, left top, left bottom, color-stop(5%, #9fdaf5), color-stop(100%, #7ecff4) );
+  background-color: #9fdaf5;
+  text-shadow: 1px 1px 0px #65c0e8;
+  -webkit-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+  -moz-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+  box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+  width: 100%;
+  font-size: 1.0em;
+  border-radius: 2px;
+  padding:.5em;
+}
+
+.job-detail-btn-s,
+.job-contact-btn-s {
+	display: block;
+	width: 82.8571429%;
+    margin: .714em auto;
+}
+
+.loading{
+	/*border:1px dashed #999;*/
+    padding:15px;
+    position: fixed;
+    top:40%;
+    left:40%;
+    background-color:#FFF;
+    filter: alpha(opacity=80);
+    -moz-opacity:0.80;
+    opacity:0.80;
+    z-index: 1000;
+}
+
+/*アコーディオン SP*/
+.accordion{
+	width: 90%;
+	margin: 20px auto;
+}
+.accordion input,
+.accordion select {
+	font-size: 1.6rem;
+    border-radius: 4px;
+    padding: 0.5em;
+    border: solid #ccc 1px;
+-webkit-appearance: none;
+
+}
+.accordion select {
+    background:#fff url(/woa/img/sp/arrow_dd2.png) no-repeat right center;
+    padding-right: 20px;
+}
+.accordion h3{
+	margin: 10px auto 10px;
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 100%;
+    text-align: left;
+}
+.accordion-control{
+	background: #eee;
+	border-bottom: solid 1px #aaa;
+	clear: both;
+	display:block ;
+	line-height: 2em;
+	padding: .5em .5em .5em ;
+	font-size: 90%;
+	font-weight: bold;
+	cursor: pointer;
+}
+.accordion-control i{
+	float: right;
+    vertical-align: middle;
+    margin-top: 8px;
+}
+a.accordion-control,
+a:hover.accordion-control{
+	color: #333;
+}
+/*アコーディオン中身*/
+.accordion-panel{
+    display: none;
+    padding: 1em;
+    line-height: 2em;
+    border-top: 2px #efefef solid;
+    border-bottom: 1px #ccc solid;
+}
+.accordion-panel label{
+	margin-right: 1em;
+	font-size: 1.1rem;
+	color: #333;
+	white-space: nowrap;
+}
+.saraly li{
+	display: block;
+	margin-bottom: 1em;
+	width: 100%;
+}
+.accordion-panel .saraly label{
+	margin-right: 0!important;
+}
+.accordion-panel .saraly select{
+	margin-right:2em;
+}
+
+
+/*3STEP　フォーム*/
+
+.btnNext {
+    background-clip: padding-box;
+    background-color: #00AF47;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    height: 40px;
+    position: relative;
+    width: 134px;
+    margin: 0 0 20px 0;
+    padding: 10px 0;
+}
+
+.btnNext:after {
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    border-width: 5px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 1px;
+    top: 14px;
+    width: 0;
+}
+
+.btnNext span {
+    display: block;
+    text-align: center;
+    width: 134px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.btnNext {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+.btnPrev {
+    background-clip: padding-box;
+    background-color: #f2f2f2;
+    border: 1px solid #8d8d8d;
+    border-radius: 5px;
+    color: #999;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    width: 134px;
+    margin: 0 0 20px 0;
+    padding: 10px 0;
+}
+
+.btnPrev:after {
+    border-color: transparent #999999 transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 1px;
+    position: absolute;
+    top: 14px;
+    width: 0;
+}
+a.btnPrev {
+    color: #999;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+/* ===========================
+	検索結果0件ページ 
+   =========================== */
+.zero-area {
+	width: 100%;
+	height: auto;
+}
+.zero-area img {
+	display: block;
+	margin: 40px auto;
+}
+.zero-area img:nth-child(3) {
+	margin: 0 auto 20px;
+}
+ul.arrow-box {
+	display: block!important;
+	list-style-type: none;
+	padding: 0;
+	margin: 0 auto;
+}
+ul.arrow-box li {
+	display: block!important;
+	padding: 0 80px 20px;
+}
+ul.button-box {
+	display: block!important;
+	list-style-type: none;
+	padding: 0 0 10px;
+	margin: 0 auto;
+}
+ul.button-box li {
+	display: block!important;
+}
+ul.button-box li img,ul.arrow-box li img {
+	margin: 0;
+}
+
+/* ===========================
+   次に進む/前に戻る
+   =========================== */
+nav.pagenation {
+  position: relative;
+  padding: 20px;
+}
+.old, .new { position: absolute; }
+.old { right: 0; }
+.new { left: 0;  }

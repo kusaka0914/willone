@@ -1,0 +1,208 @@
+@charset "utf-8";
+/************************************
+	採用担当者ページ
+*************************************/
+body *{
+	margin: 0;
+	padding: 0;
+}
+
+.mainConts{
+	width: 920px;
+	margin: 0 auto;
+}
+
+.topCont { margin-top : 20px; }
+.topCont h2 { margin-bottom : 18px; margin-top: 10px; }
+.topCont h3 { margin : 0; }
+.topCont h3 img { vertical-align : bottom ; }
+.topCont .pointList { margin-top: 27px; }
+.topCont .pointList li { float : left; }
+.topCont .pointList li img { vertical-align : bottom; }
+.contArea {
+	margin: 0 0 55px;
+	padding: 0 0 30px;
+	_padding: 15px 0 30px;
+	overflow: hidden;
+	background-color : #f5f2ed;
+}
+.contArea .inquiryBox {
+	width: 880px;
+	margin: 19px auto 20px;
+	padding: 14px 0;
+	background-color: #ffffff;
+}
+.contArea .inquiryBox h3 {
+	width: 840px;
+	margin: 0 auto;
+}
+.contArea .inquiryBox p {
+	width: 748px;
+	margin: 17px auto 0;
+}
+.contArea #inputForm {
+	/*width: 624px;*/
+	width: 96%;
+	height: 620px;
+	padding: 0 148px 0 108px;
+	margin: 0 20px 30px;
+	border: none;
+	background-color: #ffffff;
+}
+.contArea .pointArea dl { overflow : hidden; }
+.contArea .pointArea dl dt { text-align : center; }
+.contArea .pointArea dl dd.left { float : left; }
+.contArea .pointArea dl dd.right { float : right; }
+.contArea .pointArea #point01 dt { margin-bottom : 11px; }
+.contArea .pointArea #point01 dd.left {
+	margin-left: 64px;
+	_margin-left: 32px;
+}
+.contArea .pointArea #point01 dd.right {
+	margin-right: 38px;
+	_margin-right : 19px;
+}
+.contArea .pointArea #point02 { margin-bottom : 14px; }
+.contArea .pointArea #point02 dt { margin-bottom : 6px; }
+.contArea .pointArea #point02 dd.left {
+	margin-left: 64px;
+	_margin-left: 32px;
+}
+.contArea .pointArea #point02 dd.right {
+	margin-right : 47px;
+	_margin-right: 23px;
+}
+.contArea .pointArea #point03 { margin-bottom : 33px; }
+.contArea .pointArea #point03 dt { margin-bottom : 7px; }
+.contArea .pointArea #point03 dd.left {
+	margin-left: 78px;
+	_margin-left: 39px;
+}
+.contArea .pointArea #point03 dd.right {
+	margin-right: 38px;
+	_margin-right: 19px;
+}
+.contArea .inquiryBox .inquirySelect .phoneNum {
+	width: 389px;
+	margin: 7px 0 0 52px;
+	_margin: 17px 0 0 26px;
+	float: left;
+}
+.contArea .inquiryBox .inquirySelect .inquiry {
+	width: 359px;
+	margin: 21px 40px 0 0;
+	_margin: 23px 20px 0 0;
+	float: right;
+}
+.contArea .serviceFlow {
+	width: 878px;
+	margin: 0 auto;
+	padding-top: 1px;
+	position: relative;
+	border: 1px solid #dddddd;
+	background-color : #ffffff;
+	overflow: hidden;
+}
+.contArea .serviceFlow ul {
+	padding: 16px 10px 9px 10px;
+	list-style: none;
+}
+.contArea .serviceFlow ul li {
+	width: 203px;
+	margin-right: 9px;
+	float: left;
+}
+.contArea .serviceFlow ul li.step04 {
+	width: 220px;
+	margin: 0;
+}
+.contArea .serviceFlow ul li dl dt { margin-bottom : 7px; }
+.contArea .serviceFlow ul li dl dd {
+	margin: 0;
+	padding: 9px 11px;
+	font-size: 13px;
+	text-align: left;
+	line-height: 20px;
+	background-color: #f5f5f5;
+	box-sizing: initial;
+}
+.contArea .serviceFlow ul li dl dd span {
+	display: block;
+	margin-bottom: 5px;
+	color: #f04919;
+	font-size: 14px;
+	font-weight: bold;
+}
+.contArea .serviceFlow .flowIcon {
+	margin: 0;
+	position: absolute;
+	left: 794px;
+	top: 38px;
+}
+
+/* clearfix */
+.clear:after {
+	display: block;
+	content: ".";
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+.clear { display:inline-block; }
+* html .clear { height:1%; }
+.clear { display:block; }
+
+.for_cus_h1 {
+	font-size: 11px;
+	font-size: 1.1rem;
+	font-weight: normal;
+	margin: .3em 0 .97em;
+}
+
+/*下記、EJB用に追加*/
+
+.header-inner { width: 920px; margin: 20px auto 0px; }
+
+.btn-submit{
+    border: 1px solid #02AEDC;
+    background: #02AEDC;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    padding: .5em .9em;
+    display: inline-block;
+    width: 370px;
+    /*margin: .714em .357em;*/
+    font-size: 100%;
+}
+
+
+
+.row {
+    max-width: 62.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.errorBox02 { background: #fcebeb; border-radius: 3px; position: relative ;top: -73px;left: 12px; display: inline-block; padding: 1px 1em; font-size: 13px; visibility: hidden;}
+.errorBox02:before { content: ''; display: block; position:absolute; bottom:-10px; left:3px; width:0; height: 0; border-style: solid; border-width: 5px; border-color: #fcebeb transparent transparent transparent;}
+.errorBox { background: #fcebeb; border-radius: 3px; position: relative;top: -73px;left: 0; display: inline-block; padding: 1px .5em; font-size: 13px;visibility: hidden;}
+.col02 .errorBox03 { background: #fcebeb; border-radius: 3px; position: relative; display: inline-block; padding: 1px 1em; font-size: 13px; visibility: hidden;position: absolute;top: -5px;left: 57px;}
+.errorBox:before { content: ''; display: block; position:absolute; bottom:-10px; left:3px; width:0; height: 0; border-style: solid; border-width: 5px; border-color: #fcebeb transparent transparent transparent;}
+.errorBox03:before { content: ''; display: block; position:absolute; bottom:-10px; left:3px; width:0; height: 0; border-style: solid; border-width: 5px; border-color: #fcebeb transparent transparent transparent;}
+.err_pos02{margin-left: 0;}
+.err_pos03{}
+#license_errmsg{top: -164px; left: 25px;}
+#addr1or2_error_msgs{left: 303px;}
+
+.error { border-color: #e60000;}
+
+.error_message {
+    font-size: 10.5pt;
+    color: red;
+}

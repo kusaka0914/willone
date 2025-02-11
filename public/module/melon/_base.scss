@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// ==========================================================================
+// Base Font Size
+// ==========================================================================
+
+
+html, :root { font-size: 12px; }
+@media (min-width: 440px) { html, :root { font-size: 13px; }}
+@media (min-width: 560px) { html, :root { font-size: 14px; }}
+@media (min-width: 680px) { html, :root { font-size: 15px; }}
+@media (min-width: 800px) { html, :root { font-size: 16px; }}
+
+html,
+:root { font-size: calc( ( 12 / 16 ) * 100% + ( 17 - 12 ) * ( 100vw - 320px) / ( 920 - 320 ) );
+// calc( ( 最小フォントサイズ / デバイスデフォルトフォントサイズ ) + ( 最大フォントサイズ - 最小フォントサイズ ) * ( デバイス幅 - 最小デバイス幅) / ( 最大デバイス幅 - 最小デバイス幅))
+// w320px:12px 以降、120px毎に1px増える。w920px:17px
+}
+
+@media (min-width: 920px) { html, :root { font-size: 17px; }}
+
+
+// ==========================================================================
+// Common Setting
+// ==========================================================================
+
+body { line-height: 1.7; font-family: "メイリオ", Meiryo, sans-serif; color: #7c7a6a;}
+
+body.pc { min-width: 940px;}
+
+html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl { margin:0; padding:0;}
+
+ul,ol,dl { list-style: none;}
+
+img { vertical-align: middle; max-width: 100%; height: auto; }
+
+a { color: #3b8bba; text-decoration: none;}
+a:hover { color: #58C1DA; cursor: pointer;}
+a:visited { color: #61688C;}
+a:visited:hover { color: #9fa4bd;}
+
+body.pc a img { transition: 0.25s; backface-visibility: hidden;}
+body.pc a img:hover { opacity: 0.7; }
+
+dfn { font-style: normal;}
+abbr { cursor: help; font-size: 0.75em;}
+
+strong,
+b { color: #4e4c3f;}
+
+small { font-size: 0.75em;}
+
+hr { height: 1px; border: 0; margin: 1.7rem 0;}
+
+main { overflow: hidden;}

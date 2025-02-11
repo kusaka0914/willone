@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+/* ボックス */
+
+.melon-box { margin: 0.5em 0; padding: 0.5em 0.7em; border-radius: 3px;}
+.melon-box-gray { background-color: #fafafa; border: 1px solid #ebebeb;}
+.melon-box-pgYellow { background: #eaead5; padding: 6px; border-radius: 2px;}
+.melon-box-white { border: 1px solid #f1f1e3; background-color: #fff; }
+.melon-box-line { border: 1px solid #eeede2; border-width: 1px 0; box-shadow: inset 0 1px 0 #fff, 0 1px #fff;}
+
+.melon-box2 { border: 1px solid #f1f1e3; border-radius: 3px; background-color: #fff; margin: 1em 0;}
+.melon-box2_header,
+.melon-box2_footer { padding: 1.5% 2.5% 1%;}
+.melon-box2_header { border-bottom: 1px solid #f1f1e3;}
+.melon-box2_body { padding: 2.5% 2.5% 2%;}
+.melon-box2_footer { border-top: 1px solid #f1f1e3;}
+
+
+
+/* カード */
+.melon-card { border: 1px solid #e1e1d4; padding: 1rem 1.5rem; border-radius: 4px; background-color: #fff; box-shadow: 0 1px 8px rgba(0,0,0,0.05); transition: 0.2s;}
+.pc .melon-card:hover { opacity: 0.85; box-shadow: 0 6px 8px rgba(0,0,0,0.2); -webkit-transform: translateY(-2px); transform: translateY(-2px);}
+.melon-card-slider1.melon-card-interview+.melon-card-interview { margin: 0;}
+.sp .melon-card-slider1 { max-width: 80vw; margin: 0 0 0 2.5vw !important; }
+
+.melon-card2 { margin: 0.667rem 0; background-color: #fff; box-shadow: 0 0 0.667rem rgba(0,0,0,0.1);}
+.melon-card2_footer,
+.melon-card2_body { padding: 2.5%;}
+.melon-card2_header { padding: 0; border-bottom: 1px solid #eeede2; margin:0;}
+.melon-card2_header > .fx-col { margin:0; padding: 0.5% 2.5% 0.25%;}
+.melon-card2_body {}
+.melon-card2_body p { line-height: 1.6; margin: 0.4em 0;}
+.melon-card2_body p:last-child { margin-bottom: 0;}
+.melon-card2_footer { border-top: 1px solid #eeede2;}
+.melon-card2_title { @extend .melon-f-15; line-height: 1.4; margin: 0.2em 0 0.6em;}
+.melon-card2_lineBox { border-top: 1px solid #eeede2; margin: 0.8em 0;}
+.melon-card2_lineBox > .fx-col { padding: 0.4em 0.4em 0.3em; margin: 0; border-bottom: 1px solid #eeede2;}
+
+.melon-box-userData { position: relative; padding: 2.2rem 1.5rem 1.5rem; margin: 3em 0; border: 1px dotted rgba(51, 46, 125, 0.25); border-width: 3px 0;}
+.sp .melon-box-userData { margin: 2.5em 0 2em; padding-left: 0.5em; padding-right: 0.5em;}
+.melon-box-userData .melon-title { position: absolute; top: -1.3em; left:0; right: 0; width: 12em; margin:auto; border: 2px solid; background-color: #fff; border-radius: 4px; text-align: center; padding: 0.7em 0.7em 0.45em; font-size: 0.9375rem; line-height: 1.35; color: #332e7d;}
+.melon-box-userData .pict { display: block; margin: auto;}
+.melon-box-userData li { line-height: 1.4; padding: 0.2em 0;}
+
+.melon-box-subHead { background-color: #f7f7e9; margin: 0 0 5em; border-radius: 4px; position: relative;}
+.melon-box-subHead .melon-head { color: #332e7d; font-size: 1.25rem; padding:0.5em; text-align: center; align-self: center; line-height: 1.3; margin:0; -webkit-flex-basis: 37%; flex-basis: 37%; max-width: 37%;}
+.melon-box-subHead .melon-body { background-color: #fff; margin:0; padding: 0.2em 0 0.2em 2em; -webkit-flex-basis: 63%; flex-basis: 63%; max-width: 63%;}
+.melon-box-subHead .melon-body p { text-indent: 1em; text-align: justify;}
+.melon-box-subHead .melon-body p + p { margin-top: 1em;}
+
+.melon-box-subHead + .melon-box-subHead::before { content: ''; width: 0.625rem; height: 0.625rem; border-radius: 1px; background-color: #e1e1d4; position: absolute; top: -2.9em; left:0; right: 0; margin: auto;}
+
+
+.melon-box-subHead-staff { background-color: #449122;
+background-image: -webkit-linear-gradient( -45deg, rgba(255,255,255,0.04) 27%, rgba(255,255,255,0) 27%); background-image: linear-gradient( 135deg, rgba(255,255,255,0.04) 27%, rgba(255,255,255,0) 27%);}
+.melon-box-subHead-staff .melon-head { color: #fff;}
+.melon-box-subHead-staff .melon-head img { margin-bottom: 8px; width: 71px;}
+.melon-box-subHead-staff .melon-body { color: #319406;}
+
+.melon-box-point { position: relative; background-color: #332e7d; color: #fff; padding: 2.5rem 1.5rem 1.5rem; margin: 4em 0 2em; border-radius: 4px; line-height: 1.9; text-align: justify;
+background-image: -webkit-linear-gradient( -35deg, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%); background-image: linear-gradient( to right bottom, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%);}
+.melon-box-point .melon-title { position: absolute; top: -1.3em; left:0; right: 0; width: 12em; margin:auto; border: 2px solid; background-color: #fff; border-radius: 4px; text-align: center; padding: 0.7em 0.7em 0.45em; font-size: 0.9375rem; line-height: 1.35; color: #332e7d; font-weight: 700;}
+.melon-box-point .melon-copy { font-size: 1.25rem; text-align: center; margin: 0.5em 0 1em;}
+.melon-box-point .melon-copy::before,
+.melon-box-point .melon-copy::after { content: ''; position: relative; display: inline-block; border-style: solid; width: 0.58333rem; height: 0.58333rem;}
+.melon-box-point .melon-copy::before { border-width: 3px 0 0 3px; top: -1em; left: -0.6em; }
+.melon-box-point .melon-copy::after { border-width: 0 3px 3px 0; bottom: -0.75em; right: -0.6em;}
+
+.melon-box-subHead2 { background-color: #fff; margin: 0 0 5em; padding: 1.5em; position: relative;}
+.pc .melon-box-subHead2 { padding: 1.5em 3.5em;}
+.sp .melon-box-subHead2 { margin-bottom: 3em;}
+.melon-box-subHead2 .melon-head { color: #332e7d; font-size: 1.25rem; padding: 1em 0 1.5em; text-align: center; line-height: 1.3;}
+.melon-box-subHead2 .melon-body { }
+.melon-box-subHead2 .melon-body p { text-align: justify;}
+.melon-box-subHead2 .melon-body p + p { margin-top: 1em;}
+.melon-box-subHead2 + .melon-box-subHead2::before { content: ''; position: absolute; top: -4.5em; height: 0; width: 4em; left: 51%; border-bottom: 0.625rem dotted #e1e1d4; width: 4em; height: 0; -webkit-transform: rotate(90deg); -webkit-transform-origin: top left; transform: rotate(90deg); transform-origin: top left;}
+.sp .melon-box-subHead2 + .melon-box-subHead2::before { top: -3em; width: 3em;}
+.melon-box-subHead2-staff .melon-head { background-color: #449122;
+background-image: -webkit-linear-gradient( -35deg, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%); background-image: linear-gradient( to right bottom, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%); color: #fff; margin: -1.2em -1.25em 1em; padding-bottom: 1em;}
+.pc .melon-box-subHead2-staff .melon-head { margin-left: -2.8em; margin-right: -2.8em;}
+.melon-box-subHead2-staff .melon-head img { margin-bottom:5px; width: 71px;}
+
+
+.melon-box-stacked { border: 1px solid #ebebeb; background-color: #fff; border-radius: 3px; line-height: 1.5;}
+.melon-box-stacked dt,
+.melon-box-stacked .head,
+.melon-box-stacked dd,
+.melon-box-stacked .body { padding: 0.6em 0.8em;}
+.melon-box-stacked dt,
+.melon-box-stacked .head { background-color: #fbfbfb; border: 1px solid #ebebeb; border-width: 1px 0;}
+.melon-box-stacked dt:first-child,
+.melon-box-stacked .head:first-child { border-top: none; border-radius: 3px 3px 0 0;}
+.melon-box-stacked dt:last-child,
+.melon-box-stacked .head:last-child { border-bottom: none; border-radius: 0 0 3px 3px;}
+.melon-box-stacked dt + dt,
+.melon-box-stacked .head + .head { margin-top: -1px;}
+.melon-box-stacked dd,
+.melon-box-stacked .body { }
+.melon-box-stacked dd + dd,
+.melon-box-stacked .body + .body { border-top: 1px solid #ebebeb}
+
+

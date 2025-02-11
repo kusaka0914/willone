@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+/* インタビュー ページ */
+.melon-interviewCarousel { background: url(/img/contents/interview/carousel.jpg) repeat 0 0; -webkit-animation: ani_interviewCarousel 80s linear infinite; animation: ani_interviewCarousel 80s linear infinite; min-height: 265px; padding:0; position: relative; overflow: hidden;}
+.melon-interviewCarouselMini { background: url(/img/contents/interview/carouselMini.jpg) repeat 0 0; -webkit-animation: ani_interviewCarousel 80s linear infinite; animation: ani_interviewCarousel 80s linear infinite; min-height: 135px; padding:0; position: relative; overflow: hidden; background-size: auto 100%;}
+@-webkit-keyframes ani_interviewCarousel {
+  0% { background-position: 0 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0.6);}
+  3% { background-position: 6.03% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0);}
+  94% { background-position: 188.94% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0);}
+  97% { background-position: 195% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,1);}
+  97.01% { background-position: -6.03% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,1);}
+  100% { background-position: 0 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0.6);}
+}
+@keyframes ani_interviewCarousel {
+  0% { background-position: 0 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0.6);}
+  3% { background-position: 6.03% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0);}
+  94% { background-position: 188.94% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0);}
+  97% { background-position: 195% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,1);}
+  97.01% { background-position: -6.03% 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,1);}
+  100% { background-position: 0 0; box-shadow: inset 0 0 0 140px rgba(255,255,255,0.6);}
+}
+.melon-interviewCarousel::after { content: ''; display: block; width: 120%; height: 50px; margin: 0 -10%; background-color: #fafaf0; border-radius: 100% 100% 0 0; position: absolute; bottom: -37px; right: 0; left:0; }
+.melon-interviewHead { background: url(/img/contents/interview/headBg.jpg) repeat 50% 0; min-height: 133px; padding:0; overflow: hidden;}
+
+.melon-cardList-vertical { margin: 0 0 2em;}
+.melon-card-interview { margin:0; position: relative; font-size: 0.83333rem;}
+.melon-card-interview > a { display: block;}
+.melon-card-interview > a > .fx-row {}
+.melon-card-interview + .melon-card-interview { margin-top: 2.3em;}
+.melon-card-interview + .melon-card-interview::before { content: ''; width: 0.625rem; height: 0.625rem; border-radius: 1px; background-color: #e1e1d4; position: absolute; top: -1.6em; left:0; right: 0; margin: auto;}
+.sp .melon-card-interview + .melon-card-interview::before { top: -1.5rem;}
+.melon-card-interview_who { background-color: #332e7d; color: #fff;
+background-image: -webkit-linear-gradient( -35deg, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%); background-image: linear-gradient( to right bottom, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 50%); }
+.pc .melon-card-interview .melon-card-interview_who { -webkit-flex-basis: 37%; flex-basis: 37%; max-width: 37%; margin: -1px 0 -1px -1px; padding: 1rem 1.5rem; border-radius: 4px 0 0 4px;}
+.pc .melon-card-interview_what { margin-top: 0;
+background-image: -webkit-linear-gradient( -35deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.015) 50%); background-image: linear-gradient( to right bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.015) 50%);}
+.pc .melon-card-interview .melon-card-interview_what { -webkit-flex-basis: 63%; flex-basis: 63%; max-width: 63%; padding: 1rem 1.5rem;}
+.melon-card-interview li { line-height: 1.4; padding: 0.2em 0;}
+.melon-card-interview .pict { display: block; margin: 0.5em auto 1em;}
+.melon-card-interview .leadCopy { font-size: 1.5rem; color: #ff8000; line-height: 1.25; margin: 0.5em 0 0.8em;}
+.melon-card-interview dt { color: #403b0f; font-weight: 700;}
+.melon-card-interview dd + dt { margin-top: 1em;}
+.melon-card-interview dd,
+.melon-card-interview li,
+.melon-card-interview div { color: #7c7a6a;}
+.melon-card-interview .melon-readMore { float: right; color: #3b8bba;}
+
+.melon-card-interview .melon-box-userData { padding: 1em 0; margin: 1em 0;}
+
+.melon-card-interview-sidebar { padding:0; margin:0; font-size: 0.83333rem;}
+.melon-card-interview-sidebar .melon-card-interview_who { margin: -1px 0 -1px -1px; padding: 1rem 1.5rem; border-radius: 4px 0 0 4px;}
+.melon-card-interview-sidebar .melon-card-interview_what { padding: 1rem 1.5rem;}
+
+.melon-card-interview-sidebar { padding:0; margin:0 0 1.5rem; font-size: 0.75rem;}
+.melon-card-interview-sidebar .melon-card-interview_who { margin: 0 -1px -1px -1px; padding: 1.8rem 1rem 0.8rem; border-radius: 0 0 4px 4px; position: relative;}
+.melon-card-interview-sidebar .melon-card-interview_what { padding: 1rem 0.5rem 1.5rem;}
+.melon-card-interview-sidebar .leadCopy { font-size: 1.5rem; line-height: 1.6; text-align: center; font-size: 0.91667rem; font-weight: 400;}
+.melon-card-interview-sidebar .pict { width: 38px; position: absolute; top: -19px; left: 0; right:0; margin: auto;}
+.melon-card-interview-sidebar li { line-height: 1.5; padding: 0.25em 0;}
+
+.sp .melon-card-interview { margin:0 0 2.2rem; font-size: 1rem;}
+.sp .melon-card-interview .melon-card-interview_who { margin: 0 -1px -1px -1px; padding: 0.8rem 1rem 0.8rem; border-radius: 0 0 4px 4px; position: relative;}
+.sp .melon-card-interview .melon-card-interview_what { padding: 0.8rem 1rem;}
+.sp .melon-card-interview .leadCopy { font-size: 1.5rem; line-height: 1.4; text-align: left; font-weight: 400; margin: 0;}
+.sp .melon-card-interview .pict { margin: auto;}
+.sp .melon-card-interview li { line-height: 1.5; padding: 0.18em 0;}
+
+
+/* コンテンツ ページ */
+
+.melon-kiji1 { text-align: justify; letter-spacing: 0.03em; position: relative; overflow: hidden; font-size: 1.08333rem; background: url(/img/elem/fuwafuwa.png) repeat 0 0; background-size: contain;}
+.melon-kiji1 .bg-gray { background: rgba(0,0,0,0.03);}
+.melon-kiji1 .melon-l_container { padding: 2.3em 0.9em;}
+
+.melon-kiji1 h2 { font-size: 1.54em; font-weight: 300; text-align: center; margin: 2.4em 0 1.2em; line-height: 1.4;}
+.melon-kiji1 h2:first-child { margin-top: 0;}
+.melon-kiji1 h3 { color: #ff8200; font-size: 1.388em; font-weight: 300; margin: 1em 0 0.5em;}
+.melon-kiji1 p { margin: 1em 0;}
+.melon-kiji1 ul,
+.melon-kiji1 ol,
+.melon-kiji1 dl { margin: 0.8em 0; padding-left: 1.5em;}
+.melon-kiji1 li,
+.melon-kiji1 dt,
+.melon-kiji1 dd { margin: 0.7em 0;}
+.melon-kiji1 li { display: list-item; list-style-position: outside;}
+.melon-kiji1 ul > li { list-style-type: disc;}
+.melon-kiji1 ul > li > ul > li { list-style-type: circle;}
+.melon-kiji1 ul > li > ul > li > ul > li { list-style-type: square;}
+
+.melon-kiji1 ol { counter-reset: orderList;}
+.melon-kiji1 ol > li { position: relative;}
+.melon-kiji1 ol > li::before { counter-increment: orderList; content: counters(orderList, "-"); background-color: #ff8200; padding: 0.4em 0.6em; color: #fff; line-height: 1; display: inline-block; position: absolute; -webkit-transform: translate(-100%,0); transform: translate(-100%,0); margin-left: -0.4em;}
+
+.melon-kiji1 b { font-weight: 700; color: #444;}
+.melon-kiji1 strong { margin-left: 2px; margin-right: 2px; color: #444;
+background: -webkit-linear-gradient(rgba(255,255,255,0) 55%, #fffb78 55%, #fffb78 85%, rgba(255,255,255,0) 85%); 
+background: linear-gradient(rgba(255,255,255,0) 55%, #fffb78 55%, #fffb78 85%, rgba(255,255,255,0) 85%);
+}
+
+.melon-kiji1 .melon-menu-stackedBox {}
+.melon-kiji1 .melon-menu-stackedBox > div { background-color: #fff; margin: 1.5em 0; padding: 1em 2em;}
+
+.melon-kiji1 .melon-l_lead { background-image: -webkit-linear-gradient( rgba(74, 255, 0, 0.12), rgba(68,193,204,0.1)); background-image: linear-gradient( rgba(74, 255, 0, 0.12), rgba(68,193,204,0.1)); color: #237c84;}
+.melon-kiji1 .melon-l_lead .melon-l_container { padding: 0.9em 0.9em 0;}
+.melon-kiji1 .melon-l_lead h2 { font-size: 2em; margin: 0.8em 0;}
+.melon-kiji1 .melon-l_lead p { font-size: 1.1em;}
+
+.melon-kiji1 .text-center { text-align: justify; text-align-last: center;}
+.melon-kiji1 .melon-flow-arrowDown { text-align: center; font-size: 2.5rem; margin: 0.4em auto; color:rgba(0,0,0,0.175); line-height: 1;}
+.melon-kiji1 .melon-stackedRow { border: 1px solid #eee; background-color: rgba(255,255,255,0.5); padding: 0 2em 1em; margin: 1em 0;}
+.melon-kiji1 .fx-row.melon-stackedRow { padding-left: 8px; padding-right: 8px;}
+
+.melon-kiji1 .melon-box { background-color: rgba(249, 249, 249, 0.8); padding: 0.5em 1em; margin: 1.5em 0;}
+.melon-kiji1 .bg-gray .melon-box { background-color: rgba(255,255,255,0.8); }
+.melon-kiji1 .melon-banner { display: block; padding: 1.5em 0.3em; text-align: center; font-size: 0.8em; }
+.melon-kiji1 .currentPage,
+.melon-kiji1 .currentPage a { color: #b6b6b6;}
+.melon-kiji1 .currentPage::after { content:'今この記事'; display: inline-block; background-color: #ffb362; font-size: 0.667rem; vertical-align: 4px; line-height:1; padding: 0.6em 0.6em 0.3em 0.9em; border-radius: 30px 3px 3px 30px / 15px 3px 3px 15px; margin-left: 0.5em; color: #fff;}
+.melon-kiji1 h4 { margin: 0.87em 0 0.45em;}
+
+.melon-kiji1 .melon-card {}
+.melon-kiji1 .melon-l_cta { background:rgba(175, 220, 224, 0.44);}
+
+.melon-kiji1 .melon-card2 { border: 1px solid #e1e1d4; border-radius: 2px; background-color: rgba(255,255,255,0.6); padding: 1em 1.5em; text-align: left; text-align-last: left; margin: 2em 0; box-shadow: 0 0 0.5em rgba(0,0,0,0.05);}
+.melon-kiji1 .melon-card2_title { border-bottom: 1px solid #eee; padding-bottom: 0.6em; text-align: center; text-align-last: center; font-weight: 700; color: #333; margin: 0 0 1.5em;}
+.melon-kiji1 dl { padding: 0;}
+.melon-kiji1 dt { font-weight: 700;}
+.melon-kiji1 dd + dt { margin-top: 1.5em;}
+.melon-kiji1 dd { }
+
+.melon-kiji1 [data-melon-accordion] { margin: -1px 0 0;}
+
+.pc {
+  .melon-kiji1 { font-size: 1rem;}
+  .melon-kiji1 .melon-l_container { padding: 5em 0;}
+  .melon-kiji1 .melon-l_container-narrow { padding: 5em 7.5em;}
+  .melon-kiji1 h3 { font-size: 1.8em;}
+  .melon-kiji1 .melon-menu-stackedBox > div { padding: 1.5em 5em;}
+  .melon-kiji1 .melon-l_lead { background: url(/img/banner/kagome_hiroshi_fuwafuwa.png) no-repeat 50% 100%, -webkit-linear-gradient( rgba(74, 255, 0, 0.12), rgba(68,193,204,0.1)); background: url(/img/banner/kagome_hiroshi_fuwafuwa.png) no-repeat 50% 100%, linear-gradient( rgba(74, 255, 0, 0.12), rgba(68,193,204,0.1)); min-height: 360px;}
+  .melon-kiji1 .melon-l_lead .melon-l_container { padding: 1em 10em 2em;}
+  .melon-kiji1 h2 { font-size: 2.2em;}
+  .melon-kiji1 .melon-l_lead h2 { font-size: 2.8em;}
+  .melon-kiji1 .melon-box { padding: 2em 5em; }
+  .melon-kiji1 .melon-card2 { margin: 2em;}
+}
+
+/* 利用者の声 */
+.melon-sec-list_CustomerWebQuestionnaire { letter-spacing: 0.5px;}
+.pc .melon-sec-list_CustomerWebQuestionnaire .melon-card2 { height: 97%;}
+.melon-sec-list_CustomerWebQuestionnaire .melon-card2_body p { margin: 0.2em 0;}
+.melon-sec-list_CustomerWebQuestionnaire .starRate img + img { margin-left: -0.25em;}
+.hiringDate { color: #aaa;}
+
+.pc .melon-l_contentsBottom .melon-sec-list_CustomerWebQuestionnaire { margin: 0; background: #d9d9d9; padding: 0 10px 20px;}
+.sp .melon-l_contentsBottom .melon-sec-list_CustomerWebQuestionnaire { margin: 0 -2.5%; background: #d9d9d9; padding: 0 0 10px;}
+
+.bx-wrapper .bxslider1 img { display: inline;}
+.sp .melon-sec-list_CustomerWebQuestionnaire .bx-wrapper { margin: 0 0 10px;}
+.sp .bxslider1 .melon-card2 { margin: 0 6px;}
+.sp .bxslider1 .melon-card2 .fx-col-webQuest1 { margin-top:0;}
+
+html {
+  .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto { bottom: -5px;}
+  .bx-wrapper .bx-pager.bx-default-pager a { width: 6px; height: 6px; opacity: 0.5;}
+  .bx-wrapper .bx-controls-direction a { background: none; text-indent: 0; width: auto; height: 1em; line-height: 1; font-size: 24px; opacity: 0.5;}
+}

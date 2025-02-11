@@ -1,0 +1,529 @@
+/* ===========================
+   base #7ecef4:Soft blue
+   =========================== */
+   
+.theme-txt-verydarkgray {
+	color: #4d4d4d;
+}
+.theme-txt-gray45 {
+	color: #737373;
+}
+.theme-txt-softblue {
+	color: #7ecef4;
+}
+.theme-txt-brightblue {
+	color: #3ebcec;
+}
+.theme-txt-vividblue {
+	color: #16a9e1;
+}
+.theme-txt-white {
+	color: #fff;
+}
+.theme-txt-red {
+	color: #f00;
+}
+.theme-txt-softred {
+	color: #f2647b;
+}
+.theme-txt-limegreen {
+	color: #02bb4f;
+}
+
+/* ===========================
+	ボーダー
+   =========================== */
+
+/* グレー */
+.theme-ba-gr1 {
+	border: 1px solid #d5d5d5;
+}
+.theme-bb-gr1 {
+	border-bottom: 1px solid #d5d5d5;
+}
+.theme-bt-gr1 {
+	border-top: 1px solid #d5d5d5;
+}
+.theme-br-gr1 {
+	border-right: 1px solid #d5d5d5;
+}
+.theme-bl-gr1 {
+	border-left: 1px solid #d5d5d5;
+}
+/* ライトグレー(Light gray) */
+.theme-ba-lgr1 {
+	border: 1px solid #d5d5d5;
+}
+.theme-bb-lgr1 {
+	border-bottom: 1px solid #d5d5d5;
+}
+.theme-bt-lgr1 {
+	border-top: 1px solid #d5d5d5;
+}
+.theme-br-lgr1 {
+	border-right: 1px solid #d5d5d5;
+}
+/* 白 */
+.theme-bb-wt1 {
+	border-bottom: 1px solid #fff;
+}
+/* ブルー */
+.theme-bb-sb5 {
+	border-bottom: 5px solid #7ecef4;
+}
+.theme-bt-sb3 {
+	border-top: 3px solid #7ecef4;
+}
+.theme-bt-sb5 {
+	border-top: 5px solid #7ecef4;
+}
+.theme-bl-sb5 {
+	border-left: 5px solid #7ecef4;
+}
+.theme-ba-sb1 {
+	border: 1px solid #7ecef4;
+}
+.theme-bb-sb1 {
+	border: 1px solid #7ecef4;
+}
+.theme-bt-sb1 {
+	border-top: 1px solid #7ecef4;
+}
+.theme-br-sb1 {
+	border-right: 1px solid #7ecef4;
+}
+.theme-bl-sb1 {
+	border-left: 1px solid #7ecef4;
+}
+/* ダークブルー */
+.theme-dbb-sb5 {
+	border-bottom: 5px solid #0e59a0;
+}
+
+
+
+/* ===========================
+	影
+   =========================== */
+.theme-sb-gray {
+	-moz-box-shadow: 0 1px 6px -1px #ccc;
+	-webkit-box-shadow: 0 1px 6px -1px #ccc;
+	box-shadow: 0 1px 6px -1px #ccc;
+}
+.theme-sb-dkgray {
+	-moz-box-shadow: 0 1px 6px -1px #888;
+	-webkit-box-shadow: 0 1px 6px -1px #888;
+	box-shadow: 0 1px 8px -1px #888;
+}
+
+/* ===========================
+	ヘッダー
+   =========================== */
+.hr-line { /*スマホヘッダー*/
+	border-top: 3px solid #7ecef4;
+	margin: 5px 0 0;
+}
+
+/* ===========================
+	透明
+   =========================== */
+.theme-tp-white {
+	background-color:rgba(255,255,255,0.2);
+}
+
+/* ===========================
+	バックグラウンド
+   =========================== */
+.theme-bg-gray {
+	background: #f7f7f7;
+}
+.theme-bg-darkgray {
+	background: #959595;
+}
+.theme-bg-softblue {
+	background: #7ecef4;
+}
+.theme-bg-lightgrayishblue {
+	background: #eaf7fd;
+}
+.theme-bg-white {
+	background: #fff;
+}
+.theme-bg-orange {
+	background: #d8e7f8;
+}
+.theme-bg-yellow {
+	background: #fefef2;
+}
+.theme-bg-grayishblue {
+	background: #ff961b;
+}
+.theme-bg-limegreen {
+	background: #02bb4f;
+}
+.theme-input-bg-yellow {
+	background: #fffbce;
+}
+.theme-bg-softblue-2 {
+	background: #66c7f7;
+}
+
+/* ===========================
+	求人詳細（Opportunity/Detail.html）
+   =========================== */
+.job-number,
+.sp-job-detail-number {
+	background: #7ecef4;
+}
+
+/* ===========================
+	ログイン（Login.html）
+   =========================== */
+.caption-table {
+	border: solid 1px #7ecef4;
+}
+.caption {
+	background: #7ecef4;
+}
+.between {
+	border-bottom: dotted 1px #7ecef4;
+}
+.between:last-child {
+	border-bottom: none;
+}
+.summaryArea {
+	border-right: dotted 1px #7ecef4;
+}
+
+/* ===========================
+	バックグラウンド（パターン）
+   =========================== */
+.theme-bg-diagonalSb {/*斜線softblue*/
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJ157/8Z4TxQZwmQx5GsACMA2IzInNAAgDvCQ9FrTnphQAAAABJRU5ErkJggg==) repeat;
+}
+.theme-bg-diagonalGr {/*斜線softblue*/
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAJXr179zwjjgzja2tqMYAEYB8RmROaABAD/ew+D0H3hNgAAAABJRU5ErkJggg==) repeat;
+}
+
+/* ===========================
+	ログインボタン
+   =========================== */
+.btn-login,
+.btn-submit,
+.btn-member-top {
+	color:#fff;
+	border:1px solid #68c6f2;
+	background:-moz-linear-gradient( center top, #9fdaf5 5%, #7ecff4 100% );
+	background:-ms-linear-gradient( top, #9fdaf5 5%, #7ecff4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fdaf5', endColorstr='#7ecff4');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #9fdaf5), color-stop(100%, #7ecff4) );
+	background-color: #9fdaf5;
+	text-shadow: 1px 1px 0px #65c0e8;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+}
+.btn-submit-green {
+	color:#fff;
+	border:1px solid #2fa127;
+	background:-moz-linear-gradient( center top, #94e767 0%, #2fa127 100% );
+	background:-ms-linear-gradient( top, #94e767 0%, #2fa127 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#94e767', endColorstr='#7ecff4');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0%, #94e767), color-stop(100%, #2fa127) );
+	background-color: #2fa127;
+	text-shadow: 1px 1px 0px #2fa127;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #98ed6a;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #98ed6a;
+ 	box-shadow: inset 1px 1px 0px 0px #98ed6a;
+ 	width:100%;
+ 	padding:10px;
+ 	font-weight: bold ;
+ 	font-size: 130%;
+}
+.btn-logout {
+	color:#fff;
+	border:1px solid #959595;
+	background:-moz-linear-gradient( center top, #bbbbbb 5%, #a2a2a2 100% );
+	background:-ms-linear-gradient( top, #bbbbbb 5%, #a2a2a2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bbbbbb', endColorstr='#a2a2a2');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #bbbbbb), color-stop(100%, #a2a2a2) );
+	background-color: #a2a2a2;
+	text-shadow: 1px 1px 0px #959595;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #cccccc;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #cccccc;
+ 	box-shadow: inset 1px 1px 0px 0px #cccccc;
+}
+
+.login {
+	color:#fff;
+	border:1px solid #27b4ea;
+	background:-moz-linear-gradient( center top, #6dccf1 5%, #3ebcec 100% );
+	background:-ms-linear-gradient( top, #6dccf1 5%, #3ebcec 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6dccf1', endColorstr='#3ebcec');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #6dccf1), color-stop(100%, #3ebcec) );
+	background-color: #55c4ee;
+	box-shadow: 0 1px 2px rgba(100, 100, 100, 0.2);
+}
+
+/* ===========================
+	エントリーボタン
+   =========================== */
+.btn-entry00 {
+	color:#fff;
+	border:1px solid #f29468;
+	background:-moz-linear-gradient( center top, #f5ba9f 5%, #f4a37e 100% );
+	background:-ms-linear-gradient( top, #f5ba9f 5%, #7ecff4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5ba9f', endColorstr='#f4a37e');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f5ba9f), color-stop(100%, #f4a37e) );
+	background-color: #f5ba9f;
+	text-shadow: 1px 1px 0px #e88d65;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #facdb9;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #facdb9;
+ 	box-shadow: inset 1px 1px 0px 0px #facdb9;
+}
+.btn-entry,
+.sp-job-contact-btn,
+.job-contact-btn-s {
+ 	border: 1px solid #2cc36b;
+    background: #2cc36b;
+    color: #fff;
+}
+
+.green-btn {
+	color:#fff;
+	border:1px solid #00860e;
+	background:-moz-linear-gradient( center top, #04bd28 5%, #00a712 100% );
+	background:-ms-linear-gradient( top, #04bd28 5%, #00a712 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#04bd28', endColorstr='#00a712');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #04bd28), color-stop(100%, #00a712) );
+	background-color: #04bd28;
+	text-shadow: 1px 1px 0px #00860e;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #00860e;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #00860e;
+ 	box-shadow: inset 1px 1px 0px 0px #74e78a;
+}
+
+
+@media ( max-width : 480px ) {
+	.job-contact-btn-s{
+		display: inline-block;
+		width: 37.2142857%; 
+	/*	margin: .714em .15em .714em .357em;*/
+	}
+}
+
+/* ===========================
+	詳細を見るボタン
+   =========================== */
+.job-detail-btn,
+.job-detail-btn-s {
+	color:#fff;
+	border:1px solid #68c6f2;
+	background:-moz-linear-gradient( center top, #9fdaf5 5%, #7ecff4 100% );
+	background:-ms-linear-gradient( top, #9fdaf5 5%, #7ecff4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fdaf5', endColorstr='#7ecff4');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #9fdaf5), color-stop(100%, #7ecff4) );
+	background-color: #9fdaf5;
+	text-shadow: 1px 1px 0px #65c0e8;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+}
+
+@media ( max-width : 480px ) {
+	.job-detail-btn-s{
+		display: inline-block;
+		width: 37.2142857%; 
+	/*	margin: .714em .357em .714em .15em;*/
+	}
+}
+
+
+/* ===========================
+	検討中リスト/変更ボタン
+   =========================== */
+.job-examlist-btn,
+.sp-job-examlist-btn,
+.change-btn {
+	color:#737373;
+	border:2px solid #ccc;
+	background:-moz-linear-gradient( center top, #f8f8f8 5%, #f0f0f0 100% );
+	background:-ms-linear-gradient( top, #f8f8f8 5%, #f0f0f0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f0f0f0');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f8f8f8), color-stop(100%, #f0f0f0) );
+	background-color: #f0f0f0;
+	text-shadow: 1px 1px 0px #dfdfdf;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #f8f8f8;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #f8f8f8;
+ 	box-shadow: inset 1px 1px 0px 0px #f8f8f8;
+}
+.tab-btn-off {
+	/*color:#737373;
+	border-top:1px solid #dfdfdf;
+	border-bottom:1px solid #e8e8e8;
+	border-left:1px solid #dfdfdf;
+	border-right:1px solid #dfdfdf;
+	background:-moz-linear-gradient( center top, #f8f8f8 5%, #f0f0f0 100% );
+	background:-ms-linear-gradient( top, #f8f8f8 5%, #f0f0f0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f0f0f0');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f8f8f8), color-stop(100%, #f0f0f0) );
+	background-color: #f0f0f0;
+	text-shadow: 1px 1px 0px #dfdfdf;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #f8f8f8;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #f8f8f8;
+ 	box-shadow: inset 1px 1px 0px 0px #f8f8f8;*/
+}
+.tab-btn-on {
+	background: #9fdaf5;
+	/*color: #fff;
+	border-top:1px solid #a9a9a9;
+	border-bottom:1px solid #e8e8e8;
+	border-left:1px solid #a9a9a9;
+	border-right:1px solid #a9a9a9;
+	background:-moz-linear-gradient( center top, #959595 5%, #6e6e6e 100% );
+	background:-ms-linear-gradient( top, #959595 5%, #6e6e6e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#959595', endColorstr='#6e6e6e');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #959595), color-stop(100%, #6e6e6e) );
+	background-color: #959595;
+	text-shadow: 1px 1px 0px #a9a9a9;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #a3a3a3;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #a3a3a3;
+ 	box-shadow: inset 1px 1px 0px 0px #a3a3a3;*/
+}
+
+
+
+
+/* ===========================
+	タイトルバー
+   =========================== */
+.title-bar,
+.side-titlebar {
+	color: #fff;
+	background:-moz-linear-gradient( center top, #959595 5%, #6e6e6e 100% );
+	background:-ms-linear-gradient( top, #959595 5%, #6e6e6e 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#959595', endColorstr='#6e6e6e');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #959595), color-stop(100%, #6e6e6e) );
+	background-color: #959595;
+	text-shadow: 1px 1px 0px #a9a9a9;
+}
+.title-bar-h2,
+.member-detail-title {
+	color: #fff;
+	text-shadow: 1px 1px 0px #65c0e8;
+	background: #7ecef4;
+}
+.menu-bar-h2 {
+	color: #fff;
+	text-shadow: 1px 1px 0px #65c0e8;
+	background: #7ecef4;
+}
+
+/* ===========================
+	フッターナビゲーション
+   =========================== */
+.l-footer-nav {
+	border-top:1px solid #68c6f2;
+	border-bottom:1px solid #68c6f2;
+	background:-moz-linear-gradient( center top, #9fdaf5 5%, #7ecff4 100% );
+	background:-ms-linear-gradient( top, #9fdaf5 5%, #7ecff4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fdaf5', endColorstr='#7ecff4');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #9fdaf5), color-stop(100%, #7ecff4) );
+	background-color: #9fdaf5;
+	text-shadow: 1px 1px 0px #65c0e8;
+ 	-webkit-box-shadow: 0 1px 6px #ccc;
+ 	-moz-box-shadow: 0 1px 6px #ccc;
+ 	box-shadow: 0 1px 6px #ccc;
+}
+.footer-btn {
+	color: #fff;
+	border-right: #68c6f2 solid 1px;
+	-webkit-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+ 	box-shadow: inset 1px 1px 0px 0px #b9e6fa;
+}
+.goTop-btn {
+	border-top:1px solid #bbeaff;
+	border-bottom:1px solid #bbeaff;
+	background:-moz-linear-gradient( center top, #e8f8ff 5%, #eaf7fd 100% );
+	background:-ms-linear-gradient( top, #e8f8ff 5%, #eaf7fd 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f8ff', endColorstr='#eaf7fd');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #e8f8ff), color-stop(100%, #eaf7fd) );
+	background-color: #e8f8ff;
+	text-shadow: 1px 1px 0px #bbeaff;
+ 	-webkit-box-shadow: inset 1px 1px 0px 0px #e8f8ff;
+ 	-moz-box-shadow: inset 1px 1px 0px 0px #e8f8ff;
+ 	box-shadow: inset 1px 1px 0px 0px #e8f8ff;
+}
+
+@media ( min-width : 800px ) {
+	.l-footer-nav {
+		border-top:none;
+		border-bottom:none;
+		background: none;
+		background-color: #fff;
+		text-shadow: none;
+		box-shadow: none;
+	}
+	.footer-btn {
+		color: #7ecef4;
+		border-right: none;
+		box-shadow: none;
+	}
+	.goTop-btn {
+		border-top:none;
+		border-bottom:none;
+		background: none;
+		background-color: #fff;
+		text-shadow: none;
+		box-shadow: none;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.formBox{
+		/*width: 80%;*/
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.formBox .theme-bg-diagonalSb{
+		width: 49%;
+		float: right;
+	}
+	
+	.formBox .theme-bg-diagonalSb:first-child{
+		float: left;
+	}
+	
+	.formBox .form-box{
+		width: 85%;
+		padding: 1.429em 0.957em;
+	}
+	
+	.formBox .form-box .form-box-inner{
+		width: auto;
+	}
+}
+
+.domainText {
+	color: #ff0000;
+	font-size: 12px;
+}
+
+.domainText span {
+	color: #000000;
+}
+
+/* ===========================
+	form
+   =========================== */
+
+input, textarea, select {
+	border-radius: 5px;
+}
+
+
+.job-detail-2c {
+	background: #fff;
+}

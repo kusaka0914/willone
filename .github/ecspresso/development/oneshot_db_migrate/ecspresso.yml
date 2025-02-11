@@ -1,0 +1,6 @@
+region: "ap-northeast-1"
+cluster: WOA_WebApp
+service: webapp
+service_definition: ecs-service-def.jsonnet
+task_definition: ecs-task-def.jsonnet
+timeout: "10m0s"
