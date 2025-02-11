@@ -70,7 +70,7 @@ $(function() {
 	});
 	</script>
     <script type="text/javascript">
-    $('.c-job').slick();
+    // $('.c-job').slick();
     </script>
 	<script type="text/javascript">
 		function changeMapImage(imgPath) {
