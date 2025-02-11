@@ -1,5 +1,8 @@
 .entryBtn {
     margin-top: 30px;
+    width: 212px;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 .melon-btn-block {
     display: block;
@@ -18,11 +21,23 @@
     transition: 0.2s;
     color: #555;
     line-height: 1;
-    box-shadow: inset 0 0 0 1px #ddd, 0 3px 5px rgba(0,0,0,0.3);
     position: relative;
 }
 .melon-btn-flat-king {
-    background-color: #4eb91f;
+    background-color: #F39E4A;
     color: #fff;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    width: 212px;
+    font-weight: bold;
+    font-size: 12px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.melon-btn-flat-king img {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
 }
