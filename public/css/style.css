@@ -2037,9 +2037,11 @@ figure {
 .c-job-detail dt:not(:first-of-type) {
   margin-top: 2px;
 }
-.c-job-detail dd {
+
+.c-job-detail-wrap {    
   float: left;
   max-width: 397px;
+  margin-bottom: 4px;
   width: 100%;
   background-color: #EEEEEE;
   line-height: 24px;
@@ -2049,6 +2051,10 @@ figure {
   font-size: 16px;
   color: #000;
   height: 34px;
+  padding-right: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .c-job-detail dd:not(:first-of-type) {
   margin-top: 2px;

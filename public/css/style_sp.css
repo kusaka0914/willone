@@ -2042,16 +2042,21 @@ figure {
 .c-job-detail dt:not(:first-of-type) {
   margin-top: 2px;
 }
-.c-job-detail dd {
+
+.c-job-detail-wrap {
   float: left;
   overflow: hidden;
-  max-width:  220px;
+  max-width: 220px;
   width: 100%;
+  display: block;
   background-color: #EEEEEE;
   line-height: 24px;
   font-size: 12px;
   color: #000;
   padding-left: 8px;
+  padding-right: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .slick-arrow {
